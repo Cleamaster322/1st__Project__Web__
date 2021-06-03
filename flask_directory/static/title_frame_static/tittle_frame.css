@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100vh;
+    background: radial-gradient(rgb(10, 10, 10), black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logIn_block{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("ofomor.jpg");
+    filter:blur(20px);
+    height: 600px;
+    width: 600px;
+}
+.logIn_Wind{
+    box-shadow: 10px 10px 0px rgba(5, 54, 0, 0.363); 
+    padding-bottom: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    position: relative;
+    z-index: 100;
+    height: 400px;
+    width: 250px;
+    border-radius: 10px ;
+    background: rgb(138, 197, 1);
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1.5fr;
+    row-gap: 20px;
+}
+.logIn_Wind > img{
+    width: 100%;
+    margin-top: 10px;
+}
+#log > input{
+    width: 100%;
+    height: 100%;
+    background: rgb(3, 90, 18);
+    border:none;
+    text-align: center;
+    color:white;
+    font-size: 25px;
+    border-radius: 10px;
+}
+.logIn_Wind > button{
+    background: rgb(8, 255, 70);
+    border:none;
+    border-radius: 10px;
+    font-size: 25px;
+    color:rgb(3, 90, 18)
+}
+.logoDownAndForgot{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+.logoDownAndForgot > img {
+    width: 40%;
+    height: 100%;
+}
+.logoDownAndForgot > a {
+    width: 50%;
+    height:40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color:white;
+    background: rgb(3, 90, 18);
+}
+@media screen and (max-width:600px){
+    .logIn_block{
+        background:none;
+    }
+    .logIn_Wind{
+        box-shadow: none;
+    }
+}
