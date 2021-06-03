@@ -5,4 +5,4 @@ app = Flask(__name__)
 
 @app.route("/")
 def title():
-    return render_template('title_frame.html')
+    return render_template('/title_frame/title_frame.html')
