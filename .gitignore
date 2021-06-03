@@ -11,6 +11,7 @@
 Icon
 .idea/
 venv/
+__pycache__
 
 # Thumbnails
 ._*
