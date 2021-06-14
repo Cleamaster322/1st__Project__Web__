@@ -33,3 +33,18 @@ def register():
 @app.route("/user_page")
 def for_database_test():
     return render_template('user_page/user_page.html')
+
+
+@app.route("/messange")
+def for_messanges():
+    return render_template('messange_page/messange_page.html')
+
+
+@app.route("/followers")
+def for_followers():
+    return render_template('my_followers/my_followers.html')
+
+
+@app.route("/me_following")
+def for_following():
+    return render_template('me_following/me_following.html')
