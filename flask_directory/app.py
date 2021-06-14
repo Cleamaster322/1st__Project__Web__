@@ -12,6 +12,7 @@ def title():
 def for_password():
     return render_template('forgotten_password/forgotten_password.html')
 
+
 @app.route("/register")
 def for_regist():
     return render_template('register_form/register_form.html')
