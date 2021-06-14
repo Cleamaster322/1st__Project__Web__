@@ -13,5 +13,16 @@ body{
 }
 .main_part_page{
     display: grid;
-    grid-template-columns: 5fr 20fr;
+    padding-left: 5%;
+    grid-template-columns: 5fr 30fr;
+}
+.func_list{
+    background: aquamarine;
+    margin-top: 200px;
+    height:200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    grid-column-gap: 20px;
 }
