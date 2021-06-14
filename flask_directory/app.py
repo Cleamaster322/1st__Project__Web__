@@ -1,5 +1,4 @@
-from flask import Flask, render_template, url_for
-import sqlite3
+from flask import Flask, render_template, url_for, request,redirect
 
 app = Flask(__name__)
 
@@ -15,8 +14,9 @@ def for_password():
 
 
 @app.route("/register")
-def for_regist():
-    return render_template('register_form/register_form.html')
+def register():
+    if request.form:
+        print(1)
 
 
 @app.route("/user_page")

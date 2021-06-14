@@ -8,12 +8,14 @@
         <div class = "logIn_block"></div>
         <div class = "logIn_Wind">
             <!-- <img src = "/static/title_frame_static/logo2.png" alt = "place for logo1"> -->
-            <form id="log">
-                <input class='forms' type="text" placeholder="input email">
-                <input class='forms' type="text" placeholder="input log">
-                <input class='forms' type="password" placeholder="input password">
+            <form action = "/reister" method = "user"id="log">
+
+                <input class='forms' type="text" placeholder="input email" name = "mail">
+                <input class='forms' type="text" placeholder="input log" name = "login">
+                <input class='forms' type="password" placeholder="input password" name = "password">
+                <input type="submit" value="Регистрация">
             </form>
-            <button form="log" >Log In</button>
+            
             
         </div>
     </body>
