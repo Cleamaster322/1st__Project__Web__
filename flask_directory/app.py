@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request,redirect
+from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__)
 
@@ -12,12 +12,13 @@ def title():
 def for_password():
     return render_template('forgotten_password/forgotten_password.html')
 
-app.route('/add')
+
+@app.route('/add')
 def posts_add():
-    return render_template('register_form.html')
+    return render_template('register_form/register_form.html')
 
 
-@app.route("/register",methods=['user'])
+@app.route("/register", methods=['user'])
 def register():
     if request.form:
         mail = request.form.get('mail')
@@ -32,4 +33,3 @@ def register():
 @app.route("/user_page")
 def for_database_test():
     return render_template('user_page/user_page.html')
-
