@@ -40,11 +40,13 @@ body{
 .logIn_Wind > img{
     width: 100%;
     margin-top: 10px;
-    margin-bottom: 15px;
 }
 
 .forms{
     width: 100%;
+    margin-bottom: 15px;
+    height: 40px;
+    text-align: center;
 }
 @media screen and (max-width:600px){
     .logIn_block{
