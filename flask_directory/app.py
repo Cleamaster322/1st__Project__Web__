@@ -13,7 +13,7 @@ def for_password():
     return render_template('forgotten_password/forgotten_password.html')
 
 
-@app.route("/register")
+@app.route("/register",methods=['user'])
 def for_regist():
     return render_template('register_form/register_form.html')
 
