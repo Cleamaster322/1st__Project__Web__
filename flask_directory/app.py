@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, request,redirect
 
 app = Flask(__name__)
 
@@ -13,9 +13,10 @@ def for_password():
     return render_template('forgotten_password/forgotten_password.html')
 
 
-@app.route("/register",methods=['user'])
-def for_regist():
-    return render_template('register_form/register_form.html')
+@app.route("/register")
+def register():
+    if request.form:
+        print(1)
 
 
 @app.route("/check_in")
