@@ -1,0 +1,17 @@
+body{
+    background: black;
+}
+.hat{
+    display: flex;
+    color:green;
+    font-size: 20px;
+    justify-content: space-around;
+    align-items: center;
+}
+.hat_info_user{
+    display: flex;
+}
+.main_part_page{
+    display: grid;
+    grid-template-columns: 5fr 20fr;
+}

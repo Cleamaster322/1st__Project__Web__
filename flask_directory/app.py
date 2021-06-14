@@ -29,6 +29,7 @@ def register():
     return redirect("/")
 
 
-@app.route("/check_in")
+@app.route("/user_page")
 def for_database_test():
-    return render_template('check_in_page/check_in_page.html')
+    return render_template('user_page/user_page.html')
+
