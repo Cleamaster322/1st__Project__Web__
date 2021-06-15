@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, request,redirect
+from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__)
 
@@ -13,26 +13,38 @@ def for_password():
     return render_template('forgotten_password/forgotten_password.html')
 
 
-
-
-@app.route("/check_in")
-def for_database_test():
-    return render_template('check_in_page/check_in_page.html')
-
-
 @app.route('/add')
 def posts_add():
-    return render_template('/register_form/register_form.html')
+    return render_template('register_form/register_form.html')
 
-@app.route('/register', methods=['post'])
-def addpost():
+
+@app.route("/register", methods=['user'])
+def register():
     if request.form:
+        mail = request.form.get('mail')
         login = request.form.get('login')
         password = request.form.get('password')
-        mail = request.form.get('mail')
-        
-        post = {'login':login, 'password':password, 'mail':mail}
-        print(post)
-        
+        user = {'mail': mail, 'login': login, 'password': password}
+        post_id = 1
+        print(user)
+    return redirect("/")
 
-    return redirect('/')
+
+@app.route("/user_page")
+def for_database_test():
+    return render_template('user_page/user_page.html')
+
+
+@app.route("/messange")
+def for_messanges():
+    return render_template('messange_page/messange_page.html')
+
+
+@app.route("/followers")
+def for_followers():
+    return render_template('my_followers/my_followers.html')
+
+
+@app.route("/me_following")
+def for_following():
+    return render_template('me_following/me_following.html')
