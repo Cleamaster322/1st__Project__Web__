@@ -13,6 +13,8 @@ def for_password():
     return render_template('forgotten_password/forgotten_password.html')
 
 
+
+
 @app.route("/check_in")
 def for_database_test():
     return render_template('check_in_page/check_in_page.html')
@@ -21,7 +23,6 @@ def for_database_test():
 @app.route('/add')
 def posts_add():
     return render_template('/register_form/register_form.html')
-
 
 @app.route('/register', methods=['post'])
 def addpost():
