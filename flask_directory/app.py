@@ -48,3 +48,8 @@ def for_followers():
 @app.route("/me_following")
 def for_following():
     return render_template('me_following/me_following.html')
+
+
+@app.route("/news")
+def for_news():
+    return render_template('news/news.html')

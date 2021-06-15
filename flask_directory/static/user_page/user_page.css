@@ -24,5 +24,4 @@ body{
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    grid-column-gap: 20px;
 }
