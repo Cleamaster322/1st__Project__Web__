@@ -31,3 +31,5 @@ create_comment = """CREATE TABLE IF NOT EXISTS Comment(
    id_from INT,
    id_to INT,
    text_c TEXT)"""
+
+insert = """INSERT INTO Main (login, mail, password) VALUES (?, ?, ?)"""

@@ -40,8 +40,7 @@ def register():
         mail = request.form.get('mail')
         login = request.form.get('login')
         password = request.form.get('password')
-        user = {'mail': mail, 'login': login, 'password': password}
-        post_id = 1
+        user = {'login': login, 'mail': mail, 'password': password}
         print(user)
     return redirect("/")
 

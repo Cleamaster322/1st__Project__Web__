@@ -27,3 +27,12 @@ class Database:
             self.create_db()
             with self.get_db_connection() as conn:
                 conn.commit()
+    
+    def insert_post(self, acc):
+        with self.get_db_connection() as conn:
+            parameters = [acc['login'], acc['mail'], acc['password']]
+            cur = conn.cursor()
+            cur.execute(insert_acc, parameters)
+            lastrowid = cur.lastrowid
+            conn.commit()
+        return lastrowid
