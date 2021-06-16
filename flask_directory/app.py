@@ -1,6 +1,22 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, redirect, request, jsonify
+from datetime import datetime
+import sqlite3
+import os
+from db.database import Database
+
+DATABASE = 'flask_directory\db\sota.db'
 
 app = Flask(__name__)
+
+db = Database(DATABASE)
+db.init_db()
+
+
+conn = sqlite3.connect('flask_directory\static\sota.db')
+
+cur = conn.cursor() #курсор для бд
+app = Flask(__name__)
+
 
 
 @app.route("/")
@@ -18,7 +34,7 @@ def posts_add():
     return render_template('register_form/register_form.html')
 
 
-@app.route("/register", methods=['user'])
+@app.route("/register", methods=['post'])
 def register():
     if request.form:
         mail = request.form.get('mail')
