@@ -40,12 +40,13 @@ body{
 }
 #log > input{
     width: 100%;
-    height: 100%;
+    height: 30px;
+    margin-bottom: 14px;
     background: rgb(3, 90, 18);
     border:none;
     text-align: center;
     color:white;
-    font-size: 25px;
+    font-size: 20px;
     border-radius: 10px;
 }
 .logIn_Wind > button{

@@ -12,9 +12,9 @@ db = Database(DATABASE)
 db.init_db()
 
 
-conn = sqlite3.connect('flask_directory\static\sota.db')
 
-cur = conn.cursor() #курсор для бд
+
+
 app = Flask(__name__)
 
 
@@ -23,6 +23,21 @@ app = Flask(__name__)
 def title():
     return render_template('/title_frame/title_frame.html')
 
+@app.route("/fail")
+def title_fail():
+    return render_template('/title_frame/title_frame_fail.html')
+
+@app.route("/check_enter", methods=['post'])
+def check_enter():
+    if request.form:
+        login = request.form.get('login')
+        password = request.form.get('password')
+
+        user = db.get_account(login, password)
+        if user == None:
+            return redirect("/fail")
+        else:
+            return redirect("/news")
 
 @app.route("/forgotten_password")
 def for_password():
@@ -41,7 +56,7 @@ def register():
         login = request.form.get('login')
         password = request.form.get('password')
         user = {'login': login, 'mail': mail, 'password': password}
-        print(user)
+        print(db.insert_account(user))
     return redirect("/")
 
 
