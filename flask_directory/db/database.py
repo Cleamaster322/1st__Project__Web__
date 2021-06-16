@@ -27,3 +27,18 @@ class Database:
             self.create_db()
             with self.get_db_connection() as conn:
                 conn.commit()
+    
+    def insert_account(self, acc):
+        with self.get_db_connection() as conn:
+            parameters = [acc['login'], acc['mail'], acc['password']]
+            cur = conn.cursor()
+            lastrowid = lastrowid = cur.lastrowid
+            parameters = [acc['login'], acc['mail'], acc['password']]
+            cur.execute(insert_account, parameters)
+            conn.commit()
+    
+    def get_account(self, login, password):
+        with self.get_db_connection() as conn:
+            cur = conn.cursor()
+            post = cur.execute(f"""SELECT id FROM Main WHERE (login = '{login}') and (password = '{password}')""").fetchone()
+        return post

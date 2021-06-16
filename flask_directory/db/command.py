@@ -1,5 +1,5 @@
 create_main = """CREATE TABLE IF NOT EXISTS Main(
-   id INT PRIMARY KEY,
+   id INTEGER PRIMARY KEY,
    login TEXT,
    mail TEXT,
    password TEXT)"""
@@ -31,3 +31,5 @@ create_comment = """CREATE TABLE IF NOT EXISTS Comment(
    id_from INT,
    id_to INT,
    text_c TEXT)"""
+
+insert_account = """INSERT INTO Main (login, mail, password) VALUES (?, ?, ?)"""
