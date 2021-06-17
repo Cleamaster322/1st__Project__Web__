@@ -10,11 +10,7 @@ app = Flask(__name__)
 
 db = Database(DATABASE)
 db.init_db()
-
-
-
-
-
+accounts = db.get_accounts() #Кол-во всех аккаунтов 
 app = Flask(__name__)
 
 
@@ -36,17 +32,12 @@ def check_enter():
         if user == None:
             return redirect("/fail")
         else:
-            return redirect("/news")
+            id = db.get_id(login,password)
+            return redirect(f'/user_page/{id}') 
 
 @app.route("/forgotten_password")
 def for_password():
     return render_template('forgotten_password/forgotten_password.html')
-
-
-@app.route('/add')
-def posts_add():
-    return render_template('register_form/register_form.html')
-
 
 @app.route("/register", methods=['post'])
 def register():
@@ -55,13 +46,17 @@ def register():
         login = request.form.get('login')
         password = request.form.get('password')
         user = {'login': login, 'mail': mail, 'password': password}
-        print(db.insert_account(user))
     return redirect("/")
 
 
-@app.route("/user_page")
-def for_database_test():
-    return render_template('user_page/user_page.html')
+@app.route('/add')
+def posts_add():
+    return render_template('register_form/register_form.html')
+
+
+@app.route("/user_page/<int:id>")
+def user_page(id):
+    return render_template('user_page/user_page.html',account = db.get_account_by_Id(id))
 
 
 @app.route("/messange")
