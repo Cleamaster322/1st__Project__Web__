@@ -1,4 +1,5 @@
 from flask import Flask, render_template, redirect, request, jsonify
+
 from datetime import datetime
 import sqlite3
 import os
@@ -10,8 +11,6 @@ app = Flask(__name__)
 
 db = Database(DATABASE)
 db.init_db()
-
-
 
 
 
@@ -37,6 +36,7 @@ def check_enter():
             return redirect("/fail")
         else:
             return redirect("/news")
+
 
 @app.route("/forgotten_password")
 def for_password():
