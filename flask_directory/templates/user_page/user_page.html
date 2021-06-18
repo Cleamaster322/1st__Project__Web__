@@ -25,9 +25,6 @@
             <a href="{{url_for('for_followers', id = account.id)}}">Мои подписчики</a>
         </div>
         {% block current_page_content %}
-        <form action = "/upload" method = "post" enctype="static/img">
-            <input class='forms' type="file" placeholder="Выбрать" name = "img">
-            <input type="submit" value="загрузить">
         </form>
         {% endblock %}
     </div>
