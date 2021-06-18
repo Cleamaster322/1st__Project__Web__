@@ -63,39 +63,54 @@ def posts_add():
 
 @app.route("/user_page/<int:id>")
 def user_page(id):
-    if flag_enter == False:
-        return redirect("/")
+    if id not in range(1, accounts + 1):
+        return "", 404
     else:
-        return render_template('user_page/user_page.html',account = db.get_account_by_Id(id))
+        if flag_enter == False:
+            return redirect("/")
+        else:
+            return render_template('user_page/user_page.html',account = db.get_account_by_Id(id))
 
 
 @app.route("/messange/<int:id>")
 def for_messanges(id):
-    if flag_enter == False:
-        return redirect("/")
+    if id not in range(1, accounts + 1):
+        return "", 404
     else:
-        return render_template('messange_page/messange_page.html',account = db.get_account_by_Id(id))
+        if flag_enter == False:
+            return redirect("/")
+        else:
+            return render_template('messange_page/messange_page.html',account = db.get_account_by_Id(id))
 
 
 @app.route("/followers/<int:id>")
 def for_followers(id):
-    if flag_enter == False:
-        return redirect("/")
+    if id not in range(1, accounts + 1):
+        return "", 404
     else:
-        return render_template('my_followers/my_followers.html',account = db.get_account_by_Id(id))
+        if flag_enter == False:
+            return redirect("/")
+        else:
+            return render_template('my_followers/my_followers.html',account = db.get_account_by_Id(id))
 
 
 @app.route("/me_following/<int:id>")
 def for_following(id):
-    if flag_enter == False:
-        return redirect("/")
+    if id not in range(1, accounts + 1):
+        return "", 404
     else:
-        return render_template('me_following/me_following.html',account = db.get_account_by_Id(id))
+        if flag_enter == False:
+            return redirect("/")
+        else:
+            return render_template('me_following/me_following.html',account = db.get_account_by_Id(id))
 
 
 @app.route("/news/<int:id>")
 def for_news(id):
-    if flag_enter == False:
-        return redirect("/")
+    if id not in range(1, accounts + 1):
+        return "", 404
     else:
-        return render_template('news/news.html',account = db.get_account_by_Id(id))
+        if flag_enter == False:
+            return redirect("/")
+        else:
+            return render_template('news/news.html',account = db.get_account_by_Id(id))
