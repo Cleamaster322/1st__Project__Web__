@@ -3,7 +3,7 @@ create_main = """CREATE TABLE IF NOT EXISTS Main(
    login TEXT,
    mail TEXT,
    password TEXT,
-   avatae BOLD DEFAULT NULL)"""
+   avatar BOLD DEFAULT NULL)"""
 
 create_post = """CREATE TABLE IF NOT EXISTS Post(
    id_post INT PRIMARY KEY,
@@ -33,4 +33,4 @@ create_comment = """CREATE TABLE IF NOT EXISTS Comment(
    id_to INT,
    text_c TEXT)"""
 
-insert_account = """INSERT INTO Main (login, mail, password) VALUES (?, ?, ?)"""
+insert_account = """INSERT INTO Main (login, mail, password,avatar) VALUES (?, ?, ?,"/static/img/default.png")"""

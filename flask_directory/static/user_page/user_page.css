@@ -57,6 +57,7 @@ body{
 .func_list > a{
     display: flex;
     align-items: center;
+<<<<<<< HEAD
     justify-content: center;
     height: 40px;
     width: 100%;
@@ -73,3 +74,12 @@ body{
 .func_list>a:nth-child(5):hover{
     border-radius: 0 0 20px 20px;
 }
+=======
+}
+.avatar{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-left: 15px;
+    border: 1px solid white;}
+>>>>>>> c476cab26ad5e7820c79abe4ebd6550d339d472c

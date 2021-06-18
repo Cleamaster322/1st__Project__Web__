@@ -62,3 +62,10 @@ class Database:
             id = cur.execute(f"""SELECT id FROM Main WHERE (login = '{login}') and (password = '{password}')""").fetchall()
             id = id[0][0]
         return id
+
+    def change_avatar(self,id,filename):
+        with self.get_db_connection() as conn:
+            cur = conn.cursor()
+            new = cur.execute(f"""UPDATE main SET avatar = "/static/img/{filename}" WHERE id = {id}""")
+            conn.commit()
+        return 
