@@ -78,6 +78,11 @@ def register():
         mail = request.form.get('mail')
         login = request.form.get('login')
         password = request.form.get('password')
+        password2 = request.form.get('repeat the password')
+        errors = db.check_account([mail,login,password,password2])
+        for i in errors:
+            if i == "display: Block;":
+                return post_add_fail(errors)
         user = {'login': login, 'mail': mail, 'password': password}
         
         db.insert_account(user)
@@ -88,6 +93,10 @@ def register():
 @app.route('/add')
 def post_add():
     return render_template('register_form/register_form.html')
+
+@app.route('/add_fail',methods = ['GET, POST'])
+def post_add_fail(errors):
+    return render_template('register_form/register_form_fail.html',errors = errors)
 
 
 @app.route("/user_page/<int:id>")
