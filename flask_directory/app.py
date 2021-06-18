@@ -41,6 +41,8 @@ def upload_file():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             send_from_directory(app.config['UPLOAD_FOLDER'], filename)
             return redirect('/')
+    else:
+        return redirect("/404_erros")
     
 
 
@@ -84,7 +86,7 @@ def post_add():
 @app.route("/user_page/<int:id>")
 def user_page(id):
     if id not in range(1, accounts + 1):
-        return "", 404
+        return redirect("/404_erros")
     else:
         if flag_enter == False:
             return redirect("/")
@@ -95,7 +97,7 @@ def user_page(id):
 @app.route("/messange/<int:id>")
 def for_messanges(id):
     if id not in range(1, accounts + 1):
-        return "", 404
+        return redirect("/404_erros")
     else:
         if flag_enter == False:
             return redirect("/")
@@ -106,7 +108,7 @@ def for_messanges(id):
 @app.route("/followers/<int:id>")
 def for_followers(id):
     if id not in range(1, accounts + 1):
-        return "", 404
+        return redirect("/404_erros")
     else:
         if flag_enter == False:
             return redirect("/")
@@ -117,7 +119,7 @@ def for_followers(id):
 @app.route("/me_following/<int:id>")
 def for_following(id):
     if id not in range(1, accounts + 1):
-        return "", 404
+        return redirect("/404_erros")
     else:
         if flag_enter == False:
             return redirect("/")
@@ -128,7 +130,7 @@ def for_following(id):
 @app.route("/news/<int:id>")
 def for_news(id):
     if id not in range(1, accounts + 1):
-        return "", 404
+        return redirect("/404_erros")
     else:
         if flag_enter == False:
             return redirect("/")
