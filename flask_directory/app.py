@@ -41,6 +41,8 @@ def upload_file():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             send_from_directory(app.config['UPLOAD_FOLDER'], filename)
             return redirect('/')
+    else:
+        return redirect("/404_erros")
     
 
 
