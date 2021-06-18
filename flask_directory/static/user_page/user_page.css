@@ -10,6 +10,10 @@
     font-family: "roboto-light";
     src:url("/static/fonts/Roboto-Light.ttf");
 }
+@font-face {
+    font-family: "roboto-mediumItalic";
+    src:url("/static/fonts/Roboto-MediumItalic.ttf");
+}
 *{
     margin: 0;
     padding: 0;
@@ -19,7 +23,8 @@ body{
 }
 .hat{
     font-family: "roboto-light", serif , "Times New Roman";
-    background:radial-gradient(rgb(17, 87, 3), rgb(19, 51, 13));
+    background:radial-gradient(rgb(22, 4, 125), rgb(40, 4, 125));
+    border-bottom: 2px solid rgb(64, 4, 125);
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     height: 10vh;
@@ -37,6 +42,7 @@ body{
     letter-spacing: 20px;
 }
 .hat_info_user{
+    position: relative;
     display: flex;
     font-family: "roboto-italic", serif;
     font-size: 25px;
@@ -45,6 +51,35 @@ body{
 }
 .hat_info_user> img{
     border-radius: 20px;
+}
+.strelka{
+    width: 30px;
+    height: 30px;
+}
+.redactor_menu{
+    border-radius: 10px;
+    background: rgb(74, 207, 255);
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    top:50px;
+    left: -30px;
+    font-size: 15px;
+    height: 70px;
+    justify-content: space-around;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-family: roboto-mediumItalic, serif;
+}
+.show{
+    display: flex;
+}
+.redactor_menu > a{
+    text-decoration: none;
+    color:rgb(4, 61, 17);
+}
+.redactor_menu > a:hover{
+    background: rgb(5, 130, 255);
 }
 .main_part_page{
     height: 90vh;
@@ -55,7 +90,7 @@ body{
     grid-template-columns: 5fr 30fr;
 }
 .func_list{
-    background:rgb(4, 204, 157);
+    background:rgb(86, 0, 120);
     border-radius: 20px;
     margin-top: 200px;
     height:200px;
@@ -70,7 +105,7 @@ body{
     height: 40px;
     width: 100%;
     text-decoration: none;
-    color: rgb(85, 0, 255);
+    color:rgb(30, 17, 209);
     font-family: "roboto-medium", serif, "Times New Roman";
 }
 .func_list>a:hover{
