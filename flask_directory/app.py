@@ -4,7 +4,7 @@ import sqlite3
 import os
 from db.database import Database
 
-DATABASE = 'db\sota.db'
+DATABASE = 'db/sota.db'
 
 app = Flask(__name__)
 
