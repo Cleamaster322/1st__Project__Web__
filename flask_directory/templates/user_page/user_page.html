@@ -10,14 +10,12 @@
 </head>
 <body>
     <div class = "hat">
-        <img src = "/static/user_page/Logo.png" width="80" height="80">
+        <img class ="toplogo" onclick="change_size()" src = "/static/user_page/Logo.png">
+        <div class = "sota_hat">S.O.T.A</div>
         <div class = "hat_info_user">
+            <img src = "/static/user_page/strelka.svg" width="30px" height="30px">
             <div> {{ account.login }} </div>
-<<<<<<< HEAD
-            <img width="50px" height="50px"  alt = "">
-=======
             <img src= "{{account.avatar}}" alt = "userAvatar" class = 'avatar'>
->>>>>>> c476cab26ad5e7820c79abe4ebd6550d339d472c
         </div>
     </div>
     <div class = "main_part_page">

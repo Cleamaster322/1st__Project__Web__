@@ -19,20 +19,29 @@ body{
 }
 .hat{
     font-family: "roboto-light", serif , "Times New Roman";
-    padding-left: 30px;
-    padding-right: 30px;
     background:radial-gradient(rgb(17, 87, 3), rgb(19, 51, 13));
-    display: flex;
-    font-size: 20px;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
     height: 10vh;
 }
-.hat_info_user{
-    width:15%;
-    justify-content: space-around;
-    align-items: center;
+.toplogo{
+    width: 10vh;
+    height: 10vh;
+}
+.sota_hat{
+    font-family: "roboto-bold", serif, "Times New Roman";
+    font-size: 8vh;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 20px;
+}
+.hat_info_user{
+    display: flex;
+    font-family: "roboto-italic", serif;
+    font-size: 25px;
+    align-items: center;
+    justify-content: space-around;
 }
 .hat_info_user> img{
     border-radius: 20px;
@@ -57,7 +66,6 @@ body{
 .func_list > a{
     display: flex;
     align-items: center;
-<<<<<<< HEAD
     justify-content: center;
     height: 40px;
     width: 100%;
@@ -74,12 +82,9 @@ body{
 .func_list>a:nth-child(5):hover{
     border-radius: 0 0 20px 20px;
 }
-=======
-}
 .avatar{
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     margin-left: 15px;
     border: 1px solid white;}
->>>>>>> c476cab26ad5e7820c79abe4ebd6550d339d472c
