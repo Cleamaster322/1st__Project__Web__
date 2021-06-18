@@ -55,10 +55,7 @@ def register():
 
 @app.route('/add')
 def posts_add():
-    if flag_enter == False:
-        return redirect("/")
-    else:
-        return render_template('register_form/register_form.html')
+    return render_template('register_form/register_form.html')
 
 
 @app.route("/user_page/<int:id>")
