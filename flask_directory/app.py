@@ -13,6 +13,7 @@ db.init_db()
 accounts = db.get_accounts() #Кол-во всех аккаунтов 
 app = Flask(__name__)
 
+flag_enter = False
 
 @app.route("/")
 def title():
@@ -24,6 +25,7 @@ def title_fail():
 
 @app.route("/check_enter", methods=['post'])
 def check_enter():
+    global flag_enter
     if request.form:
         login = request.form.get('login')
         password = request.form.get('password')
@@ -32,6 +34,7 @@ def check_enter():
         if user == None:
             return redirect("/fail")
         else:
+            flag_enter = True
             id = db.get_id(login,password)
             return redirect(f'/user_page/{id}') 
 
@@ -46,34 +49,53 @@ def register():
         login = request.form.get('login')
         password = request.form.get('password')
         user = {'login': login, 'mail': mail, 'password': password}
+        db.insert_account(user)
     return redirect("/")
 
 
 @app.route('/add')
 def posts_add():
-    return render_template('register_form/register_form.html')
+    if flag_enter == False:
+        return redirect("/")
+    else:
+        return render_template('register_form/register_form.html')
 
 
 @app.route("/user_page/<int:id>")
 def user_page(id):
-    return render_template('user_page/user_page.html',account = db.get_account_by_Id(id))
+    if flag_enter == False:
+        return redirect("/")
+    else:
+        return render_template('user_page/user_page.html',account = db.get_account_by_Id(id))
 
 
-@app.route("/messange")
-def for_messanges():
-    return render_template('messange_page/messange_page.html')
+@app.route("/messange/<int:id>")
+def for_messanges(id):
+    if flag_enter == False:
+        return redirect("/")
+    else:
+        return render_template('messange_page/messange_page.html',account = db.get_account_by_Id(id))
 
 
-@app.route("/followers")
-def for_followers():
-    return render_template('my_followers/my_followers.html')
+@app.route("/followers/<int:id>")
+def for_followers(id):
+    if flag_enter == False:
+        return redirect("/")
+    else:
+        return render_template('my_followers/my_followers.html',account = db.get_account_by_Id(id))
 
 
-@app.route("/me_following")
-def for_following():
-    return render_template('me_following/me_following.html')
+@app.route("/me_following/<int:id>")
+def for_following(id):
+    if flag_enter == False:
+        return redirect("/")
+    else:
+        return render_template('me_following/me_following.html',account = db.get_account_by_Id(id))
 
 
-@app.route("/news")
-def for_news():
-    return render_template('news/news.html')
+@app.route("/news/<int:id>")
+def for_news(id):
+    if flag_enter == False:
+        return redirect("/")
+    else:
+        return render_template('news/news.html',account = db.get_account_by_Id(id))
