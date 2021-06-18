@@ -1,8 +1,12 @@
-from flask import Flask, render_template, redirect, request, jsonify
+from flask import Flask, render_template, redirect, request, jsonify, url_for, send_from_directory
 from datetime import datetime
 import sqlite3
 import os
 from db.database import Database
+from werkzeug.utils import secure_filename
+
+UPLOAD_FOLDER = 'static/img'
+ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
 DATABASE = 'db/sota.db'
 
@@ -12,8 +16,13 @@ db = Database(DATABASE)
 db.init_db()
 accounts = db.get_accounts() #Кол-во всех аккаунтов 
 app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 flag_enter = False
+
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
 @app.route("/")
 def title():
@@ -23,9 +32,27 @@ def title():
 def title_fail():
     return render_template('/title_frame/title_frame_fail.html')
 
-@app.route("/upload", methods=['post'])
-def upload_img():
-    return redirect('/') 
+@app.route('/upload_n', methods=['GET', 'POST'])
+def upload_file():
+    if request.method == 'POST':
+        file = request.files['file']
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            return redirect(url_for('uploaded_file',
+                                    filename=filename))
+    return '''
+    <!doctype html>
+    <title>Upload new File</title>
+    <h1>Upload new File</h1>
+    <form action="" method=post enctype=multipart/form-data>
+      <p><input type=file name=file>
+         <input type=submit value=Upload>
+    </form>
+    '''
+@app.route('/uploads/<filename>')
+def uploaded_file(filename):
+    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
 @app.route("/check_enter", methods=['post'])
 def check_enter():
