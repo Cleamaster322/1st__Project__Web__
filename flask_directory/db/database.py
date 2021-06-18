@@ -1,5 +1,5 @@
 from db.command import * 
-import os.path
+import os
 import sqlite3
 #КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ 
 #КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ  
@@ -36,7 +36,16 @@ class Database:
             parameters = [acc['login'], acc['mail'], acc['password']]
             cur.execute(insert_account, parameters)
             conn.commit()
-    
+        
+    def create_img_folder(self,id):
+        path = "static\img"
+        projectame = str(id)
+        fullpath = os.path.join(path,projectame)
+        print(fullpath)
+        os.mkdir(fullpath)
+
+
+
     def get_account(self, login, password):
         with self.get_db_connection() as conn:
             cur = conn.cursor()
@@ -66,7 +75,7 @@ class Database:
     def change_avatar(self,id,filename):
         with self.get_db_connection() as conn:
             cur = conn.cursor()
-            new = cur.execute(f"""UPDATE main SET avatar = "/static/img/{filename}" WHERE id = {id}""")
+            new = cur.execute(f"""UPDATE main SET avatar = "/static/img/{id}/{filename}" WHERE id = {id}""")
             conn.commit()
         return 
 
@@ -74,18 +83,20 @@ class Database:
         with self.get_db_connection() as conn:
             cur = conn.cursor()
             mail,login,password,password2 = parametrs[0],parametrs[1],parametrs[2],parametrs[3],
-            errors = ["display: Block;","display: Block;","display: Block;","display: Block;","display: Block;"]
+            errors = ["display: Block;","display: Block;","display: Block;","display: Block;","display: Block;","display: Block;"]
             if "@" in mail:
                 errors[0] = "display: none;"
+                MAIL = cur.execute(f"""SELECT mail FROM Main WHERE (mail = '{mail}')""").fetchone()
+                if MAIL != mail:
+                    errors[1] = "display: None;"
             if len(login)>=6:
-                errors[1] = "display: none;"
+                errors[2] = "display: none;"
                 LOGIN = cur.execute(f"""SELECT login FROM Main WHERE (login = '{login}')""").fetchone()
                 conn.commit()
-                if LOGIN[0] != login:
-                    errors[2] = "display: None;"
+                if LOGIN != login:
+                    errors[3] = "display: None;"
             if len(password) >= 6:
-                errors[3] = "display: none;"
-
-            if password == password2:
                 errors[4] = "display: none;"
+            if password == password2:
+                errors[5] = "display: none;"
             return errors

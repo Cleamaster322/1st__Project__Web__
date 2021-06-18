@@ -5,7 +5,6 @@ import os
 from db.database import Database
 from werkzeug.utils import secure_filename
 
-UPLOAD_FOLDER = 'static/img'
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
 DATABASE = 'db/sota.db'
@@ -16,7 +15,6 @@ db = Database(DATABASE)
 db.init_db()
 accounts = db.get_accounts() #Кол-во всех аккаунтов 
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 flag_enter = False
 id_account = -1
@@ -41,6 +39,10 @@ def upload_file():
         file = request.files['img']
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
+
+            UPLOAD_FOLDER = f'static/img/{id_account}' #Пришлось сюда перенести мб потом переделаем
+            app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             send_from_directory(app.config['UPLOAD_FOLDER'], filename)
             db.change_avatar(id_account,filename)
@@ -80,12 +82,14 @@ def register():
         password = request.form.get('password')
         password2 = request.form.get('repeat the password')
         errors = db.check_account([mail,login,password,password2])
+        
         for i in errors:
             if i == "display: Block;":
                 return post_add_fail(errors)
+
         user = {'login': login, 'mail': mail, 'password': password}
-        
         db.insert_account(user)
+        db.create_img_folder(db.get_id(login,password))
         accounts = db.get_accounts()
     return redirect("/")
 
