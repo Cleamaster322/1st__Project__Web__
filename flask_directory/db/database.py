@@ -32,9 +32,7 @@ class Database:
     
     def insert_account(self, acc):
         with self.get_db_connection() as conn:
-            parameters = [acc['login'], acc['mail'], acc['password']]
             cur = conn.cursor()
-            lastrowid = lastrowid = cur.lastrowid
             parameters = [acc['login'], acc['mail'], acc['password']]
             cur.execute(insert_account, parameters)
             conn.commit()

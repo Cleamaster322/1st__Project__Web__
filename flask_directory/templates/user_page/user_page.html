@@ -18,11 +18,11 @@
     </div>
     <div class = "main_part_page">
         <div class = "func_list">
-            <a href="/news">Новости</a>
-            <a href="/user_page">Моя страница</a>
-            <a href="/messange">Сообщения</a>
-            <a href="/me_following">Мои подписки</a>
-            <a href="/followers">Мои подписчики</a>
+            <a href="{{url_for('for_news', id = account.id)}}">Новости</a>
+            <a href="{{url_for('user_page', id = account.id)}}">Моя страница</a>
+            <a href="{{url_for('for_messanges', id = account.id)}}">Сообщения</a>
+            <a href="{{url_for('for_following', id = account.id)}}">Мои подписки</a>
+            <a href="{{url_for('for_followers', id = account.id)}}">Мои подписчики</a>
         </div>
         {% block current_page_content %}
 
