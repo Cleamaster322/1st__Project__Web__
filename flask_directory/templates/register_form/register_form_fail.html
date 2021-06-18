@@ -11,15 +11,16 @@
 
                 <input class='forms' type="text" placeholder="input email" name = "mail">
                 <div class = "Error" style = "{{errors[0]}}">Некорректный email</div>
+                <div class = "Error" style = "{{errors[1]}}">email уже существует</div>
 
                 <input class='forms' type="text" placeholder="input log" name = "login">
-                <div class = "Error" style = "{{errors[1]}}">Некорректный логин</div>
-                <div class = "Error" style = "{{errors[2]}}">Логин уже существует</div>
+                <div class = "Error" style = "{{errors[2]}}">Некорректный логин</div>
+                <div class = "Error" style = "{{errors[3]}}">Логин уже существует</div>
 
                 <input class='forms' type="password" placeholder="input password" name = "password">
                 <input class='forms' type="password" placeholder="input password" name = "repeat the password">
-                <div class = "Error" style = "{{errors[3]}}">Некорректный пароль</div>
-                <div class = "Error" style = "{{errors[4]}}">Пароли не совпадают</div>
+                <div class = "Error" style = "{{errors[4]}}">Некорректный пароль</div>
+                <div class = "Error" style = "{{errors[5]}}">Пароли не совпадают</div>
                 
                 <input type="submit" value="Регистрация">
             </form>
