@@ -69,3 +69,23 @@ class Database:
             new = cur.execute(f"""UPDATE main SET avatar = "/static/img/{filename}" WHERE id = {id}""")
             conn.commit()
         return 
+
+    def check_account(self,parametrs):
+        with self.get_db_connection() as conn:
+            cur = conn.cursor()
+            mail,login,password,password2 = parametrs[0],parametrs[1],parametrs[2],parametrs[3],
+            errors = ["display: Block;","display: Block;","display: Block;","display: Block;","display: Block;"]
+            if "@" in mail:
+                errors[0] = "display: none;"
+            if len(login)>=6:
+                errors[1] = "display: none;"
+                LOGIN = cur.execute(f"""SELECT login FROM Main WHERE (login = '{login}')""").fetchone()
+                conn.commit()
+                if LOGIN[0] != login:
+                    errors[2] = "display: None;"
+            if len(password) >= 6:
+                errors[3] = "display: none;"
+
+            if password == password2:
+                errors[4] = "display: none;"
+            return errors

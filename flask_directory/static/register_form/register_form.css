@@ -48,6 +48,12 @@ body{
     height: 40px;
     text-align: center;
 }
+
+.Error{
+    color: red;
+    margin-bottom: 5px;
+}
+
 @media screen and (max-width:600px){
     .logIn_block{
         background:none;
