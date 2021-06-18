@@ -10,8 +10,10 @@
 </head>
 <body>
     <div class = "hat">
-        <img src = "/static/user_page/Logo.png" width="80" height="80">
+        <img class ="toplogo" onclick="change_size()" src = "/static/user_page/Logo.png">
+        <div class = "sota_hat">S.O.T.A</div>
         <div class = "hat_info_user">
+            <img src = "/static/user_page/strelka.svg" width="30px" height="30px">
             <div> {{ account.login }} </div>
             <img src= "{{account.avatar}}" alt = "userAvatar" class = 'avatar'>
         </div>
