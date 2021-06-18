@@ -73,6 +73,7 @@ def register():
         login = request.form.get('login')
         password = request.form.get('password')
         user = {'login': login, 'mail': mail, 'password': password}
+        
         db.insert_account(user)
         accounts = db.get_accounts()
     return redirect("/")
