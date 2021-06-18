@@ -33,11 +33,13 @@ def check_enter():
             return redirect("/fail")
         else:
             id = db.get_id(login,password)
-            return redirect(f'/user_page/{id}') 
+            return redirect(f'/user_page/{id}')
+
 
 @app.route("/forgotten_password")
 def for_password():
     return render_template('forgotten_password/forgotten_password.html')
+
 
 @app.route("/register", methods=['post'])
 def register():
