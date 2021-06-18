@@ -134,3 +134,8 @@ def for_news(id):
             return redirect("/")
         else:
             return render_template('news/news.html',account = db.get_account_by_Id(id))
+
+
+@app.route("/404_erros")
+def for_404_error():
+    return render_template('404_error/404_error.html')
