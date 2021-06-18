@@ -19,6 +19,9 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 flag_enter = False
+id_account = -1
+
+
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -40,7 +43,9 @@ def upload_file():
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             send_from_directory(app.config['UPLOAD_FOLDER'], filename)
-            return redirect('/')
+            db.change_avatar(id_account,filename)
+            
+            return redirect(f'/user_page/{id_account}')
     else:
         return redirect("/404_erros")
     
@@ -49,6 +54,7 @@ def upload_file():
 @app.route("/check_enter", methods=['post'])
 def check_enter():
     global flag_enter
+    global id_account
     if request.form:
         login = request.form.get('login')
         password = request.form.get('password')
@@ -58,8 +64,8 @@ def check_enter():
             return redirect("/fail")
         else:
             flag_enter = True
-            id = db.get_id(login,password)
-            return redirect(f'/user_page/{id}') 
+            id_account = db.get_id(login,password)
+            return redirect(f'/user_page/{id_account}') 
 
 @app.route("/forgotten_password")
 def for_password():
