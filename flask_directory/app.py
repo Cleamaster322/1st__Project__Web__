@@ -7,7 +7,7 @@ from db.database import Database
 DATABASE = 'db/sota.db'
 
 app = Flask(__name__)
-
+MAX_CONTENT_LENGHT = 1024 * 1024
 db = Database(DATABASE)
 db.init_db()
 accounts = db.get_accounts() #Кол-во всех аккаунтов 
@@ -22,6 +22,10 @@ def title():
 @app.route("/fail")
 def title_fail():
     return render_template('/title_frame/title_frame_fail.html')
+
+@app.route("/upload", methods=['post'])
+def upload_img():
+    return redirect('/') 
 
 @app.route("/check_enter", methods=['post'])
 def check_enter():
@@ -44,21 +48,20 @@ def for_password():
 
 @app.route("/register", methods=['post'])
 def register():
+    global accounts
     if request.form:
         mail = request.form.get('mail')
         login = request.form.get('login')
         password = request.form.get('password')
         user = {'login': login, 'mail': mail, 'password': password}
         db.insert_account(user)
+        accounts = db.get_accounts()
     return redirect("/")
 
 
 @app.route('/add')
-def posts_add():
-    if flag_enter == False:
-        return redirect("/")
-    else:
-        return render_template('register_form/register_form.html')
+def post_add():
+    return render_template('register_form/register_form.html')
 
 
 @app.route("/user_page/<int:id>")

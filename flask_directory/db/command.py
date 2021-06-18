@@ -2,7 +2,8 @@ create_main = """CREATE TABLE IF NOT EXISTS Main(
    id INTEGER PRIMARY KEY,
    login TEXT,
    mail TEXT,
-   password TEXT)"""
+   password TEXT,
+   avatae BOLD DEFAULT NULL)"""
 
 create_post = """CREATE TABLE IF NOT EXISTS Post(
    id_post INT PRIMARY KEY,
