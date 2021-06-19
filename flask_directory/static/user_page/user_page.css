@@ -129,6 +129,8 @@ body{
     height: 50px;
 }
 .shell_userpage{
+    overflow: auto;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -136,11 +138,10 @@ body{
 .userpage{
     width: 90%;
     height: 95%;
-    background: rgb(40, 196, 31);
+
 }
 .userpage_info{
     height: 300px;
-    font-size: 100px;
     font-family: "roboto-light", serif, "Times New Roman";
     display: flex;
     justify-content: space-evenly;
@@ -151,4 +152,35 @@ body{
     border: 5px solid white;
     width: 200px;
     height: 200px;
+}
+.intro{
+    border-radius: 10px;
+    background: rgb(40, 196, 31);
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 30px;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+.userpage_stat{
+    height: 100%;
+    border-radius: 10px;
+    background: rgb(40, 196, 31);
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.posts{
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.one_post{
+    height: max-content;
+    background: rgb(12, 112, 7);
+    margin-top: 20px;
 }

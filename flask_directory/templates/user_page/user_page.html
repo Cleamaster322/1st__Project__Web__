@@ -48,11 +48,65 @@
             <div class = "shell_userpage">
                 <div class = "userpage">
                     <div class = "userpage_info">
-                        <img src= "{{account.avatar}}" alt = "userAvatar" class = 'main_avatar'>
-                        <div> {{ account.login }} </div>
+                        <div class = "intro">
+                            <img src= "{{account.avatar}}" alt = "userAvatar" class = 'main_avatar'>
+                            <div> {{ account.login }} </div>
+                        </div>
+                        <div class = "userpage_stat">
+                            <a href = ""> _количество подписчиков_ </a>
+                            <a href = ""> _количество подписок_ </a>
+                            <a href = ""> _количество публикаций_ </a>
+                        </div>
+                    </div>
+                    <div class = "posts">
+                        <div class = "one_post">ksfdkslfkldsfk</div>
+                        <div class = "one_post">ksfdkslfkldsfk</div>
+                        <div class = "one_post">ksfdkslfkldsfk</div>
+                        <div class = "one_post">ksfdkslfkldsfk</div>
+                        <div class = "one_post">ksfdkslfkldsfk</div>
+                        <div class = "one_post">ksfdkslfkldsfk</div>
+                        <div class = "one_post">ksfdkslfkldsfk</div>
+                        <div class = "one_post">ksfdkslfkldsfk</div>
+                        <div class = "one_post">ksfdkslfkldsfk</div>
+                        <div class = "one_post">ksfdkslfkldsfk</div>
+                        <div class = "one_post">ksfdkslfkldsfk</div>
+                        <div class = "one_post">ksfdkslfkldsfk</div>
+                        <div class = "one_post">ksfdkslfkldsfk</div>
+                        <div class = "one_post">ksfdkslfkldsfk</div>
+                        <div class = "one_post">ksfdkslfkldsfk</div>
+                        <div class = "one_post">ksfdkslfkldsfk</div>
+                        <div class = "one_post">ksfdkslfkldsfk</div>
+                        <div class = "one_post">ksfdkslfkldsfk</div>
+                        <div class = "one_post">ksfdkslfkldsfk</div>
+                        <div class = "one_post">ksfdkslfkldsfk</div>
+                        <div class = "one_post">ksfdkslfkldsfk</div>
+                        <div class = "one_post">ksfdkslfkldsfk</div>
+                        <div class = "one_post">ksfdkslfkldsfk</div>
+                        <div class = "one_post">ksfdkslfkldsfk</div>
+                        <div class = "one_post">ksfdkslfkldsfk</div>
+                        <div class = "one_post">ksfdkslfkldsfk</div>
+                        <div class = "one_post">ksfdkslfkldsfk</div>
+                        <div class = "one_post">ksfdkslfkldsfk</div>
+                        <div class = "one_post">ksfdkslfkldsfk</div>
+                        <div class = "one_post">ksfdkslfkldsfk</div>
+                        <div class = "one_post">ksfdkslfkldsfk</div>
+                        <div class = "one_post">ksfdkslfkldsfk</div>
+
                     </div>
                 </div>
+
             </div>
+            <script>
+                const block = document.querySelector('.userpage');
+                const elementOffsetParent = block.offsetParent;
+                const elementOffsetLeft = block.offsetLeft;
+                const elementOffsetTop = block.offsetTop;
+                const elementOffsetWidth = block.offsetWidth;
+                const elementOffsetHeight = block.offsetHeight;
+                console.log(elementOffsetParent);
+                console.log(elementOffsetLeft);
+                console.log(elementOffsetTop);
+            </script>
         {% endblock %}
     </div>
 </body>
