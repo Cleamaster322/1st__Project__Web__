@@ -202,8 +202,36 @@
     border-radius: 10px;
     background: black;
     display: grid;
-    grid-template-rows: 5fr 4fr 4fr;
+    grid-template-rows: 4fr 3fr 2fr;
 }
+.userpage_stat > img {
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 96%;
+}
+.top_stats{
+    font-family: "roboto-mediumItalic", serif;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 2fr 4fr;
+    flex-direction: column;
+    padding-left: 10px;
+    padding-top: 10px;
+    justify-content: space-between;
+}
+.top_stats > div:nth-child(2n+1){
+    color:rgb(158, 156, 155);
+}
+.top_stats > div{
+    display: flex;
+    align-items: center;
+}
+.top_stats > div > img{
+    width: 30px;
+    padding-right: 10px;
+}
+
 .bottom_stats{
     margin-top: 20px;
     justify-content: space-around;
