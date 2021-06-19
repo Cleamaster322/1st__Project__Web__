@@ -1,0 +1,58 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 25% 0 80px;
+    background-color: #0D7818;
+}
+
+.followers {
+    width: 98%;
+    height: 98%;
+    margin: 1%;
+    display: flex;
+    flex-direction: column;
+    background-color: #28C41F;
+}
+
+.followers_title_wrap {
+    font-size: 40px;
+}
+
+.followers_search_wrap {
+    max-width: 100%;
+}
+
+.followers_search_block > label > input {
+    max-width: 100%;
+}
+
+.followers_list_wrap {
+
+}
+
+.followers_follower {
+    margin: 20px 0 0 30px;
+}
+
+.follower_image > img {
+    float: left;
+    width: 100px;
+    border-radius: 50%;
+}
+
+.follower_description {
+    margin: inherit;
+}
+
+.follower_description_nickname {
+    margin: 0 0 0 95px;
+    font-size: 20px;
+}
+
+.follower_description_message > button {
+    margin: 15px 0 0 25px;
+}
+
+.follower_button {
+    float: right;
+}
