@@ -40,11 +40,12 @@
             <a href="{{url_for('for_following', id = account.id)}}">Мои подписки</a>
             <a href="{{url_for('for_followers', id = account.id)}}">Мои подписчики</a>
         </div>
-        {% block current_page_content %}
-        <form action = "/upload_n" method = "post" enctype="multipart/form-data">
-            <input class='forms' type="file" placeholder="Выбрать" name = "img">
-            <input type="submit" value="загрузить">
+        <form style="display: none" action = "/upload_n" method = "post" enctype="multipart/form-data">
+                <input class='forms' type="file" placeholder="Выбрать" name = "img">
+                <input type="submit" value="загрузить">
         </form>
+        {% block current_page_content %}
+            <div class = "userpage">dfsfdsf</div>
         {% endblock %}
     </div>
 </body>

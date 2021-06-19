@@ -23,8 +23,7 @@ body{
 }
 .hat{
     font-family: "roboto-light", serif , "Times New Roman";
-    background:radial-gradient(rgb(22, 4, 125), rgb(40, 4, 125));
-    border-bottom: 2px solid rgb(64, 4, 125);
+    background: rgb(13, 120, 24);
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     height: 10vh;
@@ -83,14 +82,14 @@ body{
 }
 .main_part_page{
     height: 90vh;
-    background-image:linear-gradient(rgba(0, 12, 107,0.7),rgba(84, 0, 168, 0.5),rgba(0, 19, 166,0.4), rgba(15, 77, 0, 0.6)), url("/static/user_page/mainbackground.jpeg");
+    background:radial-gradient(rgba(18, 17, 17, 0.6),rgba(18, 25, 17, 0.6));
     background-size: cover;
     display: grid;
     padding-left: 5%;
     grid-template-columns: 5fr 30fr;
 }
 .func_list{
-    background:rgb(86, 0, 120);
+    background: rgb(13, 120, 24);
     border-radius: 20px;
     margin-top: 200px;
     height:200px;
@@ -105,7 +104,7 @@ body{
     height: 40px;
     width: 100%;
     text-decoration: none;
-    color:rgb(30, 17, 209);
+    color:rgb(227, 216, 2);
     font-family: "roboto-medium", serif, "Times New Roman";
 }
 .func_list>a:hover{
@@ -128,5 +127,8 @@ body{
 .avatar{
     width: 50px;
     height: 50px;
+}
+.userpage{
+    background: white;
 }
 
