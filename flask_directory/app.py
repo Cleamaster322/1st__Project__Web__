@@ -27,6 +27,10 @@ def allowed_file(filename):
 
 @app.route("/")
 def title():
+    global flag_enter
+    global id_account
+    flag_enter = False
+    id_account = -1 
     return render_template('/title_frame/title_frame.html')
 
 @app.route("/fail")
