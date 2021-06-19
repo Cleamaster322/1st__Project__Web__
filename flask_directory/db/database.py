@@ -89,7 +89,7 @@ class Database:
                 MAIL = cur.execute(f"""SELECT mail FROM Main WHERE (mail = '{mail}')""").fetchone()
                 if MAIL != mail:
                     errors[1] = "display: None;"
-            if len(login)>=6:
+            if len(login)>=6 and len(login) <= 15:
                 errors[2] = "display: none;"
                 LOGIN = cur.execute(f"""SELECT login FROM Main WHERE (login = '{login}')""").fetchone()
                 conn.commit()
