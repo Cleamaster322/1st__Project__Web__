@@ -18,12 +18,10 @@
     margin: 0;
     padding: 0;
 }
-body{
-    background: black;
-}
 .hat{
+    color:rgb(129, 129, 130);
     font-family: "roboto-light", serif , "Times New Roman";
-    background: rgb(13, 120, 24);
+    background: rgb(53, 53, 54);
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     height: 10vh;
@@ -56,7 +54,7 @@ body{
     height: 30px;
 }
 .redactor_menu{
-    z-index: 1000;4
+    z-index: 1000;
     border-radius: 10px;
     background: rgb(74, 207, 255);
     position: absolute;
@@ -82,15 +80,14 @@ body{
     background: rgb(5, 130, 255);
 }
 .main_part_page{
+    background-image: url("/static/user_page/new_back.jpeg");
     height: 90vh;
-    background:radial-gradient(rgba(18, 17, 17, 0.6),rgba(18, 25, 17, 0.6));
-    background-size: cover;
     display: grid;
     padding-left: 5%;
     grid-template-columns: 5fr 30fr;
 }
 .func_list{
-    background: rgb(13, 120, 24);
+    background: rgb(53, 53, 54);
     border-radius: 20px;
     margin-top: 200px;
     height:200px;
@@ -156,7 +153,8 @@ body{
 }
 .intro{
     border-radius: 10px;
-    background: rgb(40, 196, 31);
+    background: rgb(20, 20, 20);
+    box-shadow: 0 0 3px 3px rgb(43, 43, 43);;
     height: 300px;
     display: flex;
     flex-direction: column;
@@ -169,7 +167,8 @@ body{
 .userpage_stat{
     height: 100%;
     border-radius: 10px;
-    background: rgb(40, 196, 31);
+    background: rgb(20, 20, 20);
+    box-shadow: 0 0 3px 3px rgb(43, 43, 43);;
     width: 70%;
     display: flex;
     align-items: center;
@@ -181,7 +180,8 @@ body{
     margin-right: 10px;
 }
 .one_post{
+    box-shadow: 0 0 3px 3px rgb(43, 43, 43);;
     height: max-content;
-    background: rgb(12, 112, 7);
+    background: rgb(20, 20, 20);
     margin-top: 20px;
 }
