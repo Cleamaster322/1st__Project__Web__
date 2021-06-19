@@ -1,0 +1,73 @@
+@font-face {
+    font-family: "roboto-bold";
+    src: url("/static/fonts/Roboto-Bold.ttf");
+}
+@font-face {
+    font-family: "roboto-medium";
+    src: url("/static/fonts/Roboto-Medium.ttf");
+}
+@font-face {
+    font-family: "roboto-light";
+    src:url("/static/fonts/Roboto-Light.ttf");
+}
+@font-face {
+    font-family: "roboto-mediumItalic";
+    src:url("/static/fonts/Roboto-MediumItalic.ttf");
+}
+
+.content{
+    width: 80%;
+    height: 100%;
+    background-image: url(hatback2.jpeg);
+}
+
+.search_subscribers{
+    padding-top:40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.me_following_title p{
+    color: white;
+    font-family: "roboto-medium";
+    font-size: 24px;
+    line-height: 24px;
+    letter-spacing: 2px;
+}
+
+.d7 form {
+  width: auto;
+  float: right;
+  margin-right: 30px;
+    padding-left: 20px;
+}
+.d7 input {
+  width: 250px;
+  height: 42px;
+  padding-left: 15px;
+  border-radius: 42px;
+  border: 2px solid #324b4e;
+  background: #F9F0DA;
+  outline: none;
+  position: relative;
+  transition: .3s linear;
+}
+.d7 input:focus {
+  width: 300px;
+}
+.d7 button {
+  width: 42px;
+  height: 42px;
+  background: none;
+  border: none;
+  position: absolute;
+  top: -2px;
+  right: 0;
+}
+.d7 button:before{
+  content: "\f002";
+  color: #324b4e;
+}
