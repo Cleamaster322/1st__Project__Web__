@@ -94,15 +94,14 @@
     background: rgb(5, 130, 255);
 }
 .main_part_page{
-    background-image:radial-gradient(rgba(128, 124, 122, 0.3),rgba(158, 156, 155, 0.4)), url("/static/user_page/new_back.jpeg") ;
+    background:black;
     height: 90vh;
     display: grid;
     padding-left: 5%;
     grid-template-columns: 5fr 30fr;
 }
 .func_list{
-    background: rgb(53, 53, 54);
-    border-radius: 20px;
+    background: black;
     margin-top: 33px;
     height:200px;
     display: flex;
@@ -124,12 +123,6 @@
 }
 .func_list>a:hover{
     background: rgb(0, 180, 245);
-}
-.func_list>a:nth-child(1):hover{
-    border-radius: 20px 20px 0 0;
-}
-.func_list>a:nth-child(5):hover{
-    border-radius: 0 0 20px 20px;
 }
 
 
@@ -178,14 +171,14 @@
     position: relative;
     height: 100%;
     border-radius: 10px;
-    background:radial-gradient(99.5% 397.04% at 100% 49.01%, rgb(52, 112, 0), rgb(92, 112, 0) 46.35%, rgb(112, 77, 0) 75%, rgb(112, 43, 0) 100%);
+    background: radial-gradient(99.5% 397.04% at 100% 49.01%, #EB9038 0%, #8DC4F3 46.35%, #F3C3CF 100%);
 
 }
 .intro{
     padding-left: 20px;
     padding-right: 20px;
     border-radius: 10px;
-    background: rgb(20, 20, 20);
+    background: black;
     height: 294px;
     display: flex;
     flex-direction: column;
@@ -207,10 +200,24 @@
     height: 294px;
     width: calc(100% - 6px);
     border-radius: 10px;
-    background: rgb(20, 20, 20);
-    display: flex;
-    align-items: center;
+    background: black;
+    display: grid;
+    grid-template-rows: 5fr 4fr 4fr;
+}
+.bottom_stats{
+    margin-top: 20px;
     justify-content: space-around;
+    display: flex;
+}
+.bottom_stats > a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+}
+.bottom_stats > a > img{
+    width: 50px;
 }
 .posts{
     margin-top: 10px;
@@ -228,7 +235,7 @@
     border-radius: 5px;
     height: 100%;
     width: 100%;
-    background: rgb(20, 20, 20);
+    background: black;
     display: grid;
     grid-template-rows: 50px max-content 50px;
 }
@@ -255,7 +262,26 @@
     color:rgb(158, 156, 155);
     font-family: "roboto-mediumItalic", serif;
 }
+.text_post > img{
+    margin-top: 20px;
+    width: 100%;
+}
 .likes_and_comments{
+    display: flex;
+    align-items: center;
     color:rgb(158, 156, 155);
     padding: 10px;
+}
+.count{
+    font-size: 25px;
+    margin-left: 5px;
+}
+.url_to_comment{
+    color:rgb(158, 156, 155);
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+}
+.url_to_comment > svg{
+    padding-right: 10px;
 }
