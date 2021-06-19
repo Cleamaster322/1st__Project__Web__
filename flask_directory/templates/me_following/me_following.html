@@ -1,4 +1,24 @@
 {% extends 'user_page/user_page.html' %}
 {% block current_page_content %}
  <link rel="stylesheet" href = "{{url_for('static', filename='me_following/me_following.css')}}" >
-{% endblock %}
+
+<div class="wrapper">
+  <div class="content">
+    <div class="wrapper">
+        <div class="content">
+            <div class="search_subscribers">
+                <div class="me_following_title">
+                    <p>Мои подписки:</p>
+                </div>
+                <div class="d7">
+                    <form>
+                        <input type="text" placeholder="Искать здесь...">
+                        <button type="submit"></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+      </div>
+  </div>
+</div>
+{% endblock %}z
