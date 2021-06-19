@@ -17,8 +17,14 @@
             <div> {{ account.login }} </div>
             <img src= "{{account.avatar}}" alt = "userAvatar" class = 'avatar'>
             <div class = "redactor_menu" id="redactor_menu">
-                <a href="">Настройка профиля</a>
-                <a href="{{url_for('title')}}">Выход</a>
+                <a href="">
+                    <svg aria-label="Параметры" class="_8-yf5 " fill="#262626" height="24" viewBox="0 0 48 48" width="24"><path clip-rule="evenodd" d="M46.7 20.6l-2.1-1.1c-.4-.2-.7-.5-.8-1-.5-1.6-1.1-3.2-1.9-4.7-.2-.4-.3-.8-.1-1.2l.8-2.3c.2-.5 0-1.1-.4-1.5l-2.9-2.9c-.4-.4-1-.5-1.5-.4l-2.3.8c-.4.1-.8.1-1.2-.1-1.4-.8-3-1.5-4.6-1.9-.4-.1-.8-.4-1-.8l-1.1-2.2c-.3-.5-.8-.8-1.3-.8h-4.1c-.6 0-1.1.3-1.3.8l-1.1 2.2c-.2.4-.5.7-1 .8-1.6.5-3.2 1.1-4.6 1.9-.4.2-.8.3-1.2.1l-2.3-.8c-.5-.2-1.1 0-1.5.4L5.9 8.8c-.4.4-.5 1-.4 1.5l.8 2.3c.1.4.1.8-.1 1.2-.8 1.5-1.5 3-1.9 4.7-.1.4-.4.8-.8 1l-2.1 1.1c-.5.3-.8.8-.8 1.3V26c0 .6.3 1.1.8 1.3l2.1 1.1c.4.2.7.5.8 1 .5 1.6 1.1 3.2 1.9 4.7.2.4.3.8.1 1.2l-.8 2.3c-.2.5 0 1.1.4 1.5L8.8 42c.4.4 1 .5 1.5.4l2.3-.8c.4-.1.8-.1 1.2.1 1.4.8 3 1.5 4.6 1.9.4.1.8.4 1 .8l1.1 2.2c.3.5.8.8 1.3.8h4.1c.6 0 1.1-.3 1.3-.8l1.1-2.2c.2-.4.5-.7 1-.8 1.6-.5 3.2-1.1 4.6-1.9.4-.2.8-.3 1.2-.1l2.3.8c.5.2 1.1 0 1.5-.4l2.9-2.9c.4-.4.5-1 .4-1.5l-.8-2.3c-.1-.4-.1-.8.1-1.2.8-1.5 1.5-3 1.9-4.7.1-.4.4-.8.8-1l2.1-1.1c.5-.3.8-.8.8-1.3v-4.1c.4-.5.1-1.1-.4-1.3zM24 41.5c-9.7 0-17.5-7.8-17.5-17.5S14.3 6.5 24 6.5 41.5 14.3 41.5 24 33.7 41.5 24 41.5z" fill-rule="evenodd"></path></svg>
+                    Настройка
+                </a>
+                <a href="{{url_for('title')}}">
+                    <img src = "/static/user_page/log_out.svg">
+                    Выход
+                </a>
             </div>
             <script>
                 function for_redactor_menu(){
@@ -64,49 +70,51 @@
             <div class = "shell_userpage">
                 <div class = "userpage">
                     <div class = "userpage_info">
-                        <div class = "intro">
-                            <img src= "{{account.avatar}}" alt = "userAvatar" class = 'main_avatar'>
-                            <div> {{ account.login }} </div>
+                        <div class = "shell_intro">
+                            <div class = "intro">
+                                <img src= "{{account.avatar}}" alt = "userAvatar" class = 'main_avatar'>
+                                <div> {{ account.login }} </div>
+                            </div>
                         </div>
-                        <div class = "userpage_stat">
-                            <a href = ""> _количество подписчиков_ </a>
-                            <a href = ""> _количество подписок_ </a>
-                            <a href = ""> _количество публикаций_ </a>
+                        <div class = "shell_userpage_stats">
+                            <div class = "userpage_stat">
+                                <a href = ""> _количество подписчиков_ </a>
+                                <a href = ""> _количество подписок_ </a>
+                                <a href = ""> _количество публикаций_ </a>
+                            </div>
                         </div>
                     </div>
                     <div class = "posts">
-                        <div class = "one_post">ksfdkslfkldsfk</div>
-                        <div class = "one_post">ksfdkslfkldsfk</div>
-                        <div class = "one_post">ksfdkslfkldsfk</div>
-                        <div class = "one_post">ksfdkslfkldsfk</div>
-                        <div class = "one_post">ksfdkslfkldsfk</div>
-                        <div class = "one_post">ksfdkslfkldsfk</div>
-                        <div class = "one_post">ksfdkslfkldsfk</div>
-                        <div class = "one_post">ksfdkslfkldsfk</div>
-                        <div class = "one_post">ksfdkslfkldsfk</div>
-                        <div class = "one_post">ksfdkslfkldsfk</div>
-                        <div class = "one_post">ksfdkslfkldsfk</div>
-                        <div class = "one_post">ksfdkslfkldsfk</div>
-                        <div class = "one_post">ksfdkslfkldsfk</div>
-                        <div class = "one_post">ksfdkslfkldsfk</div>
-                        <div class = "one_post">ksfdkslfkldsfk</div>
-                        <div class = "one_post">ksfdkslfkldsfk</div>
-                        <div class = "one_post">ksfdkslfkldsfk</div>
-                        <div class = "one_post">ksfdkslfkldsfk</div>
-                        <div class = "one_post">ksfdkslfkldsfk</div>
-                        <div class = "one_post">ksfdkslfkldsfk</div>
-                        <div class = "one_post">ksfdkslfkldsfk</div>
-                        <div class = "one_post">ksfdkslfkldsfk</div>
-                        <div class = "one_post">ksfdkslfkldsfk</div>
-                        <div class = "one_post">ksfdkslfkldsfk</div>
-                        <div class = "one_post">ksfdkslfkldsfk</div>
-                        <div class = "one_post">ksfdkslfkldsfk</div>
-                        <div class = "one_post">ksfdkslfkldsfk</div>
-                        <div class = "one_post">ksfdkslfkldsfk</div>
-                        <div class = "one_post">ksfdkslfkldsfk</div>
-                        <div class = "one_post">ksfdkslfkldsfk</div>
-                        <div class = "one_post">ksfdkslfkldsfk</div>
-                        <div class = "one_post">ksfdkslfkldsfk</div>
+                        <div class = "shell_post">
+                            <div class = "one_post">
+                                <div class = "info_post">
+                                    <div>
+                                        <img src = "" alt = "log">
+                                        Chappix
+                                    </div>
+                                    <div>DD.MM.YY</div>
+                                </div>
+                                <div class = "text_post">
+                                    Lorem ipsum magna diam malesuada non ligula eget metus, odio metus nulla duis odio orci, malesuada fusce sem donec tempus, quam maecenas. Vivamus justo proin tempus, rutrum tellus sodales in ultricies — sit in, leo, eu. Eu integer — vitae morbi adipiscing duis quam auctor eros proin urna nulla nibh ligula massa. Sed nam sapien metus nec eu commodo, ipsum et non urna malesuada maecenas: auctor. Malesuada nam enim vivamus pellentesque enim sit sapien at, sagittis donec, eros quam cursus, massa: sapien nec non eget. Proin, nec enim non ultricies nec, ultricies enim metus ipsum nulla morbi nec vulputate gravida eget sagittis, quam sit vitae.
+Porta massa sed sapien tempus vitae ligula arcu rutrum in malesuada ipsum lectus risus pellentesque quam duis sed congue, eros elementum. Auctor nulla: cursus, pellentesque: donec lectus orci enim — eu congue eget nulla: quisque rutrum nulla at, maecenas ornare quam. Morbi quisque porta justo pharetra sed odio tempus lorem nibh, commodo, bibendum urna odio lorem sagittis at nibh, in congue vitae ligula. Diam sodales sapien sodales a sapien arcu nam elementum odio at orci mattis molestie vivamus, urna donec justo at vitae quam ligula nulla. Rutrum, eros integer, molestie nibh sapien pellentesque commodo lectus pharetra metus eros sit congue et bibendum vivamus lectus ipsum. Ut nulla, mauris et massa integer sem auctor non gravida, amet, lorem, bibendum vulputate mauris diam ipsum eu ligula tempus, ligula. At ligula molestie non mauris, elementum commodo integer nam eros at sagittis duis morbi quisque integer maecenas nec sapien maecenas bibendum, nam lectus quam.
+                                </div>
+                                <div class = likes_and_comments>
+                                    <svg  class="_8-yf5 " fill="#bababa" height="22" viewBox="0 0 48 48" width="22"><path d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"></path></svg>
+                                </div>
+                            </div>
+                        </div>
+                         <div class = "shell_post">
+                            <div class = "one_post">
+                                <div class = "info_post">
+                                    <div>
+                                        <img src = "" alt = "log">
+                                        Chappix
+                                    </div>
+                                    <div>DD.MM.YY</div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
