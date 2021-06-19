@@ -45,7 +45,14 @@
                 <input type="submit" value="загрузить">
         </form>
         {% block current_page_content %}
-            <div class = "userpage">dfsfdsf</div>
+            <div class = "shell_userpage">
+                <div class = "userpage">
+                    <div class = "userpage_info">
+                        <img src= "{{account.avatar}}" alt = "userAvatar" class = 'main_avatar'>
+                        <div> {{ account.login }} </div>
+                    </div>
+                </div>
+            </div>
         {% endblock %}
     </div>
 </body>
