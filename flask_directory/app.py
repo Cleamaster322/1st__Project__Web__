@@ -43,7 +43,6 @@ def upload_file():
         file = request.files['img']
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
-
             UPLOAD_FOLDER = f'static/img/{id_account}' #Пришлось сюда перенести мб потом переделаем
             app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 

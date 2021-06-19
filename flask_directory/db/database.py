@@ -74,6 +74,7 @@ class Database:
 
     def change_avatar(self,id,filename):
         with self.get_db_connection() as conn:
+            
             cur = conn.cursor()
             new = cur.execute(f"""UPDATE main SET avatar = "/static/img/{id}/{filename}" WHERE id = {id}""")
             conn.commit()
