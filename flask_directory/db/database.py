@@ -78,7 +78,6 @@ class Database:
             cur = conn.cursor()
             id = cur.execute(f"""SELECT id FROM Main WHERE (login = '{login}')""").fetchone()
             id = id[0]
-            print(id)
         return id
 
     def check_avatar(self,id,filename):
