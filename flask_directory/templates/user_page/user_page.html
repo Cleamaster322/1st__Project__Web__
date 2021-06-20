@@ -64,11 +64,6 @@
                 Мои подписчики
             </a>
         </div>
-        <form style="display: none" action = "/upload_n" method = "post" enctype="multipart/form-data">
-                <input class='forms' type="file" placeholder="Выбрать" name = "img">
-                <input type="submit" value="загрузить">
-                <div>312321123123</div>
-        </form>
         {% block current_page_content %}
             <div class = "shell_userpage">
                 <div class = "userpage">
@@ -76,6 +71,12 @@
                         <div class = "shell_intro">
                             <div class = "intro">
                                 <img src= "{{account.avatar}}" alt = "userAvatar" class = 'main_avatar'>
+
+                                <form action = "/upload_n" method = "post" enctype="multipart/form-data">
+                                     <input class='forms' type="file" placeholder="Выбрать" name = "img">
+                                    <input type="submit" value="загрузить">
+                                </form>
+
                                 <div> {{ account.login }} </div>
                             </div>
                         </div>
@@ -102,11 +103,40 @@
                                         0 публикаций
                                     </a>
                                 </div>
-                                <img src = "/static/user_page/line.svg">
+                                <div class = "add_post">
+                                    <img src = "/static/user_page/line.svg">
+                                    <div class = "src_for_add_post" onclick="show_add_block_post()">
+                                        <img src = "/static/user_page/free-icon-add-file-1323942.svg">
+                                        Добавить новый пост
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class = "posts">
+
+                        <div id = "shell_for_add_post_block" class = "shell_for_add_post_block">
+                            <div class = "add_block_post">
+                                <div class = "hat_add_block_post">
+                                    <h1> Введите текст поста </h1>
+                                    <img src = "/static/user_page/free-icon-error-148766.svg" onclick="close_add_block_post()">
+                                </div>
+                                <form>
+                                    <textarea>
+
+                                    </textarea>
+                                </form>
+                            </div>
+                        </div>
+
+                        <script>
+                            function show_add_block_post(){
+                                document.getElementById("shell_for_add_post_block").classList.toggle("show_add_post_block");
+                            }
+                            function close_add_block_post(){
+                                document.getElementById("shell_for_add_post_block").classList.remove("show_add_post_block");
+                            }
+                        </script>
 
                         <div class = "shell_post">
                             <div class = "one_post">

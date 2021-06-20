@@ -209,22 +209,16 @@
     justify-content: center;
     align-items: center;
     height: 300px;
-    width: 70%;
+    width: 650px;
     background: radial-gradient( 99.5% 397.04% at 100% 49.01%, #058fff 0%, #EB9038 70.35%, #F3C3CF 100%);;
 }
 .userpage_stat{
     height: 294px;
-    width: calc(100% - 6px);
+    width: 644px;
     border-radius: 10px;
     background: black;
     display: grid;
     grid-template-rows: 4fr 3fr 2fr;
-}
-.userpage_stat > img {
-    margin-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 96%;
 }
 .top_stats{
     font-family: "roboto-mediumItalic", serif;
@@ -263,9 +257,82 @@
 .bottom_stats > a > img{
     width: 50px;
 }
+.add_post {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.add_post > img {
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 96%;
+}
+.src_for_add_post{
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+}
+.src_for_add_post > img{
+    padding-right: 5px;
+    width: 30px;
+}
 .posts{
     margin-top: 10px;
 }
+.shell_for_add_post_block{
+    display: none;
+    border-radius: 5px;
+    padding: 3px;
+    margin-top: 20px;
+    flex-direction: column;
+    align-items: center;
+    height: max-content;
+    background:radial-gradient( 99.5% 397.04% at 100% 49.01%, #058fff 0%, #EB9038 70.35%, #F3C3CF 100%) ;
+}
+.show_add_post_block{
+    display: flex;
+}
+.add_block_post{
+
+    height: max-content;
+    border-radius: 5px;
+    width: 100%;
+    background: black;
+
+}
+.hat_add_block_post {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.hat_add_block_post > h1{
+    margin-top: 10px;
+    margin-left: 10px;
+    color: white;
+    font-size: 20px;
+    font-family: "roboto-medium", serif;
+}
+.hat_add_block_post > img {
+    width: 20px;
+    cursor: pointer;
+}
+.add_block_post > form{
+    width: 100%;
+    margin-top:20px;
+    display: flex;
+    justify-content: center;
+}
+.add_block_post > form > textarea{
+    width:calc( 100% - 20px);
+    height: 400px;
+    background: black;
+    padding: 10px;
+    color:white;
+    border: none;
+}
+
 .shell_post{
     border-radius: 5px;
     padding: 3px;
