@@ -132,7 +132,7 @@ def register():
         user = {'login': login, 'mail': mail, 'password': generate_password_hash(password)}
         db.insert_account(user)
         db.create_img_folder(db.get_id(login))
-        accounts = db.get_accounts()
+        accounts +=1
     return redirect("/")
 
 
@@ -147,6 +147,7 @@ def post_add_fail(errors):
 
 @app.route("/user_page/<int:id>")
 def user_page(id):
+    print(accounts)
     if id not in range(1, accounts + 1) and id != id_account:
         return redirect("/404_erros")
     else:
