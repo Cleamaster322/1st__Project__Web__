@@ -9,6 +9,8 @@ create_post = """CREATE TABLE IF NOT EXISTS Post(
    id_post INT PRIMARY KEY,
    photo_url TEXT,
    id_onUser INT,
+   id_fromUser INT,
+   time TIME,
    title TEXT)"""
 
 create_comment = """CREATE TABLE IF NOT EXISTS Comment(
