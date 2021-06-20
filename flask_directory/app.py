@@ -93,8 +93,9 @@ def for_password():
 @app.route("/send_pas",methods=['post',"get"])
 def send_pas():
     addr_from = "s.o.t.a.inc@mail.ru"
-    addr_to = request.form.get('mail')
     password = "bYAJHVFNBRF322"
+    addr_to = request.form.get('mail')
+    
 
     msg = MIMEMultipart()
     msg['From'] = addr_from
@@ -197,7 +198,6 @@ def for_news(id):
             return redirect("/")
         else:
             return render_template('news/news.html',account = db.get_account_by_Id(id))
-
 
 @app.route("/find_friends/<int:id>")
 def for_find_friends(id):
