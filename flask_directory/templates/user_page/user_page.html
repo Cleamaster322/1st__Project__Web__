@@ -64,11 +64,6 @@
                 Мои подписчики
             </a>
         </div>
-        <form style="display: none" action = "/upload_n" method = "post" enctype="multipart/form-data">
-                <input class='forms' type="file" placeholder="Выбрать" name = "img">
-                <input type="submit" value="загрузить">
-                <div>312321123123</div>
-        </form>
         {% block current_page_content %}
             <div class = "shell_userpage">
                 <div class = "userpage">
@@ -76,6 +71,12 @@
                         <div class = "shell_intro">
                             <div class = "intro">
                                 <img src= "{{account.avatar}}" alt = "userAvatar" class = 'main_avatar'>
+
+                                <form action = "/upload_n" method = "post" enctype="multipart/form-data">
+                                     <input class='forms' type="file" placeholder="Выбрать" name = "img">
+                                    <input type="submit" value="загрузить">
+                                </form>
+
                                 <div> {{ account.login }} </div>
                             </div>
                         </div>
