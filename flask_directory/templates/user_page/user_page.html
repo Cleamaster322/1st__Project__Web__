@@ -83,6 +83,10 @@
                                     <input id = "choose_file_profile_image" class = "url_to_intro_for_js" style="display:none;" type="file" placeholder="Выбрать" name = "img">
                                     <div onclick="document.getElementById('download_profile_image').click()" class="visible_form_file "> Загрузить фото </div>
                                     <input id = "download_profile_image" style="display:none;" type="submit" value="загрузить">
+                                <form action = "/upload_n" method = "post" enctype="multipart/form-data">
+                                     <input class='forms' type="file" placeholder="Выбрать" name = "img">
+                                    <input type="submit" value="загрузить">
+
                                 </form>
 
                                 <script>
@@ -134,6 +138,7 @@
                             </div>
                         </div>
                     </div>
+                    
                     <div class = "posts">
 
                         <div id = "shell_for_add_post_block" class = "shell_for_add_post_block">

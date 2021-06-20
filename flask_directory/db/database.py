@@ -46,7 +46,7 @@ class Database:
         fullpath = os.path.join(path,projectame)
         print(fullpath)
         os.mkdir(fullpath)
-
+        seek_f = open(f"{fullpath}/.gitkeep","w") # чтобы в гит отправлялись пустые папки
     def check_mail(self,mail):
         with self.get_db_connection() as conn:
             cur = conn.cursor()
@@ -146,3 +146,11 @@ class Database:
             for i in tmp:
                 ids.append(i[0])
             return ids
+
+    def get_posts_on_acc(self,id):
+        with self.get_db_connection() as conn:
+            cur = conn.cursor()
+            tmp = cur.execute(f"""SELECT * FROM Post WHERE id_onUser = {id}""").fetchall()
+            conn.commit()
+            for i in tmp:
+                print(i)
