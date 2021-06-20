@@ -15,59 +15,185 @@
     src:url("/static/fonts/Roboto-MediumItalic.ttf");
 }
 
+.wrapper{
+
+}
+
 .content{
+    background: radial-gradient( 99.5% 397.04% at 100% 49.01%, #058fff 0%, #EB9038 70.35%, #F3C3CF 100%);
     width: 80%;
-    height: 100%;
-    background-image: url(hatback2.jpeg);
+    height: 90%;
+    position: relative;
+    margin: 40px 0px 0 80px;
+    border-radius: 10px;
+    padding-top: 2px;
 }
 
-.search_subscribers{
-    padding-top:40px;
+.subscriptions{
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    position: relative;
     display: flex;
-    justify-content: center;
-    align-items: center;
-
-
+    flex-direction: column;
+    background-color: #141414;
+    border-radius: 10px;
+    margin-left: 2px;
+    overflow-y: scroll;
 }
 
-.me_following_title p{
-    color: white;
+.sub_search{
+    width: 100%;
+    margin: 1% 2%;
+    position: relative;
+}
+
+.sub_search::after {
+    content: attr(data-text);
+    font-size: 1.5rem;
+    line-height: 0;
+    height: 0;
+    max-width: 100%;
     font-family: "roboto-medium";
-    font-size: 24px;
-    line-height: 24px;
-    letter-spacing: 2px;
+    border-bottom: 3px solid #fff;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    overflow: hidden;
+    user-select: none;
+    color: transparent;
+}
+.sub_search > input {
+    color: #ddd;
+    border: none;
+    padding: 0;
+    border-radius: 0;
+    outline: none;
+    width: auto;
+    min-width: 96%;
+    font-size: 18px;
+    line-height: 3em;
+    font-family: "roboto-light";
+    border-bottom: 3px solid #333333;
+    background-color: transparent;
 }
 
-.d7 form {
-  width: auto;
-  float: right;
-  margin-right: 30px;
-    padding-left: 20px;
+.subscription_profile{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: calc(100% - 40px);
+    height: 110px;
+    margin-top: 5px;
+    margin-left: 20px;
 }
-.d7 input {
-  width: 250px;
-  height: 42px;
-  padding-left: 15px;
-  border-radius: 42px;
-  border: 2px solid #324b4e;
-  background: #F9F0DA;
-  outline: none;
-  position: relative;
-  transition: .3s linear;
+
+.subscription_profile_photo img{
+    float: left;
+    width: 100px;
+    border-radius: 50%;
+    border: #45A405 solid 2px;
 }
-.d7 input:focus {
-  width: 300px;
+
+.subscription_description{
+    margin: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 100%;
+    padding-left: 30px;
+    height: 100%;
 }
-.d7 button {
-  width: 42px;
-  height: 42px;
-  background: none;
-  border: none;
-  position: absolute;
-  top: -2px;
-  right: 0;
+
+.subscription_description_name{
+    font-family: "roboto-light";
+    font-size: 20px;
+    color: white;
+    padding: 0.5rem 1.25rem;
 }
-.d7 button:before{
-  content: "\f002";
-  color: #324b4e;
+
+.subscription_description_message{
+    height: 50%;
+    width: 40%;
+    display: flex;
+    white-space: nowrap;
 }
+
+.to_messenger {
+    display: block;
+    padding: 1rem 1.25rem;
+    font-family: "roboto-medium";
+    font-size: 14px;
+    text-decoration: none;
+    color: white;
+    position: relative;
+    transition: all .3s cubic-bezier(.2, 0, 0, 1);
+    z-index: 1;
+}
+.to_messenger::after {
+    content: '';
+    display: block;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    right: 1rem;
+    left: 1rem;
+    background-color: #ffffff;
+    transition: all .3s cubic-bezier(.2, 0, 0, 1);
+    transform-origin: bottom center;
+    z-index: -1;
+}
+.to_messenger:hover {
+    color: #141414;
+}
+.to_messenger:hover::after {
+    right: 0;
+    left: 0;
+    height: 100%;
+}
+
+.unsubscribe{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.unsubscribe>button{
+    background: #950000;
+    color:#fff;
+    border:none;
+    position:relative;
+    height:30px;
+    font-family: "roboto-medium";
+    font-size: 14px;
+    padding:0 2em;
+    cursor:pointer;
+    transition:800ms ease all;
+    outline:none;
+}
+button:hover{
+    background:#fff;
+    color:#950000;
+}
+button:before,button:after{
+    content:'';
+    top:0;
+    right:0;
+    width:0;
+    position:absolute;
+    height:2px;
+    background: #950000;
+    transition:1.5s;
+}
+button:after {
+    right: inherit;
+    top: inherit;
+    left: 0;
+    bottom: 0;
+}
+button:hover:before,button:hover:after{
+      width:100%;
+}
+
+
+
