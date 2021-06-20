@@ -164,3 +164,5 @@ def for_news(id):
 @app.route("/404_erros")
 def for_404_error():
     return render_template('404_error/404_error.html')
+
+

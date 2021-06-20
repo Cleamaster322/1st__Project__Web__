@@ -23,12 +23,28 @@
     font-family: "roboto-light", serif , "Times New Roman";
     background-image: url("/static/user_page/hatback10.jpeg");
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 0.4fr 0.6fr 2fr 1fr;
     height: 10vh;
 }
 .toplogo{
     width: 10vh;
     height: 10vh;
+}
+.search_people{
+    display: flex;
+    align-items: center;
+}
+.search_people > a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color:white;
+    font-family: "roboto-medium", serif;
+    font-size: 20px;
+}
+.search_people > a > img{
+    width: 30px;
+    padding-right: 5px;
 }
 .sota_hat{
     font-family: "roboto-bold", serif, "Times New Roman";
@@ -299,6 +315,12 @@
     align-items: center;
     color:rgb(158, 156, 155);
     padding: 10px;
+}
+.like{
+    fill: #bababa;
+}
+.likeRed{
+    fill: red;
 }
 .count{
     font-size: 25px;
