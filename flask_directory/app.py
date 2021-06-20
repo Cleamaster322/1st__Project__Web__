@@ -1,21 +1,27 @@
-from flask import Flask, render_template, redirect, request, jsonify, url_for, send_from_directory
+from flask import Flask, render_template, redirect, request, url_for, send_from_directory,session,flash
 from datetime import datetime
 import sqlite3
 import os
+from flask.helpers import flash
 from db.database import Database
 from werkzeug.utils import secure_filename
-from werkzeug.security import generate_password_hash,check_password_hash
+from werkzeug.security import generate_password_hash
+import smtplib
+from email.mime.multipart import MIMEMultipart    
+from email.mime.text import MIMEText                
+from email.mime.base import MIMEBase
+from email import encoders
 
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
 DATABASE = 'db/sota.db'
 
 app = Flask(__name__)
+app.secret_key = 'dlkjhuthujh4j23y45789yhjkh098puolj'
 MAX_CONTENT_LENGHT = 1024 * 1024
 db = Database(DATABASE)
-db.init_db()
+db.init_db() 
 accounts = db.get_accounts_count() #Кол-во всех аккаунтов 
-app = Flask(__name__)
 
 flag_enter = False
 id_account = -1
@@ -78,9 +84,35 @@ def check_enter():
             id_account = db.get_id(login)
             return redirect(f'/user_page/{id_account}') 
 
-@app.route("/forgotten_password")
+@app.route("/forgotten_password",methods=['post',"get"])
 def for_password():
-    return render_template('forgotten_password/forgotten_password.html')
+    return render_template("forgotten_password/forgotten_password.html")
+ 
+
+
+@app.route("/send_pas",methods=['post',"get"])
+def send_pas():
+    addr_from = "s.o.t.a.inc@mail.ru"
+    addr_to = request.form.get('mail')
+    password = "bYAJHVFNBRF322"
+
+    msg = MIMEMultipart()
+    msg['From'] = addr_from
+    msg['To'] = addr_to
+    msg['Subject'] = "Восстановление пароля"
+    if db.check_mail(addr_to) == True:
+        msg.attach(MIMEText("123"))
+        smtpObj = smtplib.SMTP('smtp.mail.ru', 587)
+        smtpObj.starttls()
+        smtpObj.login(addr_from,password)
+        text = msg.as_string()
+        smtpObj.sendmail(addr_from, addr_to, text)
+        smtpObj.quit()
+        flash("Письмо отправлено")
+    else:
+        flash("Письмо не отправлено")
+    return render_template("forgotten_password/forgotten_password.html")
+
 
 @app.route("/register", methods=['post'])
 def register():

@@ -1,3 +1,4 @@
+
 from db.command import * 
 import os
 import sqlite3
@@ -46,6 +47,13 @@ class Database:
         print(fullpath)
         os.mkdir(fullpath)
 
+    def check_mail(self,mail):
+        with self.get_db_connection() as conn:
+            cur = conn.cursor()
+            mail_checked = cur.execute(f"""SELECT mail FROM Main WHERE mail = '{mail}'""").fetchone()
+            if mail_checked == None:
+                return False
+        return True
 
 
     def get_account(self, login, password):
