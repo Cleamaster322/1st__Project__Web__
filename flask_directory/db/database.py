@@ -1,6 +1,7 @@
 from db.command import * 
 import os
 import sqlite3
+from PIL import Image 
 #КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ 
 #КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ  
 #КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ
@@ -71,6 +72,14 @@ class Database:
             id = cur.execute(f"""SELECT id FROM Main WHERE (login = '{login}') and (password = '{password}')""").fetchall()
             id = id[0][0]
         return id
+
+    def check_avatar(self,id,filename):
+        im = Image.open(f"static/img/{id}/{filename}")
+        (width, height) = im.size
+        print(width,height)
+        if width > 500 or height >500:
+            return False
+        return True
 
     def change_avatar(self,id,filename):
         with self.get_db_connection() as conn:

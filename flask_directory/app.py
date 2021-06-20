@@ -49,8 +49,10 @@ def upload_file():
 
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             send_from_directory(app.config['UPLOAD_FOLDER'], filename)
-            db.change_avatar(id_account,filename)
-            
+            if db.check_avatar(id_account,filename) == True:
+                db.change_avatar(id_account,filename)
+            else:
+                os.remove(f"static/img/{id_account}/{filename}")
             return redirect(f'/user_page/{id_account}')
     else:
         return redirect("/404_erros")
