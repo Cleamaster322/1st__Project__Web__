@@ -34,7 +34,7 @@
                     document.getElementById("redactor_menu").classList.toggle("show");
                 }
                 window.onclick= function (event){
-                        if ( !event.target.matches('.strelka') && !event.target.matches('.redactor_menu') ){
+                        if ( !event.target.matches('.strelka') && !event.target.matches('.redactor_menu') ) {
                             document.getElementById("redactor_menu").classList.remove("show");
                         }
                     }
@@ -72,10 +72,35 @@
                             <div class = "intro">
                                 <img src= "{{account.avatar}}" alt = "userAvatar" class = 'main_avatar'>
 
+                                <div id="url_to_intro_form" class = "url_to_intro_form" onclick="for_showing_intro_form()">
+                                    <img src = "/static/user_page/free-icon-upload-2206449.svg">
+                                    <div class = "url_to_intro_for_js">Изменить фотографию</div>
+                                </div>
+
+
+                                <form id = "get_new_profile_image_menu" class = "get_new_profile_image_menu" action = "/upload_n" method = "post" enctype="multipart/form-data">
+                                    <div onclick="document.getElementById('choose_file_profile_image').click();" class = "visible_form_file"> Выбрать фото</div>
+                                    <input id = "choose_file_profile_image" class = "url_to_intro_for_js" style="display:none;" type="file" placeholder="Выбрать" name = "img">
+                                    <div onclick="document.getElementById('download_profile_image').click()" class="visible_form_file "> Загрузить фото </div>
+                                    <input id = "download_profile_image" style="display:none;" type="submit" value="загрузить">
                                 <form action = "/upload_n" method = "post" enctype="multipart/form-data">
                                      <input class='forms' type="file" placeholder="Выбрать" name = "img">
                                     <input type="submit" value="загрузить">
+
                                 </form>
+
+                                <script>
+                                    function for_showing_intro_form(){
+                                         document.getElementById('get_new_profile_image_menu').style.display="flex";
+                                         document.getElementById('url_to_intro_form').classList.add("hide_url_to_intro_form");
+                                    }
+                                    window.onclick = function (event){
+                                        if ( !event.target.matches('.url_to_intro_for_js') && !event.target.matches('.visible_form_file') ){
+                                            document.getElementById('get_new_profile_image_menu').style.display="none";
+                                            document.getElementById('url_to_intro_form').classList.remove("hide_url_to_intro_form");
+                                        }
+                                    }
+                                </script>
 
                                 <div> {{ account.login }} </div>
                             </div>
