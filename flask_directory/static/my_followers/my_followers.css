@@ -178,3 +178,13 @@
     background: #ED4956;
     color: #141414;
 }
+.spec_del_blue:hover {
+    background: #4ACFFF;
+    color: #141414;
+    z-index: 1;
+}
+.spec_del_red:hover {
+    background: #ED4956;
+    color: #141414;
+    z-index: 1;
+}
