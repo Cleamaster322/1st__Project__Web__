@@ -153,7 +153,7 @@ def user_page(id):
         if flag_enter == False or id != id_account:
             return redirect("/")
         else:
-            return render_template('user_page/user_page.html',account = db.get_account_by_Id(id))
+            return render_template('user_page/user_page.html',account = db.get_account_by_Id(id),post = [])
 
 
 @app.route("/messange/<int:id>")
