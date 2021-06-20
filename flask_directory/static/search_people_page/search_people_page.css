@@ -1,0 +1,47 @@
+.shell_for_search_people{
+    position: relative;
+    background:radial-gradient( 99.5% 397.04% at 100% 49.01%, #058fff 0%, #EB9038 70.35%, #F3C3CF 100%) ;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.search_people_2{
+    height: calc(100% - 6px);
+    display: grid;
+    grid-template-rows: 0.5fr 5fr;
+    background: black;
+    width: calc(100% - 6px);
+
+}
+.search_people_2 > form{
+    margin: 20px;
+}
+.search_input_line {
+    font-family: "gilroy-medium", serif;
+    font-size: 20px;
+    background: rgb(112, 112, 112);
+    width: 70%;
+    height: 30px;
+    border-radius: 5px;
+}
+.search_button_from_search_page{
+    height: 30px;
+    width: 60px;
+    margin-left: 10px;
+}
+.finded_people {
+    height: 500px;
+    overflow: auto;
+    margin-left: 20px;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.one_finded_people{
+    margin-top: 20px;
+    color: white;
+    font-family: "roboto-light", serif;
+}
