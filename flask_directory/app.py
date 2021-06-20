@@ -19,6 +19,7 @@ app = Flask(__name__)
 flag_enter = False
 id_account = -1
 
+session = {}
 
 
 def allowed_file(filename):
@@ -60,6 +61,7 @@ def upload_file():
 def check_enter():
     global flag_enter
     global id_account
+    global session
     if request.form:
         login = request.form.get('login')
         password = request.form.get('password')
@@ -68,6 +70,7 @@ def check_enter():
         if user == None:
             return redirect("/fail")
         else:
+            session[id_account] = True
             flag_enter = True
             id_account = db.get_id(login,password)
             return redirect(f'/user_page/{id_account}') 
@@ -108,10 +111,10 @@ def post_add_fail(errors):
 
 @app.route("/user_page/<int:id>")
 def user_page(id):
-    if id not in range(1, accounts + 1):
+    if id not in range(1, accounts + 1) and id != id_account:
         return redirect("/404_erros")
     else:
-        if flag_enter == False:
+        if flag_enter == False or id != id_account:
             return redirect("/")
         else:
             return render_template('user_page/user_page.html',account = db.get_account_by_Id(id))
@@ -122,7 +125,7 @@ def for_messanges(id):
     if id not in range(1, accounts + 1):
         return redirect("/404_erros")
     else:
-        if flag_enter == False:
+        if flag_enter == False or id != id_account:
             return redirect("/")
         else:
             return render_template('messange_page/messange_page.html',account = db.get_account_by_Id(id))
@@ -133,7 +136,7 @@ def for_followers(id):
     if id not in range(1, accounts + 1):
         return redirect("/404_erros")
     else:
-        if flag_enter == False:
+        if flag_enter == False or id != id_account:
             return redirect("/")
         else:
             return render_template('my_followers/my_followers.html',account = db.get_account_by_Id(id))
@@ -144,7 +147,7 @@ def for_following(id):
     if id not in range(1, accounts + 1):
         return redirect("/404_erros")
     else:
-        if flag_enter == False:
+        if flag_enter == False or id != id_account:
             return redirect("/")
         else:
             return render_template('me_following/me_following.html',account = db.get_account_by_Id(id))
@@ -155,7 +158,7 @@ def for_news(id):
     if id not in range(1, accounts + 1):
         return redirect("/404_erros")
     else:
-        if flag_enter == False:
+        if flag_enter == False or id != id_account:
             return redirect("/")
         else:
             return render_template('news/news.html',account = db.get_account_by_Id(id))
