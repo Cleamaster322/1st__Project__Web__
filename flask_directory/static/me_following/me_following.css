@@ -15,16 +15,12 @@
     src:url("/static/fonts/Roboto-MediumItalic.ttf");
 }
 
-.wrapper{
-
-}
-
 .content{
     background: radial-gradient( 99.5% 397.04% at 100% 49.01%, #058fff 0%, #EB9038 70.35%, #F3C3CF 100%);
     width: 80%;
     height: 90%;
     position: relative;
-    margin: 40px 0px 0 80px;
+    margin: 40px 0px 0px 80px;
     border-radius: 10px;
     padding-top: 2px;
 }
@@ -38,20 +34,17 @@
     background-color: #141414;
     border-radius: 10px;
     margin-left: 2px;
-    overflow-y: scroll;
 }
 
-.sub_search{
+.sub_search {
     width: 100%;
-    margin: 1% 2%;
+    margin: 5px 2%;
     position: relative;
 }
-
 .sub_search::after {
     content: attr(data-text);
     font-size: 1.5rem;
     line-height: 0;
-    height: 0;
     max-width: 100%;
     font-family: "roboto-medium";
     border-bottom: 3px solid #fff;
@@ -84,7 +77,7 @@
     justify-content: space-between;
     width: calc(100% - 40px);
     height: 110px;
-    margin-top: 5px;
+    margin-top: 20px;
     margin-left: 20px;
 }
 
