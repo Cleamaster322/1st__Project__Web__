@@ -18,7 +18,7 @@
     position: relative;
     margin: 40px 0 0 80px;
     width: 80%;
-    height: 90%;
+    height: 70%;
     background: radial-gradient( 99.5% 397.04% at 100% 49.01%, #058fff 0%, #EB9038 70.35%, #F3C3CF 100%);
     border-radius: 10px;
 }
@@ -31,6 +31,7 @@
     background-color: #141414;
     border-radius: 10px;
     margin: 2px;
+
 }
 .followers_search_wrap {
     position: relative;
@@ -74,10 +75,12 @@
 .followers_list_wrap {
     position: inherit;
     width: calc(100% - 40px);
+    height: 100%;
     margin: 0 auto;
+    overflow-y: scroll;
 }
 .followers_follower {
-    margin: 20px 0;
+    margin: 40px 0;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -146,4 +149,21 @@
 }
 .follower_button {
     align-self: center;
+}
+#delete_follower {
+    padding: 10px 25px;
+    font-family: "roboto-bold";
+    font-weight: 500;
+    color: #ED4956;
+    background: transparent;
+    outline: none !important;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    border: 2px solid #ED4956;
+}
+#delete_follower:hover {
+    background: #ED4956;
+    color: #141414;
 }

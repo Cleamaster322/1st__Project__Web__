@@ -4,21 +4,30 @@
 
 <div class="wrapper">
   <div class="content">
-    <div class="wrapper">
-        <div class="content">
-            <div class="search_subscribers">
-                <div class="me_following_title">
-                    <p>Мои подписки:</p>
+    <div class="subscriptions">
+        <div class="sub_search">
+            <input type="text" placeholder="Поиск подписок...">
+        </div>
+        <div class="subscription_profile">
+            <div class="subscription_profile_location">
+                <div class="subscription_profile_photo">
+                    <img src="/static/me_following/avatar.png" alt="">
                 </div>
-                <div class="d7">
-                    <form>
-                        <input type="text" placeholder="Искать здесь...">
-                        <button type="submit"></button>
-                    </form>
+                <div class="subscription_description">
+                    <div class="subscription_description_name">
+                                <span>Name</span>
+                    </div>
+                    <div class="subscription_description_message">
+                        <a href="!!!Ссылка на диалог!!!" target="_self" class="to_messenger">Написать сообщение</a>
+                    </div>
                 </div>
             </div>
+            <div class="unsubscribe">
+                <button id="unsubscribe_user" onclick="unUser()">Отписаться</button>
+            </div>
         </div>
-      </div>
+    </div>
   </div>
 </div>
-{% endblock %}z
+<script rel="script" src = "{{url_for('static', filename='me_following/me_following.js')}}"></script>
+{% endblock %}
