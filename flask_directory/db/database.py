@@ -2,6 +2,7 @@ from db.command import *
 import os
 import sqlite3
 from PIL import Image 
+from werkzeug.security import check_password_hash
 #КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ 
 #КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ  
 #КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ
@@ -72,11 +73,12 @@ class Database:
             accounts = accounts[0][0]  #Костыль
         return accounts
 
-    def get_id(self,login,password):
+    def get_id(self,login):
         with self.get_db_connection() as conn:
             cur = conn.cursor()
-            id = cur.execute(f"""SELECT id FROM Main WHERE (login = '{login}') and (password = '{password}')""").fetchall()
-            id = id[0][0]
+            id = cur.execute(f"""SELECT id FROM Main WHERE (login = '{login}')""").fetchone()
+            id = id[0]
+            print(id)
         return id
 
     def check_avatar(self,id,filename):
@@ -94,6 +96,17 @@ class Database:
             new = cur.execute(f"""UPDATE main SET avatar = "/static/img/{id}/{filename}" WHERE id = {id}""")
             conn.commit()
         return 
+
+    def check_enter_acc(self,login,password):
+        with self.get_db_connection() as conn:
+            cur = conn.cursor()
+            acc = cur.execute(f"""SELECT * FROM main WHERE login = '{login}'""").fetchone()
+            conn.commit()
+            if login == acc[1] and check_password_hash(acc[3],password) == True:
+                return True
+            else:
+                return False
+
 
     def check_account(self,parametrs):
         with self.get_db_connection() as conn:

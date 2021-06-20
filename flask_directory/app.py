@@ -4,6 +4,7 @@ import sqlite3
 import os
 from db.database import Database
 from werkzeug.utils import secure_filename
+from werkzeug.security import generate_password_hash,check_password_hash
 
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
@@ -49,10 +50,11 @@ def upload_file():
 
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             send_from_directory(app.config['UPLOAD_FOLDER'], filename)
-            if db.check_avatar(id_account,filename) == True:
-                db.change_avatar(id_account,filename)
-            else:
-                os.remove(f"static/img/{id_account}/{filename}")
+            # if db.check_avatar(id_account,filename) == True: # Ограничение на фото 500х500
+            #     db.change_avatar(id_account,filename)
+            # else:
+            #     os.remove(f"static/img/{id_account}/{filename}")
+            db.change_avatar(id_account,filename)
             return redirect(f'/user_page/{id_account}')
     else:
         return redirect("/404_erros")
@@ -68,13 +70,12 @@ def check_enter():
         login = request.form.get('login')
         password = request.form.get('password')
 
-        user = db.get_account(login, password)
-        if user == None:
+        if db.check_enter_acc(login,password) == False:
             return redirect("/fail")
         else:
             session[id_account] = True
             flag_enter = True
-            id_account = db.get_id(login,password)
+            id_account = db.get_id(login)
             return redirect(f'/user_page/{id_account}') 
 
 @app.route("/forgotten_password")
@@ -95,9 +96,9 @@ def register():
             if i == "display: Block;":
                 return post_add_fail(errors)
 
-        user = {'login': login, 'mail': mail, 'password': password}
+        user = {'login': login, 'mail': mail, 'password': generate_password_hash(password)}
         db.insert_account(user)
-        db.create_img_folder(db.get_id(login,password))
+        db.create_img_folder(db.get_id(login))
         accounts = db.get_accounts()
     return redirect("/")
 
