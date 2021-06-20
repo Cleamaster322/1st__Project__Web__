@@ -46,7 +46,7 @@ class Database:
         fullpath = os.path.join(path,projectame)
         print(fullpath)
         os.mkdir(fullpath)
-
+        seek_f = open(f"{fullpath}/.gitkeep","w") # чтобы в гит отправлялись пустые папки
     def check_mail(self,mail):
         with self.get_db_connection() as conn:
             cur = conn.cursor()
