@@ -174,7 +174,7 @@
     color: white;
 }
 .main_avatar{
-    border: 5px solid white;
+    border: 2px solid white;
     width: 200px;
     height: 200px;
 }
@@ -202,6 +202,32 @@
     align-items: center;
     font-size: 30px;
 
+}
+.url_to_intro_form{
+    cursor: pointer;
+    display: flex;
+    font-size: 15px;
+}
+.hide_url_to_intro_form{
+    display: none;
+}
+.show_inro_form{
+    display: flex;
+}
+.url_to_intro_form > img{
+    width: 20px;
+}
+.get_new_profile_image_menu{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2px;
+}
+.visible_form_file{
+    margin-top:5px;
+    color:rgb(158, 156, 155);
+    font-size: 15px;
+    cursor: pointer;
 }
 .shell_userpage_stats{
     border-radius: 10px;
