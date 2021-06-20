@@ -161,7 +161,7 @@
 .follower_button {
     align-self: center;
 }
-#delete_follower {
+.delete_follower {
     padding: 10px 25px;
     font-family: "roboto-bold";
     font-weight: 500;
@@ -174,7 +174,7 @@
     display: inline-block;
     border: 2px solid #ED4956;
 }
-#delete_follower:hover {
+.delete_follower:hover {
     background: #ED4956;
     color: #141414;
 }
