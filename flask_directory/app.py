@@ -163,6 +163,16 @@ def for_news(id):
         else:
             return render_template('news/news.html',account = db.get_account_by_Id(id))
 
+@app.route("/find_friends/<int:id>")
+def for_find_friends(id):
+    if id not in range(1, accounts + 1):
+        return redirect("/404_erros")
+    else:
+        if flag_enter == False or id != id_account:
+            return redirect("/")
+        else:
+            return render_template('search_people_page/search_people_page.html',account = db.get_account_by_Id(id))
+
 
 @app.route("/404_erros")
 def for_404_error():
