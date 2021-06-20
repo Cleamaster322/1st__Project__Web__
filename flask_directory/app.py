@@ -13,7 +13,7 @@ app = Flask(__name__)
 MAX_CONTENT_LENGHT = 1024 * 1024
 db = Database(DATABASE)
 db.init_db()
-accounts = db.get_accounts() #Кол-во всех аккаунтов 
+accounts = db.get_accounts_count() #Кол-во всех аккаунтов 
 app = Flask(__name__)
 
 flag_enter = False
@@ -173,7 +173,8 @@ def for_find_friends(id):
         if flag_enter == False or id != id_account:
             return redirect("/")
         else:
-            return render_template('search_people_page/search_people_page.html',account = db.get_account_by_Id(id))
+            return render_template('search_people_page/search_people_page.html',account = db.get_account_by_Id(id),accounts = db.get_accounts(),id_friends = db.get_id_followed(id))
+
 
 
 @app.route("/404_erros")

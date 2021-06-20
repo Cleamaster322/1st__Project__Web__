@@ -53,13 +53,19 @@ class Database:
             account = cur.execute(f"""SELECT id FROM Main WHERE (login = '{login}') and (password = '{password}')""").fetchone()
         return account
 
+    def get_accounts(self):
+        with self.get_db_connection() as conn:
+            cur = conn.cursor()
+            accounts = cur.execute(f"""SELECT * FROM Main""").fetchall()
+        return accounts
+
     def get_account_by_Id(self,id):
         with self.get_db_connection() as conn:
             cur = conn.cursor()
             account = conn.execute(f"""SELECT * FROM Main WHERE id = {id}""").fetchone()
         return account
 
-    def get_accounts(self): # Считает кол-во аккаунтов
+    def get_accounts_count(self): # Считает кол-во аккаунтов
         with self.get_db_connection() as conn:
             cur = conn.cursor()
             accounts = conn.execute("""SELECT Count(*) FROM Main""").fetchall()
@@ -110,3 +116,13 @@ class Database:
             if password == password2:
                 errors[5] = "display: none;"
             return errors
+
+    def get_id_followed(self,id):
+        with self.get_db_connection() as conn:
+            ids = []
+            cur = conn.cursor()
+            tmp = cur.execute(f"""SELECT id_other FROM Followed WHERE id_onUser = {id}""").fetchall()
+            conn.commit()
+            for i in tmp:
+                ids.append(i[0])
+            return ids
