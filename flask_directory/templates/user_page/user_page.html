@@ -34,7 +34,7 @@
                     document.getElementById("redactor_menu").classList.toggle("show");
                 }
                 window.onclick= function (event){
-                        if ( !event.target.matches('.strelka') && !event.target.matches('.redactor_menu') ){
+                        if ( !event.target.matches('.strelka') && !event.target.matches('.redactor_menu') ) {
                             document.getElementById("redactor_menu").classList.remove("show");
                         }
                     }
@@ -72,10 +72,35 @@
                             <div class = "intro">
                                 <img src= "{{account.avatar}}" alt = "userAvatar" class = 'main_avatar'>
 
+                                <div id="url_to_intro_form" class = "url_to_intro_form" onclick="for_showing_intro_form()">
+                                    <img src = "/static/user_page/free-icon-upload-2206449.svg">
+                                    <div class = "url_to_intro_for_js">Изменить фотографию</div>
+                                </div>
+
+
+                                <form id = "get_new_profile_image_menu" class = "get_new_profile_image_menu" action = "/upload_n" method = "post" enctype="multipart/form-data">
+                                    <div onclick="document.getElementById('choose_file_profile_image').click();" class = "visible_form_file"> Выбрать фото</div>
+                                    <input id = "choose_file_profile_image" class = "url_to_intro_for_js" style="display:none;" type="file" placeholder="Выбрать" name = "img">
+                                    <div onclick="document.getElementById('download_profile_image').click()" class="visible_form_file "> Загрузить фото </div>
+                                    <input id = "download_profile_image" style="display:none;" type="submit" value="загрузить">
                                 <form action = "/upload_n" method = "post" enctype="multipart/form-data">
                                      <input class='forms' type="file" placeholder="Выбрать" name = "img">
                                     <input type="submit" value="загрузить">
+
                                 </form>
+
+                                <script>
+                                    function for_showing_intro_form(){
+                                         document.getElementById('get_new_profile_image_menu').style.display="flex";
+                                         document.getElementById('url_to_intro_form').classList.add("hide_url_to_intro_form");
+                                    }
+                                    window.onclick = function (event){
+                                        if ( !event.target.matches('.url_to_intro_for_js') && !event.target.matches('.visible_form_file') ){
+                                            document.getElementById('get_new_profile_image_menu').style.display="none";
+                                            document.getElementById('url_to_intro_form').classList.remove("hide_url_to_intro_form");
+                                        }
+                                    }
+                                </script>
 
                                 <div> {{ account.login }} </div>
                             </div>
@@ -113,7 +138,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class = "posts">
 
                         <div id = "shell_for_add_post_block" class = "shell_for_add_post_block">
@@ -139,19 +164,19 @@
                             }
                         </script>
 
+                    {% for row in posts %}
                         <div class = "shell_post">
                             <div class = "one_post">
                                 <div class = "info_post">
                                     <div>
-                                        <img src = "" alt = "log">
-                                        Chappix
+                                        <img src = {{row[0]}} alt = "log" width="100px" height="100px">
+                                        {{ row[1] }}
                                     </div>
-                                    <div>DD.MM.YY</div>
+                                    <div>{{row[2] }}</div>
                                 </div>
                                 <div class = "text_post">
-                                    Lorem ipsum magna diam malesuada non ligula eget metus, odio metus nulla duis odio orci, malesuada fusce sem donec tempus, quam maecenas. Vivamus justo proin tempus, rutrum tellus sodales in ultricies — sit in, leo, eu. Eu integer — vitae morbi adipiscing duis quam auctor eros proin urna nulla nibh ligula massa. Sed nam sapien metus nec eu commodo, ipsum et non urna malesuada maecenas: auctor. Malesuada nam enim vivamus pellentesque enim sit sapien at, sagittis donec, eros quam cursus, massa: sapien nec non eget. Proin, nec enim non ultricies nec, ultricies enim metus ipsum nulla morbi nec vulputate gravida eget sagittis, quam sit vitae.
-Porta massa sed sapien tempus vitae ligula arcu rutrum in malesuada ipsum lectus risus pellentesque quam duis sed congue, eros elementum. Auctor nulla: cursus, pellentesque: donec lectus orci enim — eu congue eget nulla: quisque rutrum nulla at, maecenas ornare quam. Morbi quisque porta justo pharetra sed odio tempus lorem nibh, commodo, bibendum urna odio lorem sagittis at nibh, in congue vitae ligula. Diam sodales sapien sodales a sapien arcu nam elementum odio at orci mattis molestie vivamus, urna donec justo at vitae quam ligula nulla. Rutrum, eros integer, molestie nibh sapien pellentesque commodo lectus pharetra metus eros sit congue et bibendum vivamus lectus ipsum. Ut nulla, mauris et massa integer sem auctor non gravida, amet, lorem, bibendum vulputate mauris diam ipsum eu ligula tempus, ligula. At ligula molestie non mauris, elementum commodo integer nam eros at sagittis duis morbi quisque integer maecenas nec sapien maecenas bibendum, nam lectus quam.
-                                <img src = "/static/user_page/line.svg">
+                                    {{ row[3] }}
+                                    <img src = "/static/user_page/line.svg">
                                 </div>
                                 <div class = likes_and_comments>
                                     <svg id = "like"  class="like" onclick="click_like()" fill="#bababa" height="22" viewBox="0 0 48 48" width="22"><path d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"></path></svg>
@@ -163,31 +188,7 @@ Porta massa sed sapien tempus vitae ligula arcu rutrum in malesuada ipsum lectus
                                 </div>
                             </div>
                         </div>
-
-                        <div class = "shell_post">
-                            <div class = "one_post">
-                                <div class = "info_post">
-                                    <div>
-                                        <img src = "" alt = "log">
-                                        Chappix
-                                    </div>
-                                    <div>DD.MM.YY</div>
-                                </div>
-                                <div class = "text_post">
-                                    Lorem ipsum magna diam malesuada non ligula eget metus, odio metus nulla duis odio orci, malesuada fusce sem donec tempus, quam maecenas. Vivamus justo proin tempus, rutrum tellus sodales in ultricies — sit in, leo, eu. Eu integer — vitae morbi adipiscing duis quam auctor eros proin urna nulla nibh ligula massa. Sed nam sapien metus nec eu commodo, ipsum et non urna malesuada maecenas: auctor. Malesuada nam enim vivamus pellentesque enim sit sapien at, sagittis donec, eros quam cursus, massa: sapien nec non eget. Proin, nec enim non ultricies nec, ultricies enim metus ipsum nulla morbi nec vulputate gravida eget sagittis, quam sit vitae.
-Porta massa sed sapien tempus vitae ligula arcu rutrum in malesuada ipsum lectus risus pellentesque quam duis sed congue, eros elementum. Auctor nulla: cursus, pellentesque: donec lectus orci enim — eu congue eget nulla: quisque rutrum nulla at, maecenas ornare quam. Morbi quisque porta justo pharetra sed odio tempus lorem nibh, commodo, bibendum urna odio lorem sagittis at nibh, in congue vitae ligula. Diam sodales sapien sodales a sapien arcu nam elementum odio at orci mattis molestie vivamus, urna donec justo at vitae quam ligula nulla. Rutrum, eros integer, molestie nibh sapien pellentesque commodo lectus pharetra metus eros sit congue et bibendum vivamus lectus ipsum. Ut nulla, mauris et massa integer sem auctor non gravida, amet, lorem, bibendum vulputate mauris diam ipsum eu ligula tempus, ligula. At ligula molestie non mauris, elementum commodo integer nam eros at sagittis duis morbi quisque integer maecenas nec sapien maecenas bibendum, nam lectus quam.
-                                <img src = "/static/user_page/line.svg">
-                                </div>
-                                <div class = likes_and_comments>
-                                    <svg id = "like"  class="like" onclick="click_like()" fill="#bababa" height="22" viewBox="0 0 48 48" width="22"><path d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"></path></svg>
-                                    <div class = "count">0</div>
-                                    <div class ="url_to_comment">
-                                        <svg  fill="#bababa" height="24" viewBox="0 0 48 48" width="24"><path clip-rule="evenodd" d="M47.5 46.1l-2.8-11c1.8-3.3 2.8-7.1 2.8-11.1C47.5 11 37 .5 24 .5S.5 11 .5 24 11 47.5 24 47.5c4 0 7.8-1 11.1-2.8l11 2.8c.8.2 1.6-.6 1.4-1.4zm-3-22.1c0 4-1 7-2.6 10-.2.4-.3.9-.2 1.4l2.1 8.4-8.3-2.1c-.5-.1-1-.1-1.4.2-1.8 1-5.2 2.6-10 2.6-11.4 0-20.6-9.2-20.6-20.5S12.7 3.5 24 3.5 44.5 12.7 44.5 24z" fill-rule="evenodd"></path></svg>
-                                        Показать комментарии
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    {% endfor %}
 
                         <script>
                             function click_like(){

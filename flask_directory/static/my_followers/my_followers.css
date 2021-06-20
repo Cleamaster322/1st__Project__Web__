@@ -79,6 +79,17 @@
     margin: 0 auto;
     overflow-y: scroll;
 }
+.followers_list_wrap::-webkit-scrollbar-track {
+    padding: 2px 0;
+    opacity: 1;
+}
+.followers_list_wrap::-webkit-scrollbar {
+    width: 0;
+}
+
+.followers_list_wrap::-webkit-scrollbar-thumb {
+    opacity: 1;
+}
 .followers_follower {
     margin: 40px 0;
     display: flex;

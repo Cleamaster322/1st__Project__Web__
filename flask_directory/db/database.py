@@ -1,9 +1,9 @@
-
 from db.command import * 
 import os
 import sqlite3
 from PIL import Image 
 from werkzeug.security import check_password_hash
+import time
 #КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ 
 #КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ  
 #КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ КОМЕНТЫ ОСТАВЛЯЙ
@@ -46,6 +46,7 @@ class Database:
         fullpath = os.path.join(path,projectame)
         print(fullpath)
         os.mkdir(fullpath)
+        seek_f = open(f"{fullpath}/.gitkeep","w") # чтобы в гит отправлялись пустые папки
 
     def check_mail(self,mail):
         with self.get_db_connection() as conn:
@@ -54,7 +55,6 @@ class Database:
             if mail_checked == None:
                 return False
         return True
-
 
     def get_account(self, login, password):
         with self.get_db_connection() as conn:
@@ -149,8 +149,15 @@ class Database:
 
     def get_posts_on_acc(self,id):
         with self.get_db_connection() as conn:
+            posts = []
             cur = conn.cursor()
             tmp = cur.execute(f"""SELECT * FROM Post WHERE id_onUser = {id}""").fetchall()
             conn.commit()
-            for i in tmp:
-                print(i)
+            for row in tmp:
+                userFrom = self.get_account_by_Id(row[4])
+                logo = userFrom[4]
+                name = userFrom[1] 
+                times = time.strftime('%d:%m:%y', time.gmtime(row[3]))
+                text = row[5]
+                posts.append([logo,name,times,text])
+            return posts

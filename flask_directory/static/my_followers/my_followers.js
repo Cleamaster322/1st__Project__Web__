@@ -13,7 +13,7 @@ function delUser() {
   var back_hover = window.getComputedStyle(elem.hover).getPropertyValue("background");
   var change = document.getElementById("delete_follower");
   var color1 = '#ED4956';
-  var color2 = '#E3D802';
+  var color2 = '#4ACFFF';
   if (change.innerHTML == "Заблокировать")
   {
     change.innerHTML = "Разблокировать";
