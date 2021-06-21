@@ -449,9 +449,13 @@
     padding-right: 10px;
 }
 .list_comment{
+    display: none;
     width: 100%;
     margin-top: 3px;
     background: #141414;
+}
+.show_comment_list{
+    display: block;
 }
 .close_comments{
     color: white;
