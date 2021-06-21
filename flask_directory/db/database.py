@@ -178,7 +178,7 @@ class Database:
         with self.get_db_connection() as conn:
             cur = conn.cursor()
             acc = self.get_account_by_Id(id)
-            id_post = cur.execute(f"""SELECT count (*) FROM Post WHERE id_onUser = {id}""").fetchone()
+            id_post = cur.execute(f"""SELECT count (*) FROM Post""").fetchone()
             id_post = id_post[0]+1
             photo_url = None
             id_onUser = id
