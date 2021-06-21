@@ -457,16 +457,29 @@
     color: white;
 }
 .one_comment{
-    margin: 10px;
     border-radius: 10px;
-    background:rgb(84, 84, 84);
+    background:#303030;
+}
+.date_of_comment{
+    margin-left: 20px;
 }
 .author_of_commet{
+    border-bottom:1px solid white;
+    display: flex;
+    align-items: center;
     color:white;
+    background: rgb(40, 40, 41);
     font-family: roboto-medium, serif;
+}
+
+.author_of_commet > img{
+    margin-top: 5px;
+    margin-left: 5px;
+    width: 30px;
+    padding-right: 10px;
 }
 .text_of_comment{
     margin: 10px;
     color:white;
-
+    padding-bottom: 5px;
 }
