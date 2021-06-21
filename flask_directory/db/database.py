@@ -150,14 +150,40 @@ class Database:
     def get_posts_on_acc(self,id):
         with self.get_db_connection() as conn:
             posts = []
+            comments = []
             cur = conn.cursor()
             tmp = cur.execute(f"""SELECT * FROM Post WHERE id_onUser = {id}""").fetchall()
             conn.commit()
-            for row in tmp:
+            for i, row in enumerate(tmp):
+                post_id = row[0]
                 userFrom = self.get_account_by_Id(row[4])
                 logo = userFrom[4]
                 name = userFrom[1] 
                 times = time.strftime('%d:%m:%y', time.gmtime(row[3]))
                 text = row[5]
-                posts.append([logo,name,times,text])
+                posts.append([logo,name,times,text,post_id])
+                # comments_on_post = cur.execute(f"""SELECT * FROM comment WHERE id_post = {post_id}""").fetchall()
+                # for com in enumerate(comments_on_post):
+                #     comments.append([])
+                #     userFrom = self.get_account_by_Id(row[1])
+                #     logo = userFrom[4]
+                #     name = userFrom[1] 
+                #     times = time.strftime('%d:%m:%y', time.gmtime(row[3]))
+                #     text = row[2]
+                #     comments.append([logo,name,times,text])
+
             return posts
+    def get_comments(self,id_post):
+        with self.get_db_connection() as conn:
+            comments = []
+            cur = conn.cursor()
+            tmp = cur.execute(f"""SELECT * FROM comment WHERE id_post = {id_post}""").fetchall()
+            conn.commit()
+            for row in tmp:
+                userFrom = self.get_account_by_Id(row[1])
+                logo = userFrom[4]
+                name = userFrom[1] 
+                times = time.strftime('%d:%m:%y', time.gmtime(row[3]))
+                text = row[2]
+                comments.append([logo,name,times,text])
+            return comments

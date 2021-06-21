@@ -163,7 +163,7 @@ def user_page(id):
             print(flag_enter, id,  id_account)
             return redirect("/")
         else:
-            return render_template('user_page/user_page.html',account = db.get_account_by_Id(id),posts = db.get_posts_on_acc(id))
+            return render_template('user_page/user_page.html',account = db.get_account_by_Id(id),posts = db.get_posts_on_acc(id),)
 
 
 @app.route("/messange/<int:id>")  # СООБЩЕНИЕ
