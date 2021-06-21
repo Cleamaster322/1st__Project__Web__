@@ -41,6 +41,7 @@
     margin: 5px 2%;
     position: relative;
 }
+
 .sub_search::after {
     content: attr(data-text);
     font-size: 1.5rem;
@@ -55,6 +56,7 @@
     user-select: none;
     color: transparent;
 }
+
 .sub_search > input {
     color: #ddd;
     border: none;
@@ -74,8 +76,19 @@
     position: inherit;
     width: calc(100% - 40px);
     height: 100%;
-    margin: 0 auto;
+    margin: 0 auto 14px;
     overflow-y: scroll;
+}
+
+.subscription_profile::-webkit-scrollbar {
+    width: 3px;
+    height: 0px;
+    border-radius: 10px;
+}
+
+.subscription_profile::-webkit-scrollbar-thumb {
+    background-color:#0D8FF8;
+    height: 10px;
 }
 
 .subscription_profile_photo img{
@@ -159,7 +172,7 @@
 .unsubscribe{
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content:center;
 }
 
 .unsubscribe>button{
@@ -172,22 +185,18 @@
     font-size: 14px;
     padding:0 2em;
     cursor:pointer;
-    transition:800ms ease all;
     outline:none;
 }
-button:hover{
-    background:#fff;
-    color:#950000;
-}
+
 button:before,button:after{
     content:'';
     top:0;
     right:0;
     width:0;
     position:absolute;
-    height:2px;
-    background: #950000;
-    transition:1.5s;
+    height:1px;
+    background: #ffffff;
+    transition:1s;
 }
 button:after {
     right: inherit;
