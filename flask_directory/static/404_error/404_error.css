@@ -1,4 +1,4 @@
-@font-face{
+@font-face {
     font-family: "roboto-bold";
     src: url("/static/fonts/Roboto-Bold.ttf");
 }
@@ -6,46 +6,77 @@
     font-family: "roboto-italic";
     src: url("/static/fonts/Roboto-Italic.ttf");
 }
-*{
+* {
     margin: 0;
     padding: 0;
 }
-body{
+body {
     align-items: center;
     justify-content: center;
     grid-template-rows: 20fr 50fr 30fr;
     height: 100vh;
     display: grid;
-    background: radial-gradient(at top left, rgb(0, 0, 0), rgb(27, 36, 29), rgb(48, 54, 17));
+    background: #141414; /*radial-gradient(at top left, rgb(0, 0, 0), rgb(27, 36, 29), rgb(48, 54, 17))*/
 }
-body > img{
+h1 {
+    text-align: center;
+    font-family: "roboto-bold", serif, Times, "Times New Roman";
+    color: #FFD000; /*rgb(110, 217, 28)*/
+}
+.sota_error {
+    margin: -13px -8px -13px -5px;
+}
+.tyler {
     margin-left: auto;
     margin-right: auto;
     box-shadow: 0 0 10px rgb(255, 101, 5), 0 0 20px rgb(255, 197, 5), 0 0 20px rgb(47, 255, 5);
     border-radius: 20px;
 }
-h1{
-    text-align: center;
-    font-family: "roboto-bold", serif, Times, "Times New Roman";
-    color:rgb(110, 217, 28);
-}
-body > div {
-    width: 400px;
+.description {
+    width: 450px;
     border-radius: 10px;
     text-align: center;
-    background:rgba(32, 84, 21, 0.3);
+    background: #141414; /*rgba(32, 84, 21, 0.3)*/
     padding-bottom: 20px;
     padding-top: 20px;
 }
 h2{
-    color:rgb(217, 255, 0);
+    color: #FFD000; /*rgb(217, 255, 0)*/
+    text-align: center;
     font-family: "roboto-italic", serif, Times, "Times New Roman";
     font-size: 40px;
     padding-bottom: 20px;
 }
-body > div > a {
+.description > a {
     font-size: 30px;
     text-decoration: none;
     font-family: "roboto-bold", serif, Times, "Times New Roman";
-    color:rgb(7, 240, 50);
+    color: #FFD000; /*rgb(7, 240, 50)*/
+    display: block;
+    padding: 1rem 1.25rem;
+    text-decoration: none;
+    position: relative;
+    transition: all .3s cubic-bezier(.2, 0, 0, 1);
+    z-index: 1;
+}
+.description > a::after {
+    content: '';
+    display: block;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    right: 1rem;
+    left: 1rem;
+    background-color: #FFD000;
+    transition: all .3s cubic-bezier(.2, 0, 0, 1);
+    transform-origin: bottom center;
+    z-index: -1;
+}
+.description > a:hover {
+    color: #141414;
+}
+.description > a:hover::after {
+    right: 0;
+    left: 0;
+    height: 100%;
 }
