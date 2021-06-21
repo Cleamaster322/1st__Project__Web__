@@ -443,3 +443,20 @@
     margin-top: 3px;
     background: #141414;
 }
+.close_comments{
+    color: white;
+}
+.one_comment{
+    margin: 10px;
+    border-radius: 10px;
+    background:rgb(84, 84, 84);
+}
+.author_of_commet{
+    color:white;
+    font-family: roboto-medium, serif;
+}
+.text_of_comment{
+    margin: 10px;
+    color:white;
+
+}
