@@ -155,7 +155,6 @@ def post_add_fail(errors):
 
 @app.route("/user_page/<int:id>")  # СТРАНЦИЦА ЮЗЕРА
 def user_page(id):
-    print(accounts)
     if id not in range(1, accounts + 1) and id != id_account:
         return redirect("/404_erros")
     else:
@@ -163,8 +162,19 @@ def user_page(id):
             print(flag_enter, id,  id_account)
             return redirect("/")
         else:
-            return render_template('user_page/user_page.html',account = db.get_account_by_Id(id),posts = db.get_posts_on_acc(id),)
+            posts = db.get_posts_on_acc(id)
+            lens = len(posts)
+            print(lens)
+            return render_template('user_page/user_page.html',account = db.get_account_by_Id(id),posts = posts, lens = lens)
 
+@app.route("/add_post/<int:id>", methods=['post'])
+def add_post(id):
+    account = db.get_account_by_Id(id)
+    if request.form:
+        text = request.form.get('text_post')
+        post = db.insert_post(id,text,id_account)
+    return redirect(f"/user_page/{id}")
+    
 
 @app.route("/messange/<int:id>")  # СООБЩЕНИЕ
 def for_messanges(id):
@@ -227,11 +237,15 @@ def for_404_error():
 
 @app.route('/logout', methods = ['GET'])   # ВЫХОД
 def logout():
-    print('logout')
     flag_enter = False
     id_account = -1
     resp = make_response(redirect('/'))
     resp.delete_cookie('username_id')
     return resp
+
+@app.route('/setting/<int:id>',methods = ['GET'])
+def settings(id):
+    return render_template("redacting_profile/redacting_profile.html",account = db.get_account_by_Id(id))
+
 
 

@@ -2,7 +2,35 @@
 {% block current_page_content %}
 <link rel="stylesheet" href = "{{url_for('static', filename='redacting_profile/redacting_profile.css')}}" >
     <div class = "shell_redacting_profile">
+        <div class = "redacting_profile_window_back">
+            <div class = "redacting_profile_window">
+                <div class = "hat_redacting_profile_menu">
+                    <img src = "/static/redacting_profile/redacting_profile.svg">
+                    Редактировать страницу
+                </div>
+                <div class = "edit_opportunity">
+                    <div class = "edit_one_userstat">
+                        <form>
+                            <input value="Текущий статус">
+                            <button type="button" class = "redacting_button">Обновить</button>
+                        </form>
+                    </div>
+                    <div class = "edit_one_userstat">
+                        <form>
+                            <input type="date" value="" >
+                            <button type="button" class = "redacting_button">Обновить</button>
+                        </form>
+                    </div>
+                    <div class = "edit_one_userstat">
+                        <form>
+                            <input value="Текущая страна">
+                            <button type="button" class = "redacting_button">Обновить</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
+        </div>
     </div>
 
 {% endblock %}

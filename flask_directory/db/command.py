@@ -36,3 +36,5 @@ create_comment = """CREATE TABLE IF NOT EXISTS Comment(
    text_c TEXT)"""
 
 insert_account = """INSERT INTO Main (login, mail, password,avatar) VALUES (?, ?, ?,"/static/img/default.png")"""
+
+insert_post = """INSERT INTO post (id_post, photo_url, id_onUser, time, id_fromUser, title) VALUES (?, ?, ?, ?, ?, ?)"""
