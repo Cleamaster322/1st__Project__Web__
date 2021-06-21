@@ -1,19 +1,15 @@
-import os
-import sqlite3
-from PIL import Image 
-from werkzeug.security import check_password_hash
-import time
-con = sqlite3.connect("db/sota.db")
-cur = con.cursor()
-id = 2
-tmp = cur.execute(f"""SELECT count (*) FROM Post WHERE id_onUser = {id}""").fetchone()
-con.commit()
-
-a= [[1,2,3,[2,3,4]],[1,2,3,[3,4,5]]]
-b = []
-for i in range(len(a)-1,-1,-1):
-    b.append(a[i])
-print(b)
-
-a = list(reversed(a))
-print(a)
+class Polynomial:
+    def init(self, coef):
+        self.coef = coef
+ 
+    def call(self, x):
+        return sum([self.coef[i] * x ** i for i in range(len(self.coefficients))])
+ 
+    def add(self, p):
+        a = self.coef
+        b = p.coef
+        if len(a) < len(b):
+            a += [0] * (len(b) - len(a))
+        else:
+            b += [0] * (len(a) - len(b))
+        return Polynomial([a[i] + b[i] for i in range(len(a))])
