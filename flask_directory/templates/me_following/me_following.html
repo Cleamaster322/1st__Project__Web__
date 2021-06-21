@@ -2,32 +2,150 @@
 {% block current_page_content %}
  <link rel="stylesheet" href = "{{url_for('static', filename='me_following/me_following.css')}}" >
 
-<div class="wrapper">
+
   <div class="content">
     <div class="subscriptions">
         <div class="sub_search">
             <input type="text" placeholder="Поиск подписок...">
         </div>
+
         <div class="subscription_profile">
+
             <div class="subscription_profile_location">
                 <div class="subscription_profile_photo">
                     <img src="/static/me_following/avatar.png" alt="">
                 </div>
-                <div class="subscription_description">
-                    <div class="subscription_description_name">
-                                <span>Name</span>
+                <div class="subscription_profile_blya">
+                    <div class="subscription_description">
+                        <div class="subscription_description_name">
+                            <span>Name</span>
+                        </div>
+                        <div class="subscription_description_message">
+                                <a href="!!!Ссылка на диалог!!!" target="_self" class="to_messenger">Написать сообщение</a>
+                        </div>
                     </div>
-                    <div class="subscription_description_message">
-                        <a href="!!!Ссылка на диалог!!!" target="_self" class="to_messenger">Написать сообщение</a>
-                    </div>
+                        <div class="unsubscribe">
+                            <button id="unsubscribe_user" onclick="unUser()">Отписаться</button>
+                        </div>
                 </div>
             </div>
-            <div class="unsubscribe">
-                <button id="unsubscribe_user" onclick="unUser()">Отписаться</button>
+
+            <div class="subscription_profile_location">
+                <div class="subscription_profile_photo">
+                    <img src="/static/me_following/avatar.png" alt="">
+                </div>
+                <div class="subscription_profile_blya">
+                    <div class="subscription_description">
+                        <div class="subscription_description_name">
+                            <span>Name</span>
+                        </div>
+                        <div class="subscription_description_message">
+                                <a href="!!!Ссылка на диалог!!!" target="_self" class="to_messenger">Написать сообщение</a>
+                        </div>
+                    </div>
+                        <div class="unsubscribe">
+                            <button id="unsubscribe_user" onclick="unUser()">Отписаться</button>
+                        </div>
+                </div>
             </div>
+
+            <div class="subscription_profile_location">
+                <div class="subscription_profile_photo">
+                    <img src="/static/me_following/avatar.png" alt="">
+                </div>
+                <div class="subscription_profile_blya">
+                    <div class="subscription_description">
+                        <div class="subscription_description_name">
+                            <span>Name</span>
+                        </div>
+                        <div class="subscription_description_message">
+                                <a href="!!!Ссылка на диалог!!!" target="_self" class="to_messenger">Написать сообщение</a>
+                        </div>
+                    </div>
+                        <div class="unsubscribe">
+                            <button id="unsubscribe_user" onclick="unUser()">Отписаться</button>
+                        </div>
+                </div>
+            </div>
+
+            <div class="subscription_profile_location">
+                <div class="subscription_profile_photo">
+                    <img src="/static/me_following/avatar.png" alt="">
+                </div>
+                <div class="subscription_profile_blya">
+                    <div class="subscription_description">
+                        <div class="subscription_description_name">
+                            <span>Name</span>
+                        </div>
+                        <div class="subscription_description_message">
+                                <a href="!!!Ссылка на диалог!!!" target="_self" class="to_messenger">Написать сообщение</a>
+                        </div>
+                    </div>
+                        <div class="unsubscribe">
+                            <button id="unsubscribe_user" onclick="unUser()">Отписаться</button>
+                        </div>
+                </div>
+            </div>
+
+            <div class="subscription_profile_location">
+                <div class="subscription_profile_photo">
+                    <img src="/static/me_following/avatar.png" alt="">
+                </div>
+                <div class="subscription_profile_blya">
+                    <div class="subscription_description">
+                        <div class="subscription_description_name">
+                            <span>Name</span>
+                        </div>
+                        <div class="subscription_description_message">
+                                <a href="!!!Ссылка на диалог!!!" target="_self" class="to_messenger">Написать сообщение</a>
+                        </div>
+                    </div>
+                        <div class="unsubscribe">
+                            <button id="unsubscribe_user" onclick="unUser()">Отписаться</button>
+                        </div>
+                </div>
+            </div>
+
+            <div class="subscription_profile_location">
+                <div class="subscription_profile_photo">
+                    <img src="/static/me_following/avatar.png" alt="">
+                </div>
+                <div class="subscription_profile_blya">
+                    <div class="subscription_description">
+                        <div class="subscription_description_name">
+                            <span>Name</span>
+                        </div>
+                        <div class="subscription_description_message">
+                                <a href="!!!Ссылка на диалог!!!" target="_self" class="to_messenger">Написать сообщение</a>
+                        </div>
+                    </div>
+                        <div class="unsubscribe">
+                            <button id="unsubscribe_user" onclick="unUser()">Отписаться</button>
+                        </div>
+                </div>
+            </div>
+
+            <div class="subscription_profile_location">
+                <div class="subscription_profile_photo">
+                    <img src="/static/me_following/avatar.png" alt="">
+                </div>
+                <div class="subscription_profile_blya">
+                    <div class="subscription_description">
+                        <div class="subscription_description_name">
+                            <span>Name</span>
+                        </div>
+                        <div class="subscription_description_message">
+                                <a href="!!!Ссылка на диалог!!!" target="_self" class="to_messenger">Написать сообщение</a>
+                        </div>
+                    </div>
+                        <div class="unsubscribe">
+                            <button id="unsubscribe_user" onclick="unUser()">Отписаться</button>
+                        </div>
+                </div>
+            </div>
+
         </div>
     </div>
   </div>
-</div>
 <script rel="script" src = "{{url_for('static', filename='me_following/me_following.js')}}"></script>
 {% endblock %}

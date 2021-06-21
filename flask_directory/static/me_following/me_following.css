@@ -16,13 +16,13 @@
 }
 
 .content{
-    background: radial-gradient( 99.5% 397.04% at 100% 49.01%, #058fff 0%, #EB9038 70.35%, #F3C3CF 100%);
-    width: 80%;
-    height: 90%;
     position: relative;
-    margin: 40px 0px 0px 80px;
+    margin: 40px 0 0 80px;
+    width: 80%;
+    height: 53%;
+    background: radial-gradient( 99.5% 397.04% at 100% 49.01%, #058fff 0%, #EB9038 70.35%, #F3C3CF 100%);
     border-radius: 10px;
-    padding-top: 2px;
+    padding-top: 0.3px;
 }
 
 .subscriptions{
@@ -33,7 +33,7 @@
     flex-direction: column;
     background-color: #141414;
     border-radius: 10px;
-    margin-left: 2px;
+    margin: 1.5px;
 }
 
 .sub_search {
@@ -45,7 +45,6 @@
     content: attr(data-text);
     font-size: 1.5rem;
     line-height: 0;
-    max-width: 100%;
     font-family: "roboto-medium";
     border-bottom: 3px solid #fff;
     position: absolute;
@@ -72,13 +71,11 @@
 }
 
 .subscription_profile{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    position: inherit;
     width: calc(100% - 40px);
-    height: 110px;
-    margin-top: 20px;
-    margin-left: 20px;
+    height: 100%;
+    margin: 0 auto;
+    overflow-y: scroll;
 }
 
 .subscription_profile_photo img{
@@ -95,7 +92,21 @@
     justify-content: space-between;
     max-width: 100%;
     padding-left: 30px;
-    height: 100%;
+}
+
+.subscription_profile_location{
+    margin: 40px 0;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+
+.subscription_profile_blya{
+    display: flex;
+    justify-content:space-between;
+    width: 100%;
+    margin-right: 20px;
 }
 
 .subscription_description_name{

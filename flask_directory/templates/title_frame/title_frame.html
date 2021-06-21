@@ -14,7 +14,15 @@
                 <input type="text" placeholder="Login" name = "login">
                 <input type="password" placeholder="Password" name = "password">
                 <input type="submit" value="Log In">
+                <label class="container">Запомнить
+                    <input type="checkbox" name="checked" value="1">
+                    <span class="checkmark"></span>
+                </label>
             </form>
+
+            {% for msg in get_flashed_messages() %}
+                <div class="flash">{{msg}}</div>
+            {% endfor %}
             
 
             <a href ="/add">Кнопка регистрации</a>
