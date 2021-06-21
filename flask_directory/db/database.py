@@ -77,8 +77,8 @@ class Database:
     def get_accounts_count(self): # Считает кол-во аккаунтов
         with self.get_db_connection() as conn:
             cur = conn.cursor()
-            accounts = conn.execute("""SELECT Count(*) FROM Main""").fetchall()
-            accounts = accounts[0][0]  #Костыль
+            accounts = conn.execute("""SELECT Count(*) FROM Main""").fetchone()
+            accounts = accounts[0]  #Потому что кортеж
         return accounts
 
     def get_id(self,login):
@@ -149,41 +149,43 @@ class Database:
 
     def get_posts_on_acc(self,id):
         with self.get_db_connection() as conn:
-            posts = []
-            comments = []
             cur = conn.cursor()
             tmp = cur.execute(f"""SELECT * FROM Post WHERE id_onUser = {id}""").fetchall()
             conn.commit()
-            for i, row in enumerate(tmp):
-                post_id = row[0]
-                userFrom = self.get_account_by_Id(row[4])
-                logo = userFrom[4]
-                name = userFrom[1] 
-                times = time.strftime('%d:%m:%y', time.gmtime(row[3]))
-                text = row[5]
-                posts.append([logo,name,times,text,post_id])
-                # comments_on_post = cur.execute(f"""SELECT * FROM comment WHERE id_post = {post_id}""").fetchall()
-                # for com in enumerate(comments_on_post):
-                #     comments.append([])
-                #     userFrom = self.get_account_by_Id(row[1])
-                #     logo = userFrom[4]
-                #     name = userFrom[1] 
-                #     times = time.strftime('%d:%m:%y', time.gmtime(row[3]))
-                #     text = row[2]
-                #     comments.append([logo,name,times,text])
+            posts = []
+            for i,rowp in enumerate(tmp):
+                userFromP = self.get_account_by_Id(rowp[4])
+                logoP = userFromP[4]
+                nameP = userFromP[1] 
+                timesP = time.strftime('%d:%m:%y', time.gmtime(rowp[3]))
+                textP = rowp[5]
+                post = [logoP,nameP,timesP,textP,[]]
+                posts.append(post)
+                comments_on_post = cur.execute(f"""SELECT * FROM comment WHERE id_post = {rowp[0]}""").fetchall()
+                for j, rowc in enumerate(comments_on_post):
+                    userFromCom = self.get_account_by_Id(rowc[1])
+                    comment = []
+                    logoC = userFromCom[4]
+                    nameC = userFromCom[1]
+                    timesС = rowc[3]
+                    textС = rowc[2]
+                    comment = ([logoC,nameC,timesС,textС])
+                    posts[i][4].append(comment)
+        posts = list(reversed(posts))
+        return posts
 
-            return posts
-    def get_comments(self,id_post):
+    def insert_post(self,id,text,id_account):
         with self.get_db_connection() as conn:
-            comments = []
             cur = conn.cursor()
-            tmp = cur.execute(f"""SELECT * FROM comment WHERE id_post = {id_post}""").fetchall()
+            acc = self.get_account_by_Id(id)
+            id_post = cur.execute(f"""SELECT count (*) FROM Post WHERE id_onUser = {id}""").fetchone()
+            id_post = id_post[0]+1
+            photo_url = None
+            id_onUser = id
+            times = time.time()
+            id_fromUser = id_account
+            title = text
+            parameters = [id_post,photo_url,id_onUser,times,id_fromUser,title]
+            print(parameters)
+            cur.execute(insert_post, parameters)
             conn.commit()
-            for row in tmp:
-                userFrom = self.get_account_by_Id(row[1])
-                logo = userFrom[4]
-                name = userFrom[1] 
-                times = time.strftime('%d:%m:%y', time.gmtime(row[3]))
-                text = row[2]
-                comments.append([logo,name,times,text])
-            return comments

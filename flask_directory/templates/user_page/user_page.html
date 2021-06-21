@@ -142,11 +142,11 @@
                                     <h1> Введите текст поста </h1>
                                     <img src = "/static/user_page/free-icon-error-148766.svg" onclick="close_add_block_post()">
                                 </div>
-                                <form>
-                                    <textarea>
+                                <form action="{{url_for('add_post', id = 2)}}" method = "post">
+                                    <textarea name = "text_post">
 
                                     </textarea>
-                                    <button>Добавить пост</button>
+                                    <input type ="submit" value="Добавить пост"></input>
                                 </form>
                             </div>
                         </div>
@@ -190,44 +190,23 @@
 
                                 </div>
                             </div>
+                            
                             <div class = "list_comment">
                                 <div class = "comment_zone">
+                                    {% for com in row[4] %}
                                     <div class = "one_comment">
                                         <div class = "author_of_commet">
-                                            <img src = "" alt = "log">
-                                            Admin
+                                            <img src = "{{ com[0] }}" alt = "log">
+                                            {{ com[1] }}
                                             <div class = date_of_comment>
-                                                    20.20.2020
+                                                    {{ com[2] }}
                                             </div>
                                         </div>
                                         <div class = "text_of_comment">
-                                            Lorem ipsum morbi commodo proin maecenas quam auctor commodo sem enim justo massa maecenas. Rutrum ligula eget mauris diam: massa orci, sit massa pharetra amet ipsum pharetra et tempus, eu tempus sodales bibendum sapien duis, donec amet curabitur. Donec sit fusce porta sagittis in orci, sodales congue ultricies ornare eget malesuada ultricies eget mauris risus, donec auctor in.
+                                            {{ com[3] }}
                                         </div>
                                     </div>
-                                    <div class = "one_comment">
-                                        <div class = "author_of_commet">
-                                            <img src = "" alt = "log">
-                                            Admin
-                                            <div class = date_of_comment>
-                                                    20.20.2020
-                                            </div>
-                                        </div>
-                                        <div class = "text_of_comment">
-                                            Lorem ipsum morbi commodo proin maecenas quam auctor commodo sem enim justo massa maecenas. Rutrum ligula eget mauris diam: massa orci, sit massa pharetra amet ipsum pharetra et tempus, eu tempus sodales bibendum sapien duis, donec amet curabitur. Donec sit fusce porta sagittis in orci, sodales congue ultricies ornare eget malesuada ultricies eget mauris risus, donec auctor in.
-                                        </div>
-                                    </div>
-                                    <div class = "one_comment">
-                                        <div class = "author_of_commet">
-                                            <img src = "" alt = "log">
-                                            Admin
-                                            <div class = date_of_comment>
-                                                    20.20.2020
-                                            </div>
-                                        </div>
-                                        <div class = "text_of_comment">
-                                            Lorem ipsum morbi commodo proin maecenas quam auctor commodo sem enim justo massa maecenas. Rutrum ligula eget mauris diam: massa orci, sit massa pharetra amet ipsum pharetra et tempus, eu tempus sodales bibendum sapien duis, donec amet curabitur. Donec sit fusce porta sagittis in orci, sodales congue ultricies ornare eget malesuada ultricies eget mauris risus, donec auctor in.
-                                        </div>
-                                    </div>
+                                    {% endfor %}
                                 </div>
                             </div>
                         </div>
