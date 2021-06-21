@@ -160,6 +160,16 @@
     justify-content: center;
     align-items: flex-end;
 }
+.shell_userpage::-webkit-scrollbar-track {
+    opacity: 1;
+}
+.shell_userpage::-webkit-scrollbar {
+    width: 0;
+}
+
+.shell_userpage::-webkit-scrollbar-thumb {
+    opacity: 1;
+}
 .userpage{
     width: 90%;
     height: 95%;
