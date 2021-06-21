@@ -1,10 +1,17 @@
+@font-face {
+    font-family: "Yanone-bold";
+    src:url("/static/fonts/Yanone/YanoneKaffeesatz-Bold.ttf");
+  }
 *{
     margin: 0;
     padding: 0;
 }
 body{
+    background: url(/static/title_frame_static/Back.svg);
+    font-family: Yanone-bold;
+    background-position: bottom;
+    background-size: cover;
     height: 100vh;
-    background: radial-gradient(rgb(10, 10, 10), black);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,7 +27,7 @@ body{
     width: 600px;
 }
 .logIn_Wind{
-    box-shadow: 10px 10px 0px rgba(5, 54, 0, 0.363); 
+    background: linear-gradient(to top left, hsla(280, 62%, 10%, 1),hsla(339, 66%, 10%, 1) );
     padding-bottom: 10px;
     padding-left: 40px;
     padding-right: 40px;
@@ -29,7 +36,6 @@ body{
     height: 450px;
     width: 250px;
     border-radius: 10px ;
-    background: rgb(138, 197, 1);
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr 0.1fr 1.5fr;
     row-gap: 20px;
@@ -43,6 +49,12 @@ body{
 }
 
 .forms{
+    font-size: 30px;
+    background: none;
+    font-family: Yanone-bold;
+    border-radius: 20px;
+    border: solid 2px #FF5B79;
+    color: #FF5B79;
     width: 100%;
     margin-bottom: 15px;
     height: 40px;
@@ -50,9 +62,27 @@ body{
 }
 
 .Error{
+    font-size: 20px;
     color: red;
     margin-bottom: 5px;
 }
+
+.register_button {
+    cursor: pointer;
+    background: none;
+    font-family: Yanone-bold;
+    color: #FF5B79;
+    text-decoration: none;
+    font-size: 35px;
+    text-align: center;
+    border-radius: 2px;
+    border: solid 2px #FF5B79;
+  }
+
+  .register_button:hover {
+    background: #FF5B79;
+    color: #802b3b;
+  }
 
 @media screen and (max-width:600px){
     .logIn_block{

@@ -1,36 +1,41 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href = "{{url_for('static', filename='title_frame_static/tittle_frame.css')}}" >
-    </head>
-    <body>
-        <div class = "logIn_block"></div>
-        <div class = "logIn_Wind">
-            <img src = "/static/title_frame_static/logo2.png" alt = "place for logo1">
-            {% block window_content %}
-            <form action = "/check_enter" method = "post" id="log">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='title_frame_static/tittle_frame.css')}}"
+    />
+  </head>
+  <body>
+    <div class="logIn_block"></div>
+    <div class="login_border">
+      <div class="logIn_Wind">
+        <img src="/static/title_frame_static/logo2.png" alt="place for logo1" />
+        {% block window_content %}
+        <form action="/check_enter" method="post" id="log">
+          <input type="text" placeholder="Login" name="login" />
+          <input type="password" placeholder="Password" name="password" />
+          <input type="submit" value="Log In" />
+          <label class="container"
+            >Запомнить
+            <input type="checkbox" name="checked" value="1" />
+            <span class="checkmark"></span>
+          </label>
+        </form>
 
-                <input type="text" placeholder="Login" name = "login">
-                <input type="password" placeholder="Password" name = "password">
-                <input type="submit" value="Log In">
-                <label class="container">Запомнить
-                    <input type="checkbox" name="checked" value="1">
-                    <span class="checkmark"></span>
-                </label>
-            </form>
+        {% for msg in get_flashed_messages() %}
+        <div class="flash">{{msg}}</div>
+        {% endfor %}
 
-            {% for msg in get_flashed_messages() %}
-                <div class="flash">{{msg}}</div>
-            {% endfor %}
-            
+        <a id="register_button" href="/add">Регистрация</a>
 
-            <a href ="/add">Кнопка регистрации</a>
-            <div class = "logoDownAndForgot">
-                <img src = "/static/title_frame_static/Logo.png" alt = "place for logo">
-                <a href = "/forgotten_password">Забыли пароль?</a>
-            </div>
-            {% endblock %}
+        <div class="logoDownAndForgot">
+          <img src="/static/title_frame_static/Logo.png" alt="place for logo" />
+          <a href="/forgotten_password">Забыли пароль</a>
         </div>
-    </body>
+        {% endblock %}
+      </div>
+    </div>
+  </body>
 </html>
