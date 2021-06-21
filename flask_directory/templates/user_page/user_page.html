@@ -142,7 +142,7 @@
                                     <img src = "/static/user_page/free-icon-error-148766.svg" onclick="close_add_block_post()">
                                 </div>
                                 <form action="{{url_for('add_post', id = account.id)}}" method = "post">
-                                    <textarea " autofocus name = "text_post" onclick="fix_textarea(this)" ></textarea>
+                                    <textarea autofocus name = "text_post" onclick="fix_textarea(this)" ></textarea>
                                     <input type ="submit" value="Добавить пост"></input>
                                 </form>
                             </div>
@@ -165,7 +165,14 @@
                                         <img src = {{row[0]}} alt = "log">
                                         {{ row[1] }}
                                     </div>
-                                    <div>{{row[2] }}</div>
+                                    <div>
+                                        {{row[2] }}
+                                        <div class = "delete_post">
+                                            <img src = "/static/user_page/dele_post_icon.svg">
+                                            Удалить пост
+                                        </div>
+                                    </div>
+
                                 </div>
                                 <div class = "text_post">
                                     {{ row[3] }}
