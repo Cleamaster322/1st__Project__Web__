@@ -79,6 +79,17 @@
     margin: 0 auto;
     overflow-y: scroll;
 }
+.followers_list_wrap::-webkit-scrollbar-track {
+    padding: 2px 0;
+    opacity: 1;
+}
+.followers_list_wrap::-webkit-scrollbar {
+    width: 0;
+}
+
+.followers_list_wrap::-webkit-scrollbar-thumb {
+    opacity: 1;
+}
 .followers_follower {
     margin: 40px 0;
     display: flex;
@@ -150,7 +161,7 @@
 .follower_button {
     align-self: center;
 }
-#delete_follower {
+.delete_follower {
     padding: 10px 25px;
     font-family: "roboto-bold";
     font-weight: 500;
@@ -163,7 +174,17 @@
     display: inline-block;
     border: 2px solid #ED4956;
 }
-#delete_follower:hover {
+.delete_follower:hover {
     background: #ED4956;
     color: #141414;
+}
+.spec_del_blue:hover {
+    background: #4ACFFF;
+    color: #141414;
+    z-index: 1;
+}
+.spec_del_red:hover {
+    background: #ED4956;
+    color: #141414;
+    z-index: 1;
 }
