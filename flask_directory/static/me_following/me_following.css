@@ -17,12 +17,14 @@
 
 .content{
     position: relative;
-    margin: 40px 0 0 80px;
+    margin-top: 40px;
+    margin-right: 0;
+    margin-left: 80px;
+    margin-bottom: 0;
     width: 80%;
-    height: 53%;
+    height: 84vh;
     background: radial-gradient( 99.5% 397.04% at 100% 49.01%, #058fff 0%, #EB9038 70.35%, #F3C3CF 100%);
     border-radius: 10px;
-    padding-top: 0.3px;
 }
 
 .subscriptions{
