@@ -6,26 +6,23 @@ textInput.addEventListener("keyup", event => {
 });
 
 
-function delUser() {
-  var elem = document.getElementById("delete_follower");
-  var color = window.getComputedStyle(elem).getPropertyValue("color");
-  var back = window.getComputedStyle(elem).getPropertyValue("background");
-  var back_hover = window.getComputedStyle(elem.hover).getPropertyValue("background");
-  var change = document.getElementById("delete_follower");
-  var color1 = '#ED4956';
-  var color2 = '#4ACFFF';
-  if (change.innerHTML == "Заблокировать")
+function delUser(n) {
+  var change = document.getElementsByClassName("delete_follower");
+  change[n].className = "delete_follower";
+
+  if (change[n].innerHTML == "Заблокировать")
   {
-    change.innerHTML = "Разблокировать";
-    color.color = color2;
-    back.background = color2;
-    back_hover.background = color2;
+    change[n].innerHTML = "Разблокировать";
+    change[n].style.borderColor = "#4ACFFF"
+    change[n].style.color = "#4ACFFF"
+    $('.delete_follower').addClass('spec_del_blue');
   }
-  else {
-    change.innerHTML = "Заблокировать";
-    color.color = color1;
-    back.background = color1;
-    back_hover.background = color1;
+  else
+  {
+    change[n].innerHTML = "Заблокировать";
+    change[n].style.borderColor = "#ED4956"
+    change[n].style.color = "#ED4956"
+    $('.delete_follower').addClass('spec_del_red');
   }
 }
 // Осталось реализовать изменение цвета при нажатии на кнопку и прикрутить к ней стили
