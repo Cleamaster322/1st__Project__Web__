@@ -234,11 +234,15 @@ def for_404_error():
 
 @app.route('/logout', methods = ['GET'])   # ВЫХОД
 def logout():
-    print('logout')
     flag_enter = False
     id_account = -1
     resp = make_response(redirect('/'))
     resp.delete_cookie('username_id')
     return resp
+
+@app.route('/setting/<int:id>',methods = ['GET'])
+def settings(id):
+    return render_template("redacting_profile/redacting_profile.html",account = db.get_account_by_Id(id))
+
 
 
