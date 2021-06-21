@@ -6,8 +6,7 @@ import time
 con = sqlite3.connect("db/sota.db")
 cur = con.cursor()
 id = 2
-account = cur.execute(f"""SELECT * FROM Main WHERE id = {id}""").fetchone()
+tmp = cur.execute(f"""SELECT * FROM comment WHERE id_post = {2}""").fetchall()
 
-import time
-x = int(1624194398.759357) 
-print(time.strftime('%d:%m:%y', time.gmtime(x)))
+for comm in tmp:
+    print(comm)

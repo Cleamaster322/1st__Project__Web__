@@ -15,7 +15,7 @@ create_post = """CREATE TABLE IF NOT EXISTS Post(
 
 create_comment = """CREATE TABLE IF NOT EXISTS Comment(
    id_post INT,
-   id_from INT,
+   id_User INT,   
    text_c TEXT)"""
 
 create_like = """CREATE TABLE IF NOT EXISTS Like(
