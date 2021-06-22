@@ -58,6 +58,7 @@
   flex-direction: column;
 }
 .one_finded_people {
+  border-bottom: 1px white solid;
   margin-top: 20px;
   color: white;
   display: flex;
@@ -68,7 +69,9 @@
 .one_finded_people > img {
   border-radius: 10px;
   width: 50px;
+  height: 50px;
 }
 .one_finded_people > div {
   margin-left: 50px;
+  font-size: 30px;
 }
