@@ -325,3 +325,10 @@ class Database:
                 like_update = (f"""UPDATE Like SET status_like = '{like_status}' WHERE id_post = {id_post} AND id_from = {id_from}""")
                 cur.execute(like_update)
             conn.commit()
+
+    def get_count_followed_and_following(self,id):
+        with self.get_db_connection() as conn:
+            cur = conn.cursor()
+            followed = cur.execute(f"""SELECT count (*) FROM Followed WHERE id_onUser = {id}""").fetchone()
+            following = cur.execute(f"""SELECT count (*) FROM Following WHERE id_onUser = {id}""").fetchone()
+            print(followed,following)
