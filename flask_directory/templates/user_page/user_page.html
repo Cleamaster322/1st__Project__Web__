@@ -216,9 +216,9 @@
                                 </div>
 
                                 <div class = "add_comment_to_post">
-                                    <form>
-                                        <textarea></textarea>
-                                        <button type="submit">Добавить<img src = "/static/user_page/right arrow.svg"></button>
+                                    <form action="{{url_for('add_comment', id = account.id,id_post = row[0])}}" method = "post">
+                                        <textarea name = "text_post"></textarea>
+                                        <input value="добавить комментарий" type = "submit">
                                     </form>
                                 </div>
                             </div>
