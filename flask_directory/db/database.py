@@ -218,7 +218,7 @@ class Database:
                 textP = rowp[5]
                 like_status =cur.execute(f'''SELECT status_like FROM Like WHERE id_post = {id_post} AND id_from = {id}''').fetchone()
                 if like_status == None:
-                    like_status[0] = 0
+                    like_status = [0]
                 likes = cur.execute(f"""SELECT count (*) FROM like WHERE id_post = {id_post} AND status_like = 1""").fetchone()
                 post = [id_post,logoP,nameP,timesP,textP,likes[0],like_status[0],[]]
                 posts.append(post)
@@ -337,3 +337,4 @@ class Database:
             following = cur.execute(f"""SELECT count (*) FROM Following WHERE id_onUser = {id}""").fetchone()
             follow = [followed[0],following[0]]
         return follow
+    

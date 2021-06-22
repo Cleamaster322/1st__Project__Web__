@@ -158,7 +158,6 @@ def post_add_fail(errors):
 
 @app.route("/user_page/<int:id>")  # СТРАНЦИЦА ЮЗЕРА
 def user_page(id):
-    print(id)
     if id not in range(1, accounts + 1) and id != id_account:
         return redirect("/404_erros")
     else:
