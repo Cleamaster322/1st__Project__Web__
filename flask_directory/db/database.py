@@ -62,10 +62,15 @@ class Database:
             account = cur.execute(f"""SELECT id FROM Main WHERE (login = '{login}') and (password = '{password}')""").fetchone()
         return account
 
-    def get_accounts(self):
+    def get_accounts(self, id_user_active, flag_search = 0):
         with self.get_db_connection() as conn:
             cur = conn.cursor()
+            if flag_search == 1:
+                accounts = cur.execute(f"""SELECT id, login, avatar FROM Main WHERE id <> {id_user_active} """).fetchall()
+                print(accounts)
+                return accounts
             accounts = cur.execute(f"""SELECT * FROM Main""").fetchall()
+
         return accounts
 
     def get_account_by_Id(self,id):
@@ -280,7 +285,15 @@ class Database:
             cur.execute(update_c)
             conn.commit
         
-
+    def get_search_result(self, id_user_active, search):
+        with self.get_db_connection() as conn:
+            cur = conn.cursor()
+            oper = f"""SELECT id, login, avatar FROM Main WHERE id <> {id_user_active} AND login LIKE '{search}%'"""
+            accounts = cur.execute(oper).fetchall()
+            if len(accounts) == 0:
+                return None
+            else:
+                return accounts
 
     def insert_comment(self,id_account,text,id_post):
         with self.get_db_connection() as conn:

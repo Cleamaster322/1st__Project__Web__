@@ -268,8 +268,7 @@ def for_find_friends(id):
         if flag_enter == False or id != id_account:
             return redirect("/")
         else:
-            return render_template('search_people_page/search_people_page.html',account = db.get_account_by_Id(id),accounts = db.get_accounts(),id_friends = db.get_id_followed(id))
-
+            return render_template('search_people_page/search_people_page.html',account = db.get_account_by_Id(id), peoples = db.get_accounts(id_account, 1))
 
 
 @app.route("/404_erros")  # ЕЩЕ ОШИБКА БЛ%#$
@@ -301,6 +300,14 @@ def update_settings():
         country = request.form.get('country')
         db.update_set(status,year_n,country, id_account)
     return redirect(f"/user_page/{id_account}")
+
+@app.route("/searching_friends", methods=['post'])
+def searching_friends():
+    if request.form:
+        search = request.form.get('search')
+        return render_template('search_people_page/search_people_page.html',account = db.get_account_by_Id(id_account), peoples = db.get_search_result(id_account, search))
+    else:
+        return redirect('/404_erros')
 
 
 
