@@ -1,0 +1,185 @@
+@font-face {
+    font-family: "roboto-bold";
+    src: url("/static/fonts/Roboto-Bold.ttf");
+}
+@font-face {
+    font-family: "roboto-medium";
+    src: url("/static/fonts/Roboto-Medium.ttf");
+}
+@font-face {
+    font-family: "roboto-light";
+    src:url("/static/fonts/Roboto-Light.ttf");
+}
+@font-face {
+    font-family: "roboto-mediumItalic";
+    src:url("/static/fonts/Roboto-MediumItalic.ttf");
+}
+.container {
+    position: relative;
+    margin: 31px 0 0 80px;
+    width: 80%;
+    height: 82vh;
+    /* background: radial-gradient( 99.5% 397.04% at 100% 49.01%, #058fff 0%, #EB9038 70.35%, #F3C3CF 100%); */
+    border-radius: 10px;
+}
+.followers {
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(
+      to top left,
+      hsla(280, 62%, 10%, 0.65),
+      hsla(339, 66%, 10%, 0.65)
+    );
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    margin: 1.5px;
+}
+.followers_search_wrap {
+    position: relative;
+    max-width: 100%;
+    margin-top: 10px;
+}
+.followers_search_block {
+    width: 94%;
+    margin: 0 3%;
+    position: relative;
+}
+.followers_search_block::after {
+    content: attr(data-text);
+    font-size: 1.5rem;
+    line-height: 0;
+    height: 0;
+    max-width: 100%;
+    font-family: "roboto-medium";
+    border-bottom: 3px solid #FF5B79;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    overflow: hidden;
+    user-select: none;
+    color: transparent;
+}
+.followers_search_block > input {
+    color: #ddd;
+    border: none;
+    padding: 0;
+    border-radius: 0;
+    outline: none;
+    width: auto;
+    min-width: 100%;
+    font-size: 18px;
+    line-height: 3em;
+    font-family: "roboto-light";
+    border-bottom: 3px solid #333333;
+    background-color: transparent;
+}
+.followers_list_wrap {
+    position: inherit;
+    width: calc(100% - 40px);
+    height: 100%;
+    margin: 0 auto;
+    overflow-y: scroll;
+}
+.followers_list_wrap::-webkit-scrollbar-track {
+    padding: 2px 0;
+    opacity: 1;
+}
+.followers_list_wrap::-webkit-scrollbar {
+    width: 0;
+}
+
+.followers_list_wrap::-webkit-scrollbar-thumb {
+    opacity: 1;
+}
+.followers_follower {
+    margin: 40px 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+.follower_container {
+    display: flex;
+    flex-direction: row;
+}
+.follower_image > img {
+    float: left;
+    width: 100px;
+    border-radius: 50%;
+    border:solid 2px rgb(245, 178, 10) ;
+}
+.follower_description {
+    margin: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5px 0 0 30px;
+    max-width: 100%;
+}
+.follower_description_nickname {
+    padding: 0 0 0 20px;
+    font-size: 20px;
+    color: white;
+}
+.follower_description_nickname > a {
+    text-decoration: none;
+    color:white;
+}
+.follower_description_message {
+    margin: 30px 0 0 0;
+    height: 100%;
+    width: 40%;
+    display: flex;
+    white-space: nowrap;
+}
+.to_messenger {
+    display: block;
+    padding: 1rem 1.25rem;
+    font-family: "roboto-medium";
+    font-size: 14px;
+    text-decoration: none;
+    color: white;
+    position: relative;
+    transition: all .3s cubic-bezier(.2, 0, 0, 1);
+    z-index: 1;
+}
+.to_messenger::after {
+    content: '';
+    display: block;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    right: 1rem;
+    left: 1rem;
+    background-color: #ffffff;
+    transition: all .3s cubic-bezier(.2, 0, 0, 1);
+    transform-origin: bottom center;
+    z-index: -1;
+}
+.to_messenger:hover {
+    color: #141414;
+}
+.to_messenger:hover::after {
+    right: 0;
+    left: 0;
+    height: 100%;
+}
+.follower_button {
+    align-self: center;
+}
+.delete_follower {
+    padding: 10px 25px;
+    font-family: "roboto-bold";
+    font-weight: 500;
+    color: #ED4956;
+    background: transparent;
+    outline: none !important;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    border: 2px solid #ED4956;
+}

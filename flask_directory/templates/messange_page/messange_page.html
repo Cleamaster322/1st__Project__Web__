@@ -1,4 +1,40 @@
 {% extends 'user_page/user_page.html' %}
 {% block current_page_content %}
  <link rel="stylesheet" href = "{{url_for('static', filename='messange_page/messange_page.css')}}" >
+     <div class="container">
+        <div class="followers">
+            <div class="followers_search_wrap">
+                <div class="followers_search_block">
+                    <input type="text" placeholder="Поиск диалога...">
+                </div>
+            </div>
+            <div class="followers_list_wrap">
+                {% if followed %}
+                {% for follow in followed%}
+                <div class="followers_follower">
+                    <div class="follower_container">
+                        <div class="follower_image">
+                            <img src="{{follow[0]}}" alt="">
+                        </div>
+                        <div class="follower_description">
+                            <div class="follower_description_nickname">
+                                <a href="{{url_for('user_page', id = follow[2])}}">{{follow[1]}}</a>
+                            </div>
+                            <div class="follower_description_message">
+                                <a href="/messange/1" target="_self" class="to_messenger">Написать сообщение</a>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="follower_button" action="{{url_for('del_followed', id_follow = follow[2])}}">
+                        <button class="delete_follower spec_del_red" onclick="delUser(0)">удалить</button>
+                    </form>
+                </div>
+                {% endfor %}
+            {% else %}
+            <h1>Пусто</h1>
+            {% endif %}
+            </div>
+        </div>
+    </div>
+    <script rel="script" src = "{{url_for('static', filename='my_followers/my_followers.js')}}"></script>
 {% endblock %}
