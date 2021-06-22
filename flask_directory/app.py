@@ -158,6 +158,7 @@ def post_add_fail(errors):
 
 @app.route("/user_page/<int:id>")  # СТРАНЦИЦА ЮЗЕРА
 def user_page(id):
+    print(id)
     if id not in range(1, accounts + 1) and id != id_account:
         return redirect("/404_erros")
     else:
@@ -166,11 +167,11 @@ def user_page(id):
         elif  id != id_account:
             posts = db.get_posts_on_acc(id)
             lens = len(posts)
-            return render_template('another_user/another_user.html',account = db.get_account_by_Id(id),posts = posts, lens = lens, status = db.get_settings_user(id))
+            return render_template('another_user/another_user.html',account = db.get_account_by_Id(id),posts = posts, lens = lens, status = db.get_settings_user(id), count_fol = db.get_count_followed_and_following(id))
         else:
             posts = db.get_posts_on_acc(id_account)
             lens = len(posts)
-            return render_template('user_page/user_page.html',account = db.get_account_by_Id(id_account),posts = posts, lens = lens, status = db.get_settings_user(id_account))
+            return render_template('user_page/user_page.html',account = db.get_account_by_Id(id_account),posts = posts, lens = lens, status = db.get_settings_user(id_account),count_fol = db.get_count_followed_and_following(id_account))
 
 
 @app.route("/add_post/<int:id>", methods=['post'])
@@ -227,7 +228,6 @@ def for_followed(id):
 
 @app.route("/del_followed/<int:id_follow>")
 def del_followed(id_follow):
-    print(id_follow)
     db.del_followed(id_account,id_follow)
     return redirect(f'/for_followed/{id_account}')
 
@@ -243,7 +243,7 @@ def for_following(id):
 
 @app.route("/del_following/<int:id_follow>")
 def del_following(id_follow):
-    print(id_follow)
+
     db.del_following(id_account,id_follow)
     return redirect(f'/me_following/{id_account}')
 

@@ -331,4 +331,5 @@ class Database:
             cur = conn.cursor()
             followed = cur.execute(f"""SELECT count (*) FROM Followed WHERE id_onUser = {id}""").fetchone()
             following = cur.execute(f"""SELECT count (*) FROM Following WHERE id_onUser = {id}""").fetchone()
-            print(followed,following)
+            follow = [followed[0],following[0]]
+        return follow
