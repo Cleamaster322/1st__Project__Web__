@@ -44,7 +44,6 @@ class Database:
         path = "static\img"
         projectame = str(id)
         fullpath = os.path.join(path,projectame)
-        print(fullpath)
         os.mkdir(fullpath)
         seek_f = open(f"{fullpath}/.gitkeep","w") # чтобы в гит отправлялись пустые папки
 
@@ -67,7 +66,6 @@ class Database:
             cur = conn.cursor()
             if flag_search == 1:
                 accounts = cur.execute(f"""SELECT id, login, avatar FROM Main WHERE id <> {id_user_active} """).fetchall()
-                print(accounts)
                 return accounts
             accounts = cur.execute(f"""SELECT * FROM Main""").fetchall()
 
@@ -96,7 +94,6 @@ class Database:
     def check_avatar(self,id,filename):
         im = Image.open(f"static/img/{id}/{filename}")
         (width, height) = im.size
-        print(width,height)
         if width > 500 or height >500:
             return False
         return True
@@ -219,7 +216,8 @@ class Database:
                 nameP = userFromP[1] 
                 timesP = time.strftime('%d:%m:%Y', time.gmtime(rowp[3]))
                 textP = rowp[5]
-                post = [id_post,logoP,nameP,timesP,textP,[]]
+                likes = cur.execute(f"""SELECT count (*) FROM like WHERE id_post = {id_post} AND status_like = 1""").fetchone()
+                post = [id_post,logoP,nameP,timesP,textP,likes[0],[]]
                 posts.append(post)
                 comments_on_post = cur.execute(f"""SELECT * FROM comment WHERE id_post = {rowp[0]}""").fetchall()
                 for j, rowc in enumerate(comments_on_post):
@@ -230,7 +228,7 @@ class Database:
                     timesС = time.strftime('%d:%m:%Y', time.gmtime(rowc[3]))
                     textС = rowc[2]
                     comment = ([logoC,nameC,timesС,textС])
-                    posts[i][5].append(comment)
+                    posts[i][6].append(comment)
         posts = list(reversed(posts))
         return posts
     def insert_post(self,id,text,id_account):
@@ -245,7 +243,6 @@ class Database:
             id_fromUser = id_account
             title = text
             parameters = [id_post,photo_url,id_onUser,times,id_fromUser,title]
-            print (parameters)
             cur.execute(insert_post, parameters)
             conn.commit()
 
@@ -309,3 +306,30 @@ class Database:
             parameters = [id_post,id_User,title,times]
             cur.execute(insert_comment, parameters)
             conn.commit()
+    
+    def like_com(self, id_from,id_post):
+        with self.get_db_connection() as conn:
+            cur = conn.cursor()
+            like_status =cur.execute(f'''SELECT status_like FROM Like WHERE id_post = {id_post} AND id_from = {id_from}''').fetchone()
+            print(like_status)
+            if like_status == None:
+                like_status = 1
+                like_update = f"""INSERT INTO Like (id_post, id_from, status_like) VALUES ({id_post}, {id_from}, {like_status})"""
+                cur.execute(like_update)
+            elif like_status[0] == 1:
+                like_status = 0
+                like_update = (f"""UPDATE Like SET status_like = '{like_status}' WHERE id_post = {id_post} AND id_from = {id_from}""")
+                cur.execute(like_update)
+            else:
+                like_status = 1
+                like_update = (f"""UPDATE Like SET status_like = '{like_status}' WHERE id_post = {id_post} AND id_from = {id_from}""")
+                cur.execute(like_update)
+            conn.commit()
+
+    def get_count_followed_and_following(self,id):
+        with self.get_db_connection() as conn:
+            cur = conn.cursor()
+            followed = cur.execute(f"""SELECT count (*) FROM Followed WHERE id_onUser = {id}""").fetchone()
+            following = cur.execute(f"""SELECT count (*) FROM Following WHERE id_onUser = {id}""").fetchone()
+            follow = [followed[0],following[0]]
+        return follow
