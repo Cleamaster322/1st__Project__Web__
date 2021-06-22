@@ -364,6 +364,7 @@
     flex-direction: column;
 }
 .add_block_post > form > textarea{
+    resize: none;
     height: 300px;
     display: flex;
     justify-content: flex-start;
@@ -467,9 +468,11 @@
     background: #141414;
 }
 .add_comment_to_post > form > textarea{
+    resize: none;
     width: 100%;
+    color: white;
     background: black;
-    border: 1px solid white;
+    border-top: 1px solid white;
 }
 .show_comment_list{
     display: block;
@@ -477,7 +480,16 @@
 .close_comments{
     color: white;
 }
+.comment_zone{
+    overflow: auto;
+    max-height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .one_comment{
+    width: 96%;
+    margin-top: 20px;
     border-radius: 10px;
     background:#303030;
 }

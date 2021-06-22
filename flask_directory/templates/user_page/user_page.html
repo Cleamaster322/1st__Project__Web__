@@ -198,11 +198,6 @@
                             </div>
                             
                             <div class = "list_comment">
-                                <div class = "add_comment_to_post">
-                                    <form>
-                                        <textarea></textarea>
-                                    </form>
-                                </div>
                                 <div class = "comment_zone">
                                     {% for com in row[5] %}
                                     <div class = "one_comment">
@@ -218,6 +213,13 @@
                                         </div>
                                     </div>
                                     {% endfor %}
+                                </div>
+
+                                <div class = "add_comment_to_post">
+                                    <form>
+                                        <textarea></textarea>
+                                        <input value="добавить комментарий" type = "submit">
+                                    </form>
                                 </div>
                             </div>
                         </div>
