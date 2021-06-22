@@ -166,7 +166,7 @@ def user_page(id):
         elif  id != id_account:
             posts = db.get_posts_on_acc(id)
             lens = len(posts)
-            return render_template('another_user/another_user.html',account = db.get_account_by_Id(id),posts = posts, lens = lens, status = db.get_settings_user(id), count_fol = db.get_count_followed_and_following(id), myacc = db.get_account_by_Id(id_account))
+            return render_template('another_user/another_user.html',status_sub = db.check_sub(id_account,id),account = db.get_account_by_Id(id),posts = posts, lens = lens, status = db.get_settings_user(id), count_fol = db.get_count_followed_and_following(id), myacc = db.get_account_by_Id(id_account))
         else:
             posts = db.get_posts_on_acc(id_account)
             lens = len(posts)
@@ -315,6 +315,3 @@ def searching_friends():
         return render_template('search_people_page/search_people_page.html',account = db.get_account_by_Id(id_account), peoples = db.get_search_result(id_account, search))
     else:
         return redirect('/404_erros')
-
-
-

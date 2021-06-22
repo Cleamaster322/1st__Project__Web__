@@ -374,5 +374,13 @@ class Database:
                 following = f"""INSERT INTO following (id_onUser, id_other) VALUES ({id_onUser}, {id_other})""" #подписки
                 cur.execute(followed)
                 cur.execute(following)
-            
             conn.commit()
+        
+    def check_sub(self,id_onUser,id_fromUser):
+        with self.get_db_connection() as conn: 
+            cur = conn.cursor()
+            sub = cur.execute(f"""SELECT * FROM Following WHERE id_onUser = {id_onUser} AND id_other = {id_fromUser}""").fetchone()
+            if sub != None:
+                return 1
+            else:
+                return 0
