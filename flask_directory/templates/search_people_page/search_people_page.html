@@ -7,13 +7,7 @@
                 <input class="search_input_line" type="search" name="search">
                 <input class="search_button_from_search_page" type = "submit" value="найти">
             </form>
-            <div class = "finded_people">              
-                <!-- {% for id in id_friends %}
-                    <div class = "one_finded_people">
-                        <img src = {{ accounts[id-1][4] }} alt="logo">
-                        <div>{{ accounts[id-1][1] }}</div>
-                    </div>
-                {% endfor %} -->
+            <div class = "list_of_finded_people">
                 {% if peoples %}
                     {% for people in peoples %}
                         <div class = "one_finded_people">
@@ -24,8 +18,7 @@
                 {% else %}
                  <h1>Ничего не найдено</h1>
                 {% endif %}
-            </div>
-
         </div>
+
     </div>
 {% endblock %}
