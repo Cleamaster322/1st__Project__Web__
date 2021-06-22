@@ -10,215 +10,26 @@
         </div>
 
         <div class="subscription_profile">
-
+            {% for follow in following %}
             <div class="subscription_profile_location">
                 <div class="subscription_profile_photo">
-                    <img src="/static/me_following/avatar.png" alt="">
+                    <img src="{{follow[0]}}" alt="">
                 </div>
                 <div class="subscription_profile_blya">
                     <div class="subscription_description">
                         <div class="subscription_description_name">
-                            <span>Name</span>
+                            <a href="{{url_for('user_page', id = follow[2])}}">{{follow[1]}}</a>
                         </div>
                         <div class="subscription_description_message">
-                                <a href="!!!Ссылка на диалог!!!" target="_self" class="to_messenger">Написать сообщение</a>
+                                <a href="3213" target="_self" class="to_messenger">Написать сообщение</a>
                         </div>
                     </div>
-                        <div class="unsubscribe">
-                            <button class="unsubscribe_user spec_del_red spec_del_green" onclick="unUser(0)">Отписаться</button>
-                        </div>
+                        <form class="unsubscribe" action="{{url_for('del_following', id_follow = follow[2])}}">
+                            <button class="unsubscribe_user spec_del_red"> Отписаться</button>
+                        </form>
                 </div>
             </div>
-
-            <div class="subscription_profile_location">
-                <div class="subscription_profile_photo">
-                    <img src="/static/me_following/avatar.png" alt="">
-                </div>
-                <div class="subscription_profile_blya">
-                    <div class="subscription_description">
-                        <div class="subscription_description_name">
-                            <span>Name</span>
-                        </div>
-                        <div class="subscription_description_message">
-                                <a href="!!!Ссылка на диалог!!!" target="_self" class="to_messenger">Написать сообщение</a>
-                        </div>
-                    </div>
-                        <div class="unsubscribe">
-                            <button class="unsubscribe_user spec_del_red spec_del_green" onclick="unUser(1)">Отписаться</button>
-                        </div>
-                </div>
-            </div>
-
-            <div class="subscription_profile_location">
-                <div class="subscription_profile_photo">
-                    <img src="/static/me_following/avatar.png" alt="">
-                </div>
-                <div class="subscription_profile_blya">
-                    <div class="subscription_description">
-                        <div class="subscription_description_name">
-                            <span>Name</span>
-                        </div>
-                        <div class="subscription_description_message">
-                                <a href="!!!Ссылка на диалог!!!" target="_self" class="to_messenger">Написать сообщение</a>
-                        </div>
-                    </div>
-                    <div class="unsubscribe">
-                        <button class="unsubscribe_user spec_del_red spec_del_green" onclick="unUser(2)">Отписаться</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="subscription_profile_location">
-                <div class="subscription_profile_photo">
-                    <img src="/static/me_following/avatar.png" alt="">
-                </div>
-                <div class="subscription_profile_blya">
-                    <div class="subscription_description">
-                        <div class="subscription_description_name">
-                            <span>Name</span>
-                        </div>
-                        <div class="subscription_description_message">
-                                <a href="!!!Ссылка на диалог!!!" target="_self" class="to_messenger">Написать сообщение</a>
-                        </div>
-                    </div>
-                    <div class="unsubscribe">
-                        <button class="unsubscribe_user spec_del_red spec_del_green" onclick="unUser(3)">Отписаться</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="subscription_profile_location">
-                <div class="subscription_profile_photo">
-                    <img src="/static/me_following/avatar.png" alt="">
-                </div>
-                <div class="subscription_profile_blya">
-                    <div class="subscription_description">
-                        <div class="subscription_description_name">
-                            <span>Name</span>
-                        </div>
-                        <div class="subscription_description_message">
-                                <a href="!!!Ссылка на диалог!!!" target="_self" class="to_messenger">Написать сообщение</a>
-                        </div>
-                    </div>
-                    <div class="unsubscribe">
-                        <button class="unsubscribe_user spec_del_red spec_del_green" onclick="unUser(4)">Отписаться</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="subscription_profile_location">
-                <div class="subscription_profile_photo">
-                    <img src="/static/me_following/avatar.png" alt="">
-                </div>
-                <div class="subscription_profile_blya">
-                    <div class="subscription_description">
-                        <div class="subscription_description_name">
-                            <span>Name</span>
-                        </div>
-                        <div class="subscription_description_message">
-                                <a href="!!!Ссылка на диалог!!!" target="_self" class="to_messenger">Написать сообщение</a>
-                        </div>
-                    </div>
-                    <div class="unsubscribe">
-                        <button class="unsubscribe_user spec_del_red spec_del_green" onclick="unUser(5)">Отписаться</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="subscription_profile_location">
-                <div class="subscription_profile_photo">
-                    <img src="/static/me_following/avatar.png" alt="">
-                </div>
-                <div class="subscription_profile_blya">
-                    <div class="subscription_description">
-                        <div class="subscription_description_name">
-                            <span>Name</span>
-                        </div>
-                        <div class="subscription_description_message">
-                                <a href="!!!Ссылка на диалог!!!" target="_self" class="to_messenger">Написать сообщение</a>
-                        </div>
-                    </div>
-                    <div class="unsubscribe">
-                        <button class="unsubscribe_user spec_del_red spec_del_green" onclick="unUser(6)">Отписаться</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="subscription_profile_location">
-                <div class="subscription_profile_photo">
-                    <img src="/static/me_following/avatar.png" alt="">
-                </div>
-                <div class="subscription_profile_blya">
-                    <div class="subscription_description">
-                        <div class="subscription_description_name">
-                            <span>Name</span>
-                        </div>
-                        <div class="subscription_description_message">
-                                <a href="!!!Ссылка на диалог!!!" target="_self" class="to_messenger">Написать сообщение</a>
-                        </div>
-                    </div>
-                        <div class="unsubscribe">
-                            <button class="unsubscribe_user spec_del_red spec_del_green" onclick="unUser(7)">Отписаться</button>
-                        </div>
-                </div>
-            </div>
-
-            <div class="subscription_profile_location">
-                <div class="subscription_profile_photo">
-                    <img src="/static/me_following/avatar.png" alt="">
-                </div>
-                <div class="subscription_profile_blya">
-                    <div class="subscription_description">
-                        <div class="subscription_description_name">
-                            <span>Name</span>
-                        </div>
-                        <div class="subscription_description_message">
-                                <a href="!!!Ссылка на диалог!!!" target="_self" class="to_messenger">Написать сообщение</a>
-                        </div>
-                    </div>
-                        <div class="unsubscribe">
-                            <button class="unsubscribe_user spec_del_red spec_del_green" onclick="unUser(8)">Отписаться</button>
-                        </div>
-                </div>
-            </div>
-
-            <div class="subscription_profile_location">
-                <div class="subscription_profile_photo">
-                    <img src="/static/me_following/avatar.png" alt="">
-                </div>
-                <div class="subscription_profile_blya">
-                    <div class="subscription_description">
-                        <div class="subscription_description_name">
-                            <span>Name</span>
-                        </div>
-                        <div class="subscription_description_message">
-                                <a href="!!!Ссылка на диалог!!!" target="_self" class="to_messenger">Написать сообщение</a>
-                        </div>
-                    </div>
-                        <div class="unsubscribe">
-                            <button class="unsubscribe_user spec_del_red spec_del_green" onclick="unUser(9)">Отписаться</button>
-                        </div>
-                </div>
-            </div>
-
-            <div class="subscription_profile_location">
-                <div class="subscription_profile_photo">
-                    <img src="/static/me_following/avatar.png" alt="">
-                </div>
-                <div class="subscription_profile_blya">
-                    <div class="subscription_description">
-                        <div class="subscription_description_name">
-                            <span>Name</span>
-                        </div>
-                        <div class="subscription_description_message">
-                                <a href="!!!Ссылка на диалог!!!" target="_self" class="to_messenger">Написать сообщение</a>
-                        </div>
-                    </div>
-                        <div class="unsubscribe">
-                            <button class="unsubscribe_user spec_del_red spec_del_green" onclick="unUser(10)">Отписаться</button>
-                        </div>
-                </div>
-            </div>
+            {% endfor %}
 
         </div>
     </div>

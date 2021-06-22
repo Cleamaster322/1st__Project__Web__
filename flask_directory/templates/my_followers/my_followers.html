@@ -24,9 +24,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="follower_button">
-                    <button class="delete_follower spec_del_blue spec_del_red" onclick="delUser(0)">Заблокировать</button>
-                </div>
+                <form class="follower_button" action="{{url_for('del_followed', id_follow = follow[2])}}">
+                    <button class="delete_follower spec_del_red" onclick="delUser(0)">удалить</button>
+                </form>
             </div>
         </div>
         {% endfor %}

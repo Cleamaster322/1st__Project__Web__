@@ -161,6 +161,46 @@ class Database:
                 all_followed.append(follow)
             return all_followed
 
+    def del_followed(self,id_main,id_del):
+        with self.get_db_connection() as conn:
+            cur = conn.cursor()
+            deletF = (f'''DELETE FROM Followed WHERE id_onUser = {id_main} AND id_other = {id_del}''')
+            cur.execute(deletF)
+            conn.commit()
+
+
+    def get_id_following(self,id):
+        with self.get_db_connection() as conn:
+            ids = []
+            cur = conn.cursor()
+            tmp = cur.execute(f"""SELECT id_other FROM Following WHERE id_onUser = {id}""").fetchall()
+            conn.commit()
+            for i in tmp:
+                ids.append(i[0])
+            return ids
+
+
+    def get_all_following(self,id):
+        with self.get_db_connection() as conn:
+            cur = conn.cursor()
+            ids = self.get_id_following(id)
+            all_followed = []
+            for i in ids:
+                acc = self.get_account_by_Id(i)
+                avatar = acc[4]
+                name = acc[1]
+                id_F = i
+                follow = [avatar,name,id_F]
+                all_followed.append(follow)
+            return all_followed
+    
+    def del_following(self,id_main,id_del):
+        with self.get_db_connection() as conn:
+            cur = conn.cursor()
+            deletF = (f'''DELETE FROM Following WHERE id_onUser = {id_main} AND id_other = {id_del}''')
+            cur.execute(deletF)
+            conn.commit()
+                
     def get_posts_on_acc(self,id):
         with self.get_db_connection() as conn:
             cur = conn.cursor()

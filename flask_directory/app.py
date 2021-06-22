@@ -223,6 +223,11 @@ def for_followed(id):
         else:
             return render_template('my_followers/my_followers.html',account = db.get_account_by_Id(id),followed = db.get_all_followed(id))
 
+@app.route("/del_followed/<int:id_follow>")
+def del_followed(id_follow):
+    print(id_follow)
+    db.del_followed(id_account,id_follow)
+    return redirect(f'/for_followed/{id_account}')
 
 @app.route("/me_following/<int:id>")  # ТВОИ ПОДПИСКИ
 def for_following(id):
@@ -232,7 +237,14 @@ def for_following(id):
         if flag_enter == False or id != id_account:
             return redirect("/")
         else:
-            return render_template('me_following/me_following.html',account = db.get_account_by_Id(id))
+            return render_template('me_following/me_following.html',account = db.get_account_by_Id(id),following = db.get_all_following(id))
+
+@app.route("/del_following/<int:id_follow>")
+def del_following(id_follow):
+    print(id_follow)
+    db.del_following(id_account,id_follow)
+    return redirect(f'/me_following/{id_account}')
+
 
 @app.route("/return_home")
 def return_home():
