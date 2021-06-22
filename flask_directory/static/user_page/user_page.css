@@ -29,6 +29,7 @@
   display: grid;
   grid-template-columns: 0.4fr 0.6fr 2fr 1fr;
   height: 10vh;
+  min-height:70px;
 }
 .toplogo {
   width: 10vh;
@@ -398,23 +399,24 @@
   justify-content: center;
   flex-direction: column;
 }
+.add_block_post > form > input{
+  border: none;
+}
 .add_block_post > form > textarea {
   resize: none;
   font-size: 20px;
-  height: 300px;
+  height: 50px;
   display: flex;
   justify-content: flex-start;
-  background: linear-gradient(
-    to top left,
-    hsla(281, 60%, 35%, 0.39),
-    hsla(340, 69%, 51%, 0.295)
-  );
+  background: linear-gradient(to top left, hsla(281, 60%, 35%, 0.39), hsla(340, 69%, 51%, 0.295));
   backdrop-filter: blur(5px);
   padding: 10px;
   color: white;
   border: none;
 }
-
+textarea:focus{
+  outline: none;
+}
 .shell_post {
   min-width: 850px;
   border-radius: 5px;
