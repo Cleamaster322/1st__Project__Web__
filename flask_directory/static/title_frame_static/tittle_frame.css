@@ -62,6 +62,12 @@ body {
   text-align: center;
   border-radius: 12px;
 }
+
+#log > input:nth-child(3):hover{
+  background: #FF5B79;
+  color: #802b3b;
+}
+
 .logIn_Wind > button {
   padding: 2px 2px 2px;
   font-size: 26px;
