@@ -68,6 +68,8 @@
 }
 .date::-webkit-calendar-picker-indicator{
     border-left: 2px solid #FF5B79;
+    background: url("/static/user_page/date of birtshday.svg");
+    background-size: 90%;
 }
 .submit {
     max-width: 30%;
