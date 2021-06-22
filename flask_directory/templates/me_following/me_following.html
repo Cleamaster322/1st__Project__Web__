@@ -5,10 +5,11 @@
 
   <div class="content">
     <div class="subscriptions">
-        <div class="sub_search">
-            <input type="text" placeholder="Поиск подписок...">
+        <div class="sub_search_wrap">
+            <div class="sub_search">
+                <input type="text" placeholder="Поиск подписок...">
+            </div>
         </div>
-
         <div class="subscription_profile">
             {% if following %}
             {% for follow in following %}
