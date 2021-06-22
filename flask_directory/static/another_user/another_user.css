@@ -307,6 +307,7 @@
   width: 96%;
 }
 .subscribe_to_person {
+  cursor: pointer;
   margin-top: 5px;
   display: flex;
   align-items: center;
@@ -389,7 +390,7 @@
   background: none;
   color: white;
   width: 70px;
-  font-family: roboto-bold;
+  font-family: roboto-bold, serif;
   padding-bottom: 2px;
   height: 25px;
 }

@@ -27,16 +27,17 @@
   color: white;
   font-family: "gilroy-medium", serif;
   font-size: 20px;
-  background: linear-gradient(
-    to top left,
-    hsla(281, 61%, 26%, 0.8),
-    hsla(340, 65%, 24%, 0.8)
-  );
+  background: linear-gradient(to top left, hsla(281, 61%, 26%, 0.8), hsla(340, 65%, 24%, 0.8));
+  padding-left: 15px;
+  padding-right: 15px;
   backdrop-filter: blur(5px);
-  width: 70%;
+  width:calc(70% - 30px );
   height: 30px;
   border-radius: 5px;
   border: none;
+}
+.search_input_line:focus{
+  outline: none;
 }
 .search_button_from_search_page {
   padding: 2px 2px 2px;
@@ -66,4 +67,7 @@
   margin-top: 20px;
   color: white;
   font-family: "roboto-light", serif;
+}
+.one_finded_people > img {
+  width: 50px;
 }

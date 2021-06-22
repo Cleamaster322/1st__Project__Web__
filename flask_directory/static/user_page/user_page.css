@@ -528,6 +528,7 @@ textarea:focus{
   padding-right: 10px;
 }
 .list_comment {
+  border: 1px solid white;
   background: rgba(0,0,0, 0.3);
   display: none;
   width: 100%;
@@ -546,11 +547,8 @@ textarea:focus{
 .one_comment {
   width: 100%;
   border-radius: 10px;
-  background: linear-gradient(
-    to top left,
-    hsla(280, 60%, 9%, 0.39),
-    hsla(340, 66%, 8%, 0.295)
-  );
+
+  background: linear-gradient(to top left, hsla(280, 60%, 9%, 0.39), hsla(340, 66%, 8%, 0.295));
   backdrop-filter: blur(5px);
 }
 .date_of_comment {
@@ -612,14 +610,14 @@ textarea:focus{
   display: flex;
   flex-direction: column;
 }
-.add_comment_to_post > form > div > textarea{
+.add_comment_to_post > form > textarea{
   overflow: hidden;
   resize: none;
-  font-size: 20px;
+  font-size: 15px;
   background: linear-gradient(to top left, hsla(281, 61%, 30%, 0.65), hsla(340, 65%, 30%, 0.65));
   width: calc(100% - 30px);
   padding: 15px;
-  height: 20px;
+  height: 15px;
   min-height: 100px;
   color:white;
   border-bottom: 1px solid white;
