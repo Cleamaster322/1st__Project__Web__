@@ -135,7 +135,10 @@
   color: white;
   padding: 0.5rem 1.25rem;
 }
-
+.subscription_description_name > a{
+  color:white;
+  text-decoration: none;
+}
 .subscription_description_message {
   height: 50%;
   width: 40%;
