@@ -8,8 +8,8 @@
                 <input type="text" placeholder="Поиск...">
             </div>
         </div>
-        {% for follow in followed%}
         <div class="followers_list_wrap">
+            {% for follow in followed%}
             <div class="followers_follower">
                 <div class="follower_container">
                     <div class="follower_image">
@@ -28,8 +28,8 @@
                     <button class="delete_follower spec_del_red" onclick="delUser(0)">удалить</button>
                 </form>
             </div>
+            {% endfor %}
         </div>
-        {% endfor %}
     </div>
 </div>
 <script rel="script" src = "{{url_for('static', filename='my_followers/my_followers.js')}}"></script>
