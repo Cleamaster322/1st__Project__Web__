@@ -22,7 +22,7 @@
   margin-left: 80px;
   margin-bottom: 0;
   width: 80%;
-  height: 84vh;
+  height: 80vh;
   /* background: radial-gradient( 99.5% 397.04% at 100% 49.01%, #058fff 0%, #EB9038 70.35%, #F3C3CF 100%); */
   border-radius: 10px;
 }
@@ -88,14 +88,11 @@
 }
 
 .subscription_profile::-webkit-scrollbar {
-  width: 3px;
-  height: 0px;
-  border-radius: 10px;
+  width: 0;
 }
 
 .subscription_profile::-webkit-scrollbar-thumb {
-  background-color: #0d8ff8;
-  height: 10px;
+  width: 0;
 }
 
 .subscription_profile_photo img {
