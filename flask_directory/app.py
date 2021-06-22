@@ -171,8 +171,6 @@ def user_page(id):
             return render_template('user_page/user_page.html',account = db.get_account_by_Id(id_account),posts = posts, lens = lens, status = db.get_settings_user(id_account))
 
 
-@app.route("/user_page/<int:id>")
-
 @app.route("/add_post/<int:id>", methods=['post'])
 def add_post(id):
     account = db.get_account_by_Id(id)
