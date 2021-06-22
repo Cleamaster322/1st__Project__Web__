@@ -1,4 +1,112 @@
 {% extends 'user_page/user_page.html' %}
 {% block current_page_content %}
 <link rel="stylesheet" href = "{{url_for('static', filename='news/news.css')}}" >
+
+<div class = "posts">
+    <div id = "shell_for_add_post_block" class = "shell_for_add_post_block">
+        <div class = "add_block_post">
+            <div class = "hat_add_block_post">
+                <h1> Введите текст поста </h1>
+                <img src = "/static/user_page/free-icon-error-148766.svg" onclick="close_add_block_post()">
+            </div>
+            <form action="{{ url_for('add_post', id = account.id) }}" method = "post">
+                <textarea autofocus name = "text_post" onfocus="autosize(this)" ></textarea>
+                <input id="new_post_button" type ="submit" value="Добавить пост"></input>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function show_add_block_post(){
+            document.getElementById("shell_for_add_post_block").classList.toggle("show_add_post_block");
+        }
+        function close_add_block_post(){
+            document.getElementById("shell_for_add_post_block").classList.remove("show_add_post_block");
+        }
+    </script>
+{% for row in posts %}
+    <div class = "shell_post">
+        <div class = "one_post">
+            <div class = "info_post">
+                <div>
+                    <img src = {{row[1]}} alt = "log">
+                    {{ row[2] }}
+                </div>
+                <div>
+                    {{row[3] }}
+                    
+                </div>
+
+            </div>
+            <div class = "text_post">
+                {{ row[4] }}
+                <img src = "/static/user_page/line.svg">
+            </div>
+            <div class = likes_and_comments>
+                <form action="{{url_for('like', id = account.id,id_post = row[0])}}" method="post">
+                    <button type = "submit">
+                        <svg id = "{{ row[0] }}_like"  class="like" onclick="" fill="#bababa" height="22" viewBox="0 0 48 48" width="22"><path d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"></path></svg>
+                    </button>
+                </form>
+                <div class = "count">{{ row[5] }}</div>
+                <div id = "{{ row[0] }}_post" class ="url_to_comment" onclick="show_comment_block(this.id)">
+                    <svg fill="#ffffff" height="24" viewBox="0 0 48 48" width="24"><path clip-rule="evenodd" d="M47.5 46.1l-2.8-11c1.8-3.3 2.8-7.1 2.8-11.1C47.5 11 37 .5 24 .5S.5 11 .5 24 11 47.5 24 47.5c4 0 7.8-1 11.1-2.8l11 2.8c.8.2 1.6-.6 1.4-1.4zm-3-22.1c0 4-1 7-2.6 10-.2.4-.3.9-.2 1.4l2.1 8.4-8.3-2.1c-.5-.1-1-.1-1.4.2-1.8 1-5.2 2.6-10 2.6-11.4 0-20.6-9.2-20.6-20.5S12.7 3.5 24 3.5 44.5 12.7 44.5 24z" fill-rule="evenodd"></path></svg>
+                    Показать комментарии
+                </div>
+
+                <script>
+                    function show_comment_block(post_id){
+                        document.getElementById(post_id).parentNode.parentNode.parentNode.children[1].classList.toggle("show_comment_list");
+                    }
+                </script>
+
+            </div>
+        </div>
+        
+        <div class = "list_comment">
+            <div class = "comment_zone">
+                {% for com in row[6] %}
+                <div class = "one_comment">
+
+                    <div class = "author_of_commet">
+                        <div class = "nick_of_comment_logo">
+                            <img src = "{{ com[0] }}" alt = "log">
+                            {{ com[1] }}
+                        </div>
+                        <div class = date_of_comment>
+                                {{ com[2] }}
+                            <form>
+                                <button>
+                                    <svg height="512pt" viewBox="-47 0 512 512" width="512pt" xmlns="http://www.w3.org/2000/svg"><path d="m416.875 114.441406-11.304688-33.886718c-4.304687-12.90625-16.339843-21.578126-29.941406-21.578126h-95.011718v-30.933593c0-15.460938-12.570313-28.042969-28.027344-28.042969h-87.007813c-15.453125 0-28.027343 12.582031-28.027343 28.042969v30.933593h-95.007813c-13.605469 0-25.640625 8.671876-29.945313 21.578126l-11.304687 33.886718c-2.574219 7.714844-1.2695312 16.257813 3.484375 22.855469 4.753906 6.597656 12.445312 10.539063 20.578125 10.539063h11.816406l26.007813 321.605468c1.933594 23.863282 22.183594 42.558594 46.109375 42.558594h204.863281c23.921875 0 44.175781-18.695312 46.105469-42.5625l26.007812-321.601562h6.542969c8.132812 0 15.824219-3.941407 20.578125-10.535157 4.753906-6.597656 6.058594-15.144531 3.484375-22.859375zm-249.320312-84.441406h83.0625v28.976562h-83.0625zm162.804687 437.019531c-.679687 8.402344-7.796875 14.980469-16.203125 14.980469h-204.863281c-8.40625 0-15.523438-6.578125-16.203125-14.980469l-25.816406-319.183593h288.898437zm-298.566406-349.183593 9.269531-27.789063c.210938-.640625.808594-1.070313 1.484375-1.070313h333.082031c.675782 0 1.269532.429688 1.484375 1.070313l9.269531 27.789063zm0 0"/><path d="m282.515625 465.957031c.265625.015625.527344.019531.792969.019531 7.925781 0 14.550781-6.210937 14.964844-14.21875l14.085937-270.398437c.429687-8.273437-5.929687-15.332031-14.199219-15.761719-8.292968-.441406-15.328125 5.925782-15.761718 14.199219l-14.082032 270.398437c-.429687 8.273438 5.925782 15.332032 14.199219 15.761719zm0 0"/><path d="m120.566406 451.792969c.4375 7.996093 7.054688 14.183593 14.964844 14.183593.273438 0 .554688-.007812.832031-.023437 8.269531-.449219 14.609375-7.519531 14.160157-15.792969l-14.753907-270.398437c-.449219-8.273438-7.519531-14.613281-15.792969-14.160157-8.269531.449219-14.609374 7.519532-14.160156 15.792969zm0 0"/><path d="m209.253906 465.976562c8.285156 0 15-6.714843 15-15v-270.398437c0-8.285156-6.714844-15-15-15s-15 6.714844-15 15v270.398437c0 8.285157 6.714844 15 15 15zm0 0"/></svg>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class = "text_of_comment">
+                        {{ com[3] }}
+                    </div>
+                </div>
+                    {% endfor %}
+            </div>
+
+            <div class = "add_comment_to_post">
+                <form action="{{url_for('add_comment', id = account.id,id_post = row[0])}}" method = "post">
+                        <textarea name = "text_post" onfocus="autosize(this)"></textarea>
+                    <button> Добавить комментарий <img src = "/static/user_page/right arrow.svg"></button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+{% endfor %}
+
+    <script>
+        function click_like(value){
+            document.getElementById(value).classList.toggle("likeRed");
+        }
+    </script>
+
+</div>
+
 {% endblock %}

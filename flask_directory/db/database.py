@@ -327,6 +327,34 @@ class Database:
                 cur.execute(like_update)
             conn.commit()
 
+    def get_all_posts(self):
+        with self.get_db_connection() as conn:
+            cur = conn.cursor()
+            tmp = cur.execute(f"""SELECT * FROM Post""").fetchall()
+            conn.commit()
+            posts = []
+            for i,rowp in enumerate(tmp):
+                id_post = rowp[0]
+                userFromP = self.get_account_by_Id(rowp[4])
+                logoP = userFromP[4]
+                nameP = userFromP[1] 
+                timesP = time.strftime('%d:%m:%Y', time.gmtime(rowp[3]))
+                textP = rowp[5]
+                likes = cur.execute(f"""SELECT count (*) FROM like WHERE id_post = {id_post} AND status_like = 1""").fetchone()
+                post = [id_post,logoP,nameP,timesP,textP,likes[0],[]]
+                posts.append(post)
+                comments_on_post = cur.execute(f"""SELECT * FROM comment WHERE id_post = {rowp[0]}""").fetchall()
+                for j, rowc in enumerate(comments_on_post):
+                    userFromCom = self.get_account_by_Id(rowc[1])
+                    comment = []
+                    logoC = userFromCom[4]
+                    nameC = userFromCom[1]
+                    timesС = time.strftime('%d:%m:%Y', time.gmtime(rowc[3]))
+                    textС = rowc[2]
+                    comment = ([logoC,nameC,timesС,textС])
+                    posts[i][6].append(comment)
+        posts = list(reversed(posts))
+        return posts
     def get_count_followed_and_following(self,id):
         with self.get_db_connection() as conn:
             cur = conn.cursor()
