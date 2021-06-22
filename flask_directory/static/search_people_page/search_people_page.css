@@ -1,47 +1,69 @@
-.shell_for_search_people{
-    position: relative;
-    background:radial-gradient( 99.5% 397.04% at 100% 49.01%, #058fff 0%, #EB9038 70.35%, #F3C3CF 100%) ;
-    margin-top: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.shell_for_search_people {
+  position: relative;
+  /* background:radial-gradient( 99.5% 397.04% at 100% 49.01%, #058fff 0%, #EB9038 70.35%, #F3C3CF 100%) ; */
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.search_people_2{
-    height: calc(100% - 6px);
-    display: grid;
-    grid-template-rows: 0.5fr 5fr;
-    background: black;
-    width: calc(100% - 6px);
-
+.search_people_2 {
+  height: calc(100% - 6px);
+  display: grid;
+  grid-template-rows: 0.5fr 5fr;
+  background: linear-gradient(
+    to top left,
+    hsla(280, 62%, 10%, 0.65),
+    hsla(339, 66%, 10%, 0.65)
+  );
+  backdrop-filter: blur(5px);
+  width: calc(100% - 6px);
 }
-.search_people_2 > form{
-    margin: 20px;
+.search_people_2 > form {
+  margin: 20px;
 }
 .search_input_line {
-    font-family: "gilroy-medium", serif;
-    font-size: 20px;
-    background: rgb(112, 112, 112);
-    width: 70%;
-    height: 30px;
-    border-radius: 5px;
+  color: white;
+  font-family: "gilroy-medium", serif;
+  font-size: 20px;
+  background: linear-gradient(
+    to top left,
+    hsla(281, 61%, 26%, 0.8),
+    hsla(340, 65%, 24%, 0.8)
+  );
+  backdrop-filter: blur(5px);
+  width: 70%;
+  height: 30px;
+  border-radius: 5px;
+  border: none;
 }
-.search_button_from_search_page{
-    height: 30px;
-    width: 60px;
-    margin-left: 10px;
+.search_button_from_search_page {
+  padding: 2px 2px 2px;
+  background: none;
+  border-radius: 20px;
+  border: 2px solid #ff5b79;
+  color: #ff5b79;
+  height: 30px;
+  width: 150px;
+  margin-left: 10px;
 }
+
+.search_button_from_search_page:hover{
+    background: #FF5B79;
+    color: #802b3b;
+}
+
 .finded_people {
-    height: 500px;
-    overflow: auto;
-    margin-left: 20px;
-    margin-right: 20px;
-    display: flex;
-    flex-direction: column;
+  height: 500px;
+  overflow: auto;
+  margin-left: 20px;
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
 }
-.one_finded_people{
-    margin-top: 20px;
-    color: white;
-    font-family: "roboto-light", serif;
+.one_finded_people {
+  margin-top: 20px;
+  color: white;
+  font-family: "roboto-light", serif;
 }

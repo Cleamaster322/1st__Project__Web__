@@ -27,7 +27,8 @@ body{
     width: 600px;
 }
 .logIn_Wind{
-    background: linear-gradient(to top left, hsla(280, 62%, 10%, 1),hsla(339, 66%, 10%, 1) );
+    background: linear-gradient(to top left, hsla(280, 62%, 10%, 0.65),hsla(339, 66%, 10%, 0.65) );
+    backdrop-filter: blur(5px);
     padding-bottom: 10px;
     padding-left: 40px;
     padding-right: 40px;
