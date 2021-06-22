@@ -12,7 +12,7 @@
     <div class = "hat">
         <img class ="toplogo" src = "/static/user_page/Logo.png">
         <div class = "search_people">
-            <a href = "{{url_for('for_find_friends', id = account.id)}}"><img src = "/static/user_page/free-icon-job-search-875753.svg">  поиск друзей </a>
+            <a href = "{{url_for('for_find_friends', id = account.id)}}"><img src = "/static/user_page/search.svg">  поиск друзей </a>
         </div>
         <div class = "sota_hat">S.O.T.A</div>
         <div class = "hat_info_user">
@@ -73,7 +73,7 @@
                                 <img src= "{{account.avatar}}" alt = "userAvatar" class = 'main_avatar'>
 
                                 <div id="url_to_intro_form" class = "url_to_intro_form" onclick="for_showing_intro_form()">
-                                    <img src = "/static/user_page/free-icon-upload-2206449.svg">
+                                    <img src = "/static/user_page/image.svg">
                                     <div class = "url_to_intro_for_js">Изменить фотографию</div>
                                 </div>
 
@@ -104,29 +104,29 @@
                             <div class = "userpage_stat">
 
                                 <div class = "top_stats">
-                                    <div class = "withIcon"><img src = "/static/user_page/status.svg">Статус:</div><div class = "withIcon">Футбольчик мальчики походят на качков</div>
-                                    <div class = "withIcon"><img src = "/static/user_page/free-icon-birthday-invitation-593793.svg"> Дата рождения:</div><div>20.09.2002</div>
-                                    <div class = "withIcon"><img src = "/static/user_page/free-icon-country-map-2509686.svg">Страна:</div><div>Россия</div>
+                                    <div class = "withIcon"><img src = "/static/user_page/info.svg">Статус:</div><div class = "withIcon">Футбольчик мальчики походят на качков</div>
+                                    <div class = "withIcon"><img src = "/static/user_page/date of birtshday.svg"> Дата рождения:</div><div>20.09.2002</div>
+                                    <div class = "withIcon"><img src = "/static/user_page/from.svg">Страна:</div><div>Россия</div>
                                 </div>
 
                                 <div class = "bottom_stats">
                                     <a href = "">
-                                        <img src = "/static/user_page/free-icon-followers-1177444.svg">
+                                        <img src = "/static/user_page/followers.svg">
                                         0 подписчиков
                                     </a>
                                     <a href = "">
-                                        <img src = "/static/user_page/free-icon-subscribe-4264955.svg">
+                                        <img src = "/static/user_page/follow.svg">
                                         0 подписок
                                     </a>
                                     <a href = "">
-                                        <img src = "/static/user_page/free-icon-publication-4336288.svg">
+                                        <img src = "/static/user_page/posts.svg">
                                         {{lens}}
                                     </a>
                                 </div>
                                 <div class = "add_post">
                                     <img src = "/static/user_page/line.svg">
                                     <div class = "src_for_add_post" onclick="show_add_block_post()">
-                                        <img src = "/static/user_page/free-icon-add-file-1323942.svg">
+                                        <img src = "/static/user_page/New post.svg">
                                         Добавить новый пост
                                     </div>
                                 </div>
@@ -143,7 +143,7 @@
                                 </div>
                                 <form action="{{url_for('add_post', id = account.id)}}" method = "post">
                                     <textarea autofocus name = "text_post" onclick="fix_textarea(this)" ></textarea>
-                                    <input type ="submit" value="Добавить пост"></input>
+                                    <input id="new_post_button" type ="submit" value="Добавить пост"></input>
                                 </form>
                             </div>
                         </div>
@@ -168,7 +168,7 @@
                                     <div>
                                         {{row[2] }}
                                         <div class = "delete_post">
-                                            <img src = "/static/user_page/dele_post_icon.svg">
+                                            <img src = "/static/user_page/delete_post.svg">
                                             Удалить пост
                                         </div>
                                     </div>
@@ -182,7 +182,7 @@
                                     <svg id = "{{ row[4] }}_like"  class="like" onclick="click_like(this.id)" fill="#bababa" height="22" viewBox="0 0 48 48" width="22"><path d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"></path></svg>
                                     <div class = "count">0</div>
                                     <div id = "{{ row[4] }}_post" class ="url_to_comment" onclick="show_comment_block(this.id)">
-                                        <svg fill="#bababa" height="24" viewBox="0 0 48 48" width="24"><path clip-rule="evenodd" d="M47.5 46.1l-2.8-11c1.8-3.3 2.8-7.1 2.8-11.1C47.5 11 37 .5 24 .5S.5 11 .5 24 11 47.5 24 47.5c4 0 7.8-1 11.1-2.8l11 2.8c.8.2 1.6-.6 1.4-1.4zm-3-22.1c0 4-1 7-2.6 10-.2.4-.3.9-.2 1.4l2.1 8.4-8.3-2.1c-.5-.1-1-.1-1.4.2-1.8 1-5.2 2.6-10 2.6-11.4 0-20.6-9.2-20.6-20.5S12.7 3.5 24 3.5 44.5 12.7 44.5 24z" fill-rule="evenodd"></path></svg>
+                                        <svg fill="#ffffff" height="24" viewBox="0 0 48 48" width="24"><path clip-rule="evenodd" d="M47.5 46.1l-2.8-11c1.8-3.3 2.8-7.1 2.8-11.1C47.5 11 37 .5 24 .5S.5 11 .5 24 11 47.5 24 47.5c4 0 7.8-1 11.1-2.8l11 2.8c.8.2 1.6-.6 1.4-1.4zm-3-22.1c0 4-1 7-2.6 10-.2.4-.3.9-.2 1.4l2.1 8.4-8.3-2.1c-.5-.1-1-.1-1.4.2-1.8 1-5.2 2.6-10 2.6-11.4 0-20.6-9.2-20.6-20.5S12.7 3.5 24 3.5 44.5 12.7 44.5 24z" fill-rule="evenodd"></path></svg>
                                         Показать комментарии
                                     </div>
 
