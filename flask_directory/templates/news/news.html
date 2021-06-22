@@ -39,8 +39,9 @@
 
             </div>
             <div class = "text_post">
-                {{ row[4] }}
+                
                 <img src = "/static/user_page/line.svg">
+                {{ row[4] }}
             </div>
             <div class = likes_and_comments>
                 <form action="{{url_for('like', id = account.id,id_post = row[0])}}" method="post">

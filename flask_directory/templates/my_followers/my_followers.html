@@ -9,6 +9,7 @@
             </div>
         </div>
         <div class="followers_list_wrap">
+            {% if followed %}
             {% for follow in followed%}
             <div class="followers_follower">
                 <div class="follower_container">
@@ -29,6 +30,9 @@
                 </form>
             </div>
             {% endfor %}
+        {% else %}
+        <h1>Пусто</h1>
+        {% endif %}
         </div>
     </div>
 </div>
