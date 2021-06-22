@@ -3,18 +3,27 @@
 <link rel="stylesheet" href = "{{url_for('static', filename='search_people_page/search_people_page.css')}}">
     <div class = "shell_for_search_people">
         <div class = "search_people_2">
-            <form>
-                <input class="search_input_line" type="search">
+            <form action="/searching_friends" method="post" >
+                <input class="search_input_line" type="search" name="search">
                 <input class="search_button_from_search_page" type = "submit" value="найти">
             </form>
-            <div class = "finded_people">
-                
-                {% for id in id_friends %}
+            <div class = "finded_people">              
+                <!-- {% for id in id_friends %}
                     <div class = "one_finded_people">
                         <img src = {{ accounts[id-1][4] }} alt="logo">
                         <div>{{ accounts[id-1][1] }}</div>
                     </div>
-                {% endfor %}
+                {% endfor %} -->
+                {% if peoples %}
+                    {% for people in peoples %}
+                        <div class = "one_finded_people">
+                            <img src = '{{ people.avatar}}' alt="logo">
+                            <div>{{ people.login }}</div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                 <h1>Ничего не найдено</h1>
+                {% endif %}
             </div>
 
         </div>
