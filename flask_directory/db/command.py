@@ -35,6 +35,11 @@ create_comment = """CREATE TABLE IF NOT EXISTS Comment(
    id_to INT,
    text_c TEXT)"""
 
+create_status = """CREATE TABLE IF NOT EXISTS Status(
+   status_text TEXT,
+   year INT,
+   country TEXT)"""
+
 insert_account = """INSERT INTO Main (login, mail, password,avatar) VALUES (?, ?, ?,"/static/img/default.png")"""
 
 insert_post = """INSERT INTO post (id_post, photo_url, id_onUser, time, id_fromUser, title) VALUES (?, ?, ?, ?, ?, ?)"""
