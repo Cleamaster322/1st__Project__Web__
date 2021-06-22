@@ -58,17 +58,37 @@
   flex-direction: column;
 }
 .one_finded_people {
+  border-radius: 10px;
+  background: rgba(0,0,0, 0.3);
   margin-top: 20px;
   color: white;
   display: flex;
   font-family: "roboto-light", serif;
+  align-items: center;
+  justify-content: space-between;
+}
+.one_finded_people > form{
+  margin-right: 20px;
+}
+.one_finded_people > form > input {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color:white;
+  font-size: 20px;
+}
+.name_and_log{
+  display: flex;
   align-items: flex-end;
 }
-
-.one_finded_people > img {
+.name_and_log > div {
+  font-size: 30px;
+  margin-left: 40px;
+}
+.name_and_log > img {
+  margin-left: 10px;
   border-radius: 10px;
   width: 50px;
+  height: 50px;
 }
-.one_finded_people > div {
-  margin-left: 50px;
-}
+
