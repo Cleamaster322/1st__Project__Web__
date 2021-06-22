@@ -163,11 +163,14 @@ class Database:
                 all_followed.append(follow)
             return all_followed
 
-    def del_followed(self,id_main,id_del):
+    def del_follow(self,id_main,id_del):
         with self.get_db_connection() as conn:
             cur = conn.cursor()
-            deletF = (f'''DELETE FROM Followed WHERE id_onUser = {id_main} AND id_other = {id_del}''')
-            cur.execute(deletF)
+            print(id_main,id_del)
+            deletFollowed = (f'''DELETE FROM Followed WHERE id_onUser = {id_del} AND id_other = {id_main}''')
+            deletFollowing = (f'''DELETE FROM Following WHERE id_onUser = {id_main} AND id_other = {id_del}''')
+            cur.execute(deletFollowed)
+            cur.execute(deletFollowing)
             conn.commit()
 
 
@@ -196,12 +199,6 @@ class Database:
                 all_followed.append(follow)
             return all_followed
     
-    def del_following(self,id_main,id_del):
-        with self.get_db_connection() as conn:
-            cur = conn.cursor()
-            deletF = (f'''DELETE FROM Following WHERE id_onUser = {id_main} AND id_other = {id_del}''')
-            cur.execute(deletF)
-            conn.commit()
                 
     def get_posts_on_acc(self,id):
         with self.get_db_connection() as conn:
@@ -338,3 +335,11 @@ class Database:
             follow = [followed[0],following[0]]
         return follow
     
+    def subscribe_on_acc(self,id_onUser,id_other):
+        with self.get_db_connection() as conn: 
+            cur = conn.cursor()
+            followed = f"""INSERT INTO followed (id_onUser, id_other) VALUES ({id_other}, {id_onUser})""" #подписчики
+            following = f"""INSERT INTO following (id_onUser, id_other) VALUES ({id_onUser}, {id_other})""" #подписки
+            cur.execute(followed)
+            cur.execute(following)
+            conn.commit()

@@ -172,6 +172,10 @@ def user_page(id):
             lens = len(posts)
             return render_template('user_page/user_page.html',account = db.get_account_by_Id(id_account),posts = posts, lens = lens, status = db.get_settings_user(id_account),count_fol = db.get_count_followed_and_following(id_account))
 
+@app.route("/subscribe/<int:id>",methods=['post'])
+def subscribe(id):
+    db.subscribe_on_acc(id_account,id)
+    return redirect(f"/find_friends/{id_account}")
 
 @app.route("/add_post/<int:id>", methods=['post'])
 def add_post(id):
@@ -227,7 +231,7 @@ def for_followed(id):
 
 @app.route("/del_followed/<int:id_follow>")
 def del_followed(id_follow):
-    db.del_followed(id_account,id_follow)
+    db.del_follow(id_account,id_follow)
     return redirect(f'/for_followed/{id_account}')
 
 @app.route("/me_following/<int:id>")  # ТВОИ ПОДПИСКИ
@@ -242,8 +246,7 @@ def for_following(id):
 
 @app.route("/del_following/<int:id_follow>")
 def del_following(id_follow):
-
-    db.del_following(id_account,id_follow)
+    db.del_follow(id_account,id_follow)
     return redirect(f'/me_following/{id_account}')
 
 
