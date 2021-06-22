@@ -17,7 +17,7 @@
                     </div>
                     <div class="follower_description">
                         <div class="follower_description_nickname">
-                            <span>{{follow[1]}}</span>
+                            <a href="{{url_for('user_page', id = follow[2])}}">{{follow[1]}}</a>
                         </div>
                         <div class="follower_description_message">
                             <a href="!!!Ссылка на диалог с юзером!!!" target="_self" class="to_messenger">Написать сообщение</a>

@@ -155,16 +155,23 @@ def post_add_fail(errors):
 
 @app.route("/user_page/<int:id>")  # СТРАНЦИЦА ЮЗЕРА
 def user_page(id):
-    print(db.get_all_followed(id))
+    print(id_account)
     if id not in range(1, accounts + 1) and id != id_account:
         return redirect("/404_erros")
     else:
-        if flag_enter == False or id != id_account:
+        if flag_enter == False:
             return redirect("/")
-        else:
+        elif  id != id_account:
             posts = db.get_posts_on_acc(id)
             lens = len(posts)
-            return render_template('user_page/user_page.html',account = db.get_account_by_Id(id),posts = posts, lens = lens, status = db.get_settings_user(id_account))
+            return render_template('another_user/another_user.html',account = db.get_account_by_Id(id),posts = posts, lens = lens, status = db.get_settings_user(id))
+        else:
+            posts = db.get_posts_on_acc(id_account)
+            lens = len(posts)
+            return render_template('user_page/user_page.html',account = db.get_account_by_Id(id_account),posts = posts, lens = lens, status = db.get_settings_user(id_account))
+
+
+@app.route("/user_page/<int:id>")
 
 @app.route("/add_post/<int:id>", methods=['post'])
 def add_post(id):
@@ -189,6 +196,8 @@ def add_comment(id,id_post):
 
 
 
+
+
 @app.route("/del_post/<int:id>/<int:id_post>", methods=['post'])
 def del_post(id,id_post):
     db.delete_post(id_post)
@@ -206,7 +215,7 @@ def for_messanges(id):
             return render_template('messange_page/messange_page.html',account = db.get_account_by_Id(id))
 
 
-@app.route("/followers/<int:id>")  # ПОДПИСЧИКИ
+@app.route("/for_followed/<int:id>")  # ПОДПИСЧИКИ
 def for_followed(id):
     if id not in range(1, accounts + 1):
         return redirect("/404_erros")
@@ -227,6 +236,9 @@ def for_following(id):
         else:
             return render_template('me_following/me_following.html',account = db.get_account_by_Id(id))
 
+@app.route("/return_home")
+def return_home():
+    return redirect(f"/user_page/{id_account}")
 
 @app.route("/news/<int:id>")  #  НОВОСТНАЯ ЛЕНТА
 def for_news(id):
