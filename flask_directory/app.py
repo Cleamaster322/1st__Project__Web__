@@ -163,7 +163,6 @@ def user_page(id):
         else:
             posts = db.get_posts_on_acc(id)
             lens = len(posts)
-            print(lens)
             return render_template('user_page/user_page.html',account = db.get_account_by_Id(id),posts = posts, lens = lens)
 
 @app.route("/add_post/<int:id>", methods=['post'])
