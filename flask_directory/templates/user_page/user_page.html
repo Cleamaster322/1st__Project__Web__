@@ -120,7 +120,7 @@
                                     </a>
                                     <a href = "">
                                         <img src = "/static/user_page/free-icon-publication-4336288.svg">
-                                        {{lens}}
+                                        {{lens}} постов
                                     </a>
                                 </div>
                                 <div class = "add_post">
@@ -198,6 +198,11 @@
                             </div>
                             
                             <div class = "list_comment">
+                                <div class = "add_comment_to_post">
+                                    <form>
+                                        <textarea></textarea>
+                                    </form>
+                                </div>
                                 <div class = "comment_zone">
                                     {% for com in row[5] %}
                                     <div class = "one_comment">

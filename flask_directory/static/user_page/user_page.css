@@ -466,6 +466,9 @@
     margin-top: 3px;
     background: #141414;
 }
+.add_comment_to_post > form > textarea{
+    width: 100%;
+}
 .show_comment_list{
     display: block;
 }
