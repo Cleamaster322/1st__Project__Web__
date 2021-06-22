@@ -186,13 +186,12 @@ class Database:
             id_fromUser = id_account
             title = text
             parameters = [id_post,photo_url,id_onUser,times,id_fromUser,title]
-            print(parameters)
             cur.execute(insert_post, parameters)
             conn.commit()
 
     def delete_post(self,id_post):
         with self.get_db_connection() as conn:
             cur = conn.cursor()
-            delete = cur.execute(f'''DELETE FROM post WHERE id_post = {id_post}''')
+            delete = (f'''DELETE FROM post WHERE id_post = {id_post}''')
             cur.execute(delete)
             conn.commit()
