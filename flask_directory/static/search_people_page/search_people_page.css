@@ -85,6 +85,10 @@
   font-size: 30px;
   margin-left: 40px;
 }
+.name_and_log > div > a {
+  color:white;
+  text-decoration: none;
+}
 .name_and_log > img {
   margin-left: 10px;
   border-radius: 10px;
