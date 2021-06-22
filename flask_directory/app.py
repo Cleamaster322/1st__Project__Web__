@@ -170,8 +170,23 @@ def add_post(id):
     account = db.get_account_by_Id(id)
     if request.form:
         text = request.form.get('text_post')
+        if text == "":
+            return redirect(f"/user_page/{id}")
         post = db.insert_post(id,text,id_account)
     return redirect(f"/user_page/{id}")
+    
+@app.route("/add_comment/<int:id>/<int:id_post>", methods=['post'])
+def add_comment(id,id_post):
+    account = db.get_account_by_Id(id_account)
+    if request.form:
+        text = request.form.get('text_post')
+        if text == "":
+            return redirect(f"/user_page/{id}")
+        comment = db.insert_comment(id_account,text,id_post)
+    return redirect(f"/user_page/{id}")
+
+
+
 
 @app.route("/del_post/<int:id>/<int:id_post>", methods=['post'])
 def del_post(id,id_post):
