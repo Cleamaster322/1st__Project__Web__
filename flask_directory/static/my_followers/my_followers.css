@@ -36,11 +36,11 @@
     backdrop-filter: blur(5px);
     border-radius: 10px;
     margin: 1.5px;
-
 }
 .followers_search_wrap {
     position: relative;
     max-width: 100%;
+    margin-top: 10px;
 }
 .followers_search_block {
     width: 94%;

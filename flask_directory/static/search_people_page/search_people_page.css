@@ -1,54 +1,100 @@
+@font-face {
+  font-family: "roboto-bold";
+  src: url("/static/fonts/Roboto-Bold.ttf");
+}
+@font-face {
+  font-family: "roboto-medium";
+  src: url("/static/fonts/Roboto-Medium.ttf");
+}
+@font-face {
+  font-family: "roboto-light";
+  src: url("/static/fonts/Roboto-Light.ttf");
+}
+@font-face {
+  font-family: "roboto-mediumItalic";
+  src: url("/static/fonts/Roboto-MediumItalic.ttf");
+}
 .shell_for_search_people {
+  position: relative;
+  margin: 31px 0 0 80px;
+  width: 80%;
+  height: 82vh;
+  border-radius: 10px;
+}
+.shell_for_search_people::-webkit-scrollbar-track {
+    padding: 2px 0;
+    opacity: 1;
+}
+.shell_for_search_people::-webkit-scrollbar {
+    width: 0;
+}
+
+.shell_for_search_people::-webkit-scrollbar-thumb {
+    opacity: 1;
+}
+.search_people_wrap {
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+  position: relative;
   display: flex;
-  min-height: 250px;
-  height: 100%;
-  min-width: 900px;
-  justify-content: center;
+  flex-direction: column;
+  background: linear-gradient(
+    to top left,
+    hsla(280, 62%, 10%, 0.65),
+    hsla(339, 66%, 10%, 0.65)
+  );
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+  margin: 1.5px;
+}
+.search_people_block {
+  position: relative;
+  max-width: 100%;
+  margin-top: 10px;
+}
+.search_people_block > form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
+  margin: 0 3%;
 }
-.search_people_2 {
-  display: grid;
-  grid-template-rows: 1fr 5fr;
-  height: calc(80% - 6px);
-  background: linear-gradient(to top left, hsla(280, 62%, 10%, 0.65), hsla(339, 66%, 10%, 0.65));
-  backdrop-filter: blur(5px);
-  width: calc(80% - 6px);
+.search_placeholder {
+    width: 77%;
+    position: relative;
+    font-family: "roboto-medium";
+    border-bottom: 3px solid #FF5B79;
 }
-.search_people_2 > form {
-  margin: 20px;
-}
+
 .search_input_line {
-  color: white;
-  font-family: "gilroy-medium", serif;
-  font-size: 20px;
-  background: linear-gradient(to top left, hsla(281, 61%, 26%, 0.8), hsla(340, 65%, 24%, 0.8));
-  padding-left: 15px;
-  padding-right: 15px;
-  backdrop-filter: blur(5px);
-  width:calc(70% - 30px );
-  height: 30px;
-  border-radius: 5px;
-  border: none;
-}
-.search_input_line:focus{
-  outline: none;
+    color: #ddd;
+    border: none;
+    padding: 0;
+    border-radius: 0;
+    outline: none;
+    width: auto;
+    min-width: 100%;
+    font-size: 18px;
+    line-height: 3em;
+    font-family: "roboto-light";
+    border-bottom: 3px solid #333333;
+    background-color: transparent;
 }
 .search_button_from_search_page {
-  padding: 2px 2px 2px;
+  font-family: "roboto-bold";
+  font-size: 20px;
   background: none;
   border-radius: 20px;
-  border: 2px solid #ff5b79;
+  border: 3px solid #ff5b79;
   color: #ff5b79;
-  height: 30px;
+  height: 40px;
   width: 150px;
   margin-left: 10px;
 }
-
 .search_button_from_search_page:hover{
     background: #FF5B79;
-    color: #802b3b;
+    color: #2F1B2A;
 }
-
 .list_of_finded_people{
   max-height: 400px;
   overflow: auto;
@@ -95,4 +141,3 @@
   width: 50px;
   height: 50px;
 }
-

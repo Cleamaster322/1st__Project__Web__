@@ -2,11 +2,15 @@
 {% block current_page_content %}
 <link rel="stylesheet" href = "{{url_for('static', filename='search_people_page/search_people_page.css')}}">
     <div class = "shell_for_search_people">
-        <div class = "search_people_2">
-            <form action="/searching_friends" method="post" >
-                <input class="search_input_line" type="search" name="search">
-                <input class="search_button_from_search_page" type = "submit" value="найти">
-            </form>
+        <div class = "search_people_wrap">
+            <div class="search_people_block">
+                <form action="/searching_friends" method="post" >
+                    <div class="search_placeholder">
+                        <input class="search_input_line" type="search" name="search" placeholder="Поиск по никнейму...">
+                    </div>
+                    <input class="search_button_from_search_page" type = "submit" value="Найти">
+                </form>
+            </div>
             <div class = "list_of_finded_people">
                 {% if peoples %}
                     {% for people in peoples %}
@@ -28,6 +32,5 @@
                  <h1>Ничего не найдено</h1>
                 {% endif %}
         </div>
-
     </div>
 {% endblock %}

@@ -42,6 +42,7 @@
 .sub_search_wrap {
     position: relative;
     max-width: 100%;
+    margin-top: 10px;
 }
 .sub_search {
   width: 94%;
