@@ -216,8 +216,11 @@ class Database:
                 nameP = userFromP[1] 
                 timesP = time.strftime('%d:%m:%Y', time.gmtime(rowp[3]))
                 textP = rowp[5]
+                like_status =cur.execute(f'''SELECT status_like FROM Like WHERE id_post = {id_post} AND id_from = {id}''').fetchone()
+                if like_status == None:
+                    like_status = [0]
                 likes = cur.execute(f"""SELECT count (*) FROM like WHERE id_post = {id_post} AND status_like = 1""").fetchone()
-                post = [id_post,logoP,nameP,timesP,textP,likes[0],[]]
+                post = [id_post,logoP,nameP,timesP,textP,likes[0],like_status[0],[]]
                 posts.append(post)
                 comments_on_post = cur.execute(f"""SELECT * FROM comment WHERE id_post = {rowp[0]}""").fetchall()
                 for j, rowc in enumerate(comments_on_post):
@@ -228,7 +231,7 @@ class Database:
                     timesС = time.strftime('%d:%m:%Y', time.gmtime(rowc[3]))
                     textС = rowc[2]
                     comment = ([logoC,nameC,timesС,textС])
-                    posts[i][6].append(comment)
+                    posts[i][7].append(comment)
         posts = list(reversed(posts))
         return posts
     def insert_post(self,id,text,id_account):
@@ -307,6 +310,7 @@ class Database:
             cur.execute(insert_comment, parameters)
             conn.commit()
     
+    
     def like_com(self, id_from,id_post):
         with self.get_db_connection() as conn:
             cur = conn.cursor()
@@ -354,3 +358,11 @@ class Database:
                     posts[i][6].append(comment)
         posts = list(reversed(posts))
         return posts
+    def get_count_followed_and_following(self,id):
+        with self.get_db_connection() as conn:
+            cur = conn.cursor()
+            followed = cur.execute(f"""SELECT count (*) FROM Followed WHERE id_onUser = {id}""").fetchone()
+            following = cur.execute(f"""SELECT count (*) FROM Following WHERE id_onUser = {id}""").fetchone()
+            follow = [followed[0],following[0]]
+        return follow
+    
