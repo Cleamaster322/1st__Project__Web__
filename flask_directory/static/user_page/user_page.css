@@ -554,12 +554,31 @@ textarea:focus{
   backdrop-filter: blur(5px);
 }
 .date_of_comment {
+  align-items: center;
+  display: flex;
+  width: 150px;
+  justify-content: space-between;
   margin-left: 20px;
+}
+.date_of_comment > form > button{
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border: none;
+  background: none;
+  color: white;
+}
+.date_of_comment > form > button > svg{
+  margin-right: 10px;
+  fill: white;
+  width: 20px;
+  height: 20px;
 }
 .author_of_commet {
   border-bottom: 1px solid white;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   color: white;
   background: linear-gradient(
     to top left,
@@ -569,8 +588,11 @@ textarea:focus{
   backdrop-filter: blur(5px);
   font-family: roboto-medium, serif;
 }
-
-.author_of_commet > img {
+.nick_of_comment_logo{
+  display: flex;
+  align-items: center;
+}
+.nick_of_comment_logo > img {
   margin-top: 5px;
   margin-left: 5px;
   width: 30px;
