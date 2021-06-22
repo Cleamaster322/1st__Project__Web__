@@ -25,7 +25,7 @@ class Database:
             conn.execute(create_like)
             conn.execute(create_followed)
             conn.execute(create_following)
-            conn.execute(create_following)
+            conn.execute(create_status)
 
     def init_db(self):
         if not os.path.exists(self.database_name):
@@ -158,7 +158,7 @@ class Database:
                 userFromP = self.get_account_by_Id(rowp[4])
                 logoP = userFromP[4]
                 nameP = userFromP[1] 
-                timesP = time.strftime('%d:%m:%y', time.gmtime(rowp[3]))
+                timesP = time.strftime('%d:%m:%Y', time.gmtime(rowp[3]))
                 textP = rowp[5]
                 post = [id_post,logoP,nameP,timesP,textP,[]]
                 posts.append(post)
@@ -168,7 +168,7 @@ class Database:
                     comment = []
                     logoC = userFromCom[4]
                     nameC = userFromCom[1]
-                    timesС = time.strftime('%d:%m:%y', time.gmtime(rowc[3]))
+                    timesС = time.strftime('%d:%m:%Y', time.gmtime(rowc[3]))
                     textС = rowc[2]
                     comment = ([logoC,nameC,timesС,textС])
                     posts[i][5].append(comment)
