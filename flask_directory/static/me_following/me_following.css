@@ -128,7 +128,9 @@
   width: 100%;
   margin-right: 20px;
 }
-
+h1{
+  color: white;
+}
 .subscription_description_name {
   font-family: "roboto-light";
   font-size: 20px;
