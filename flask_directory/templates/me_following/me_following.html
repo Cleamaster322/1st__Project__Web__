@@ -10,6 +10,7 @@
         </div>
 
         <div class="subscription_profile">
+            {% if following %}
             {% for follow in following %}
             <div class="subscription_profile_location">
                 <div class="subscription_profile_photo">
@@ -30,6 +31,9 @@
                 </div>
             </div>
             {% endfor %}
+            {% else %}
+                <h1>Пусто</h1>
+            {% endif %}
 
         </div>
     </div>

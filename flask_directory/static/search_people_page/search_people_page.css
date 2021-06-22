@@ -50,7 +50,7 @@
 }
 
 .list_of_finded_people{
-  max-height: 300px;
+  max-height: 400px;
   overflow: auto;
   margin-left: 20px;
   margin-right: 20px;
@@ -84,6 +84,10 @@
 .name_and_log > div {
   font-size: 30px;
   margin-left: 40px;
+}
+.name_and_log > div > a {
+  color:white;
+  text-decoration: none;
 }
 .name_and_log > img {
   margin-left: 10px;

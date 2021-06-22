@@ -166,7 +166,7 @@ def user_page(id):
         elif  id != id_account:
             posts = db.get_posts_on_acc(id)
             lens = len(posts)
-            return render_template('another_user/another_user.html',account = db.get_account_by_Id(id),posts = posts, lens = lens, status = db.get_settings_user(id), count_fol = db.get_count_followed_and_following(id))
+            return render_template('another_user/another_user.html',account = db.get_account_by_Id(id),posts = posts, lens = lens, status = db.get_settings_user(id), count_fol = db.get_count_followed_and_following(id), myacc = db.get_account_by_Id(id_account))
         else:
             posts = db.get_posts_on_acc(id_account)
             lens = len(posts)
@@ -224,7 +224,7 @@ def for_followed(id):
     if id not in range(1, accounts + 1):
         return redirect("/404_erros")
     else:
-        if flag_enter == False or id != id_account:
+        if flag_enter == False:
             return redirect("/")
         else:
             return render_template('my_followers/my_followers.html',account = db.get_account_by_Id(id),followed = db.get_all_followed(id))
@@ -239,7 +239,8 @@ def for_following(id):
     if id not in range(1, accounts + 1):
         return redirect("/404_erros")
     else:
-        if flag_enter == False or id != id_account:
+        
+        if flag_enter == False:
             return redirect("/")
         else:
             return render_template('me_following/me_following.html',account = db.get_account_by_Id(id),following = db.get_all_following(id))
