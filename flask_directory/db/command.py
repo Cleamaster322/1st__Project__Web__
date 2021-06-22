@@ -45,3 +45,4 @@ insert_account = """INSERT INTO Main (login, mail, password,avatar) VALUES (?, ?
 
 insert_post = """INSERT INTO post (id_post, photo_url, id_onUser, time, id_fromUser, title) VALUES (?, ?, ?, ?, ?, ?)"""
 
+insert_comment = """INSERT INTO comment (id_post, id_User,text_c, time) VALUES (?, ?, ?, ?)"""

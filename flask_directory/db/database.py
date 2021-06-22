@@ -186,6 +186,7 @@ class Database:
             id_fromUser = id_account
             title = text
             parameters = [id_post,photo_url,id_onUser,times,id_fromUser,title]
+            print (parameters)
             cur.execute(insert_post, parameters)
             conn.commit()
 
@@ -227,3 +228,17 @@ class Database:
         
 
 
+    def insert_comment(self,id_account,text,id_post):
+        with self.get_db_connection() as conn:
+            cur = conn.cursor()
+            acc = self.get_account_by_Id(id_account)
+
+            id_com = cur.execute(f"""SELECT count (*) FROM Comment""").fetchone()
+            id_com = id_com[0]+1
+            photo_url = None
+            id_User = id_account
+            times = time.time()
+            title = text
+            parameters = [id_post,id_User,title,times]
+            cur.execute(insert_comment, parameters)
+            conn.commit()

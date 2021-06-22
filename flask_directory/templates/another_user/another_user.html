@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href = "{{url_for('static', filename='user_page/user_page.css')}}" >
+    <link rel="stylesheet" href = "{{url_for('static', filename='another_user/another_user.css')}}" >
     <title>{{ account.login }}</title>
 </head>
 <body>
@@ -104,9 +104,9 @@
                             <div class = "userpage_stat">
 
                                 <div class = "top_stats">
-                                    <div class = "withIcon"><img src = "/static/user_page/info.svg">Статус:</div><div class = "withIcon">{{ status.title }}</div>
-                                    <div class = "withIcon"><img src = "/static/user_page/date of birtshday.svg"> Дата рождения:</div><div>{{ status.year }}</div>
-                                    <div class = "withIcon"><img src = "/static/user_page/from.svg">Страна:</div><div>{{ status.country }}</div>
+                                    <div class = "withIcon"><img src = "/static/user_page/info.svg">Статус:</div><div class = "withIcon">Футбольчик мальчики походят на качков</div>
+                                    <div class = "withIcon"><img src = "/static/user_page/date of birtshday.svg"> Дата рождения:</div><div>20.09.2002</div>
+                                    <div class = "withIcon"><img src = "/static/user_page/from.svg">Страна:</div><div>Россия</div>
                                 </div>
 
                                 <div class = "bottom_stats">
@@ -196,7 +196,7 @@
 
                                 </div>
                             </div>
-                            
+
                             <div class = "list_comment">
                                 <div class = "comment_zone">
                                     {% for com in row[5] %}
@@ -212,21 +212,15 @@
                                             {{ com[3] }}
                                         </div>
                                     </div>
-                                        {% endfor %}
+                                    {% endfor %}
                                 </div>
-
-                                <script>
-
-                                </script>
 
                                 <div class = "add_comment_to_post">
-                                    <form action="{{url_for('add_comment', id = account.id,id_post = row[0])}}" method = "post">
-                                        <textarea name = "text_post"></textarea>
-                                        <button> Добавить комментарий <img src = "/static/user_page/right arrow.svg"></button>
+                                    <form>
+                                        <textarea></textarea>
+                                        <button type="submit">Добавить<img src = "/static/user_page/right arrow.svg"></button>
                                     </form>
                                 </div>
-
-
                             </div>
                         </div>
                     {% endfor %}
