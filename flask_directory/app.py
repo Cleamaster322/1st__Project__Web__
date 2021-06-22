@@ -258,7 +258,7 @@ def for_news(id):
         if flag_enter == False or id != id_account:
             return redirect("/")
         else:
-            return render_template('news/news.html',account = db.get_account_by_Id(id))
+            return render_template('news/news.html',account = db.get_account_by_Id(id_account))
 
 @app.route("/find_friends/<int:id>")  #   НАЙТИ ДРУЗЕЙ
 def for_find_friends(id):
