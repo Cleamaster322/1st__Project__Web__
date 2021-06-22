@@ -155,6 +155,7 @@ def post_add_fail(errors):
 
 @app.route("/user_page/<int:id>")  # СТРАНЦИЦА ЮЗЕРА
 def user_page(id):
+    print(db.get_all_followed(id))
     if id not in range(1, accounts + 1) and id != id_account:
         return redirect("/404_erros")
     else:
@@ -206,14 +207,14 @@ def for_messanges(id):
 
 
 @app.route("/followers/<int:id>")  # ПОДПИСЧИКИ
-def for_followers(id):
+def for_followed(id):
     if id not in range(1, accounts + 1):
         return redirect("/404_erros")
     else:
         if flag_enter == False or id != id_account:
             return redirect("/")
         else:
-            return render_template('my_followers/my_followers.html',account = db.get_account_by_Id(id))
+            return render_template('my_followers/my_followers.html',account = db.get_account_by_Id(id),followed = db.get_all_followed(id))
 
 
 @app.route("/me_following/<int:id>")  # ТВОИ ПОДПИСКИ

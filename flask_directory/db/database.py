@@ -146,6 +146,20 @@ class Database:
             for i in tmp:
                 ids.append(i[0])
             return ids
+    
+    def get_all_followed(self,id):
+        with self.get_db_connection() as conn:
+            cur = conn.cursor()
+            ids = self.get_id_followed(id)
+            all_followed = []
+            for i in ids:
+                acc = self.get_account_by_Id(i)
+                avatar = acc[4]
+                name = acc[1]
+                id_F = i
+                follow = [avatar,name,id_F]
+                all_followed.append(follow)
+            return all_followed
 
     def get_posts_on_acc(self,id):
         with self.get_db_connection() as conn:
