@@ -506,6 +506,14 @@ textarea:focus{
   color: rgb(255, 255, 255);
   padding: 10px;
 }
+
+.likes_and_comments > form > button{
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
 .like {
   fill: #ffffff;
 }
