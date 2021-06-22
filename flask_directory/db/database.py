@@ -366,8 +366,13 @@ class Database:
     def subscribe_on_acc(self,id_onUser,id_other):
         with self.get_db_connection() as conn: 
             cur = conn.cursor()
-            followed = f"""INSERT INTO followed (id_onUser, id_other) VALUES ({id_other}, {id_onUser})""" #подписчики
-            following = f"""INSERT INTO following (id_onUser, id_other) VALUES ({id_onUser}, {id_other})""" #подписки
-            cur.execute(followed)
-            cur.execute(following)
+            
+            followed = cur.execute(f"""SELECT * FROM Followed WHERE id_onUser = {id_onUser} AND id_other = {id_other}""").fetchone()
+            following = cur.execute(f"""SELECT * FROM Following WHERE id_onUser = {id_onUser} AND id_other = {id_other}""").fetchone()
+            if followed == None and following == None:
+                followed = f"""INSERT INTO followed (id_onUser, id_other) VALUES ({id_other}, {id_onUser})""" #подписчики
+                following = f"""INSERT INTO following (id_onUser, id_other) VALUES ({id_onUser}, {id_other})""" #подписки
+                cur.execute(followed)
+                cur.execute(following)
+            
             conn.commit()

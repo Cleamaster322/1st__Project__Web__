@@ -17,7 +17,7 @@
         <div class = "sota_hat">S.O.T.A</div>
         <div class = "hat_info_user">
             <img src = "/static/user_page/strelka.svg" class = "strelka" onclick="for_redactor_menu()">
-            <div> {{ account.login }} </div>
+            <div> {{ id_account }} </div>
             <img src= "{{account.avatar}}" alt = "userAvatar" class = 'avatar'>
             <div class = "redactor_menu" id="redactor_menu">
                 <a href="{{url_for('settings', id = account.id)}}">
