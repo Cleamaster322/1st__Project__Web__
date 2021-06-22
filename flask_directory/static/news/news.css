@@ -3,6 +3,7 @@ body::-webkit-scrollbar {
 }
 .posts {
     position: relative;
+    overflow: auto;
     margin: 31px 0 0 80px;
     width: 80%;
     height: 82vh;
