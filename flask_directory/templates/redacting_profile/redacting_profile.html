@@ -8,25 +8,25 @@
                     <img src = "/static/redacting_profile/redacting_profile.svg">
                     Редактировать страницу
                 </div>
+                <form action="/update_settings" method="post">
                 <div class = "edit_opportunity">
                     <div class = "edit_one_userstat">
-                        <form>
-                            <input value="Текущий статус">
-                            <button type="button" class = "redacting_button">Обновить</button>
-                        </form>
+                        
+                        <input type="text" placeholder="Текущий статус" name="status" />
+                            
                     </div>
                     <div class = "edit_one_userstat">
-                        <form>
-                            <input type="date" value="" >
-                            <button type="button" class = "redacting_button">Обновить</button>
-                        </form>
+                        
+                            <input type="date" value="" name = "year">
+                           
                     </div>
                     <div class = "edit_one_userstat">
-                        <form>
-                            <input value="Текущая страна">
-                            <button type="button" class = "redacting_button">Обновить</button>
-                        </form>
+
+                        <input type="text" placeholder="Текущая страна" name="country" />
+                            
                     </div>
+                    <input type="submit" value="Обновить" />
+                    </form>
                 </div>
             </div>
 

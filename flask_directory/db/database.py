@@ -197,3 +197,33 @@ class Database:
             cur.execute(deleteP)
             cur.execute(deleteC)
             conn.commit()
+    
+    def get_settings_user(self, id_u):
+        with self.get_db_connection() as conn:
+            cur = conn.cursor()
+            get_set = f"""SELECT * FROM Status WHERE id_user = {id_u}"""
+            answer = cur.execute(get_set).fetchone()
+
+            dict = {}
+            if answer == None:
+                create_c = (f"""INSERT INTO Status (id_user, status_text, year, country) VALUES ({id_u}, 'Нет статуса', 'Нет даты рождения', 'Инопланетянин') """)
+                cur.execute(create_c)
+                conn.commit
+                dict['title'] = 'Нет статуса'
+                dict['year'] = 'Нет даты рождения'
+                dict['country'] = 'Инопланетянин'
+                return dict
+            dict['title'] = str(answer[1])
+            dict['year'] = str(answer[2])
+            dict['country'] = str(answer[3])
+            return dict
+    
+    def update_set(self,status,year,country, id_u):
+        with self.get_db_connection() as conn:
+            update_c = (f"""UPDATE Status SET status_text = '{status}', year = '{year}', country = '{country}' WHERE id_user = {id_u}""")
+            cur = conn.cursor()
+            cur.execute(update_c)
+            conn.commit
+        
+
+
