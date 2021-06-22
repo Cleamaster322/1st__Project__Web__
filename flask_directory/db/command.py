@@ -36,8 +36,9 @@ create_comment = """CREATE TABLE IF NOT EXISTS Comment(
    text_c TEXT)"""
 
 create_status = """CREATE TABLE IF NOT EXISTS Status(
+   id_user INT,
    status_text TEXT,
-   year INT,
+   year TEXT,
    country TEXT)"""
 
 insert_account = """INSERT INTO Main (login, mail, password,avatar) VALUES (?, ?, ?,"/static/img/default.png")"""
