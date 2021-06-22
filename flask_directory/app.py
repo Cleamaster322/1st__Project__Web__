@@ -159,7 +159,6 @@ def user_page(id):
         return redirect("/404_erros")
     else:
         if flag_enter == False or id != id_account:
-            print(flag_enter, id,  id_account)
             return redirect("/")
         else:
             posts = db.get_posts_on_acc(id)
@@ -173,6 +172,11 @@ def add_post(id):
     if request.form:
         text = request.form.get('text_post')
         post = db.insert_post(id,text,id_account)
+    return redirect(f"/user_page/{id}")
+
+@app.route("/del_post/<int:id>/<int:id_post>", methods=['post'])
+def del_post(id,id_post):
+    db.delete_post(id_post)
     return redirect(f"/user_page/{id}")
     
 

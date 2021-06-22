@@ -167,12 +167,12 @@
                                     </div>
                                     <div>
                                         {{row[3] }}
-                                        <div class = "delete_post">
-                                            <img src = "/static/user_page/dele_post_icon.svg">
-                                            <form>
+                                        <form action="{{url_for ('del_post', id = account.id, id_post =[row[0]]) }}" method = "post" name = "del">
+                                            <div class = "delete_post">
+                                                <img src = "/static/user_page/dele_post_icon.svg">
                                                 <input type="submit" value="Удалить пост">
-                                            </form>
-                                        </div>
+                                            </div>
+                                        </form>
                                     </div>
 
                                 </div>
