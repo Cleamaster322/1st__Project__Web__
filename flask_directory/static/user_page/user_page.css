@@ -605,7 +605,7 @@
   border-bottom: 1px solid white;
   outline: none;
 }
-.add_comment_to_post > form > button{
+.add_comment_to_post > form > button {
   cursor: pointer;
   border: none;
   background: rgba(255, 255, 255, 0.3);
@@ -613,6 +613,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
 .add_comment_to_post > form > input{
   cursor: pointer;
   font-size: 25px;
