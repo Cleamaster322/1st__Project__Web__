@@ -168,7 +168,7 @@ class Database:
                     comment = []
                     logoC = userFromCom[4]
                     nameC = userFromCom[1]
-                    timesС = rowc[3]
+                    timesС = time.strftime('%d:%m:%y', time.gmtime(rowc[3]))
                     textС = rowc[2]
                     comment = ([logoC,nameC,timesС,textС])
                     posts[i][5].append(comment)
