@@ -154,12 +154,13 @@ class Database:
             conn.commit()
             posts = []
             for i,rowp in enumerate(tmp):
+                id_post = rowp[0]
                 userFromP = self.get_account_by_Id(rowp[4])
                 logoP = userFromP[4]
                 nameP = userFromP[1] 
                 timesP = time.strftime('%d:%m:%y', time.gmtime(rowp[3]))
                 textP = rowp[5]
-                post = [logoP,nameP,timesP,textP,[]]
+                post = [id_post,logoP,nameP,timesP,textP,[]]
                 posts.append(post)
                 comments_on_post = cur.execute(f"""SELECT * FROM comment WHERE id_post = {rowp[0]}""").fetchall()
                 for j, rowc in enumerate(comments_on_post):
@@ -170,7 +171,7 @@ class Database:
                     timesС = rowc[3]
                     textС = rowc[2]
                     comment = ([logoC,nameC,timesС,textС])
-                    posts[i][4].append(comment)
+                    posts[i][5].append(comment)
         posts = list(reversed(posts))
         return posts
 
