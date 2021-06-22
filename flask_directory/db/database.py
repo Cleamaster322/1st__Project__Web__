@@ -174,7 +174,6 @@ class Database:
                     posts[i][5].append(comment)
         posts = list(reversed(posts))
         return posts
-
     def insert_post(self,id,text,id_account):
         with self.get_db_connection() as conn:
             cur = conn.cursor()
@@ -189,4 +188,11 @@ class Database:
             parameters = [id_post,photo_url,id_onUser,times,id_fromUser,title]
             print(parameters)
             cur.execute(insert_post, parameters)
+            conn.commit()
+
+    def delete_post(self,id_post):
+        with self.get_db_connection() as conn:
+            cur = conn.cursor()
+            delete = cur.execute(f'''DELETE FROM post WHERE id_post = {id_post}''')
+            cur.execute(delete)
             conn.commit()
