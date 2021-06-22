@@ -170,7 +170,7 @@ def user_page(id):
         else:
             posts = db.get_posts_on_acc(id_account)
             lens = len(posts)
-            return render_template('user_page/user_page.html',account = db.get_account_by_Id(id_account),posts = posts, lens = lens, status = db.get_settings_user(id_account))
+            return render_template('user_page/user_page.html',account = db.get_account_by_Id(id_account),posts = posts, lens = lens, status = db.get_settings_user(id_account), followed = len(db.get_all_followed(id)))
 
 
 @app.route("/add_post/<int:id>", methods=['post'])
@@ -260,7 +260,9 @@ def for_news(id):
         if flag_enter == False or id != id_account:
             return redirect("/")
         else:
-            return render_template('news/news.html',account = db.get_account_by_Id(id_account))
+            posts = db.get_all_posts()
+            lens = len(posts)
+            return render_template('news/news.html',account = db.get_account_by_Id(id_account),posts = posts, lens = lens, status = db.get_settings_user(id_account), followed = len(db.get_all_followed(id)))
 
 @app.route("/find_friends/<int:id>")  #   НАЙТИ ДРУЗЕЙ
 def for_find_friends(id):

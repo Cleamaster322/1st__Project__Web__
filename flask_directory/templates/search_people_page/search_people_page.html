@@ -13,7 +13,11 @@
                         <div class = "one_finded_people">
                             <div class = "name_and_log">
                                 <img src = '{{ people.avatar}}' alt="logo">
-                                <div>{{ people.login }}</div>
+                                <div>
+                                    <a href="/user_page/{{ people.id }}">
+                                    {{ people.login }}
+                                    </a>
+                                </div>
                             </div>
                             <form>
                                 <input type="submit" value="подписаться">
