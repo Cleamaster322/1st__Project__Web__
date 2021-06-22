@@ -468,6 +468,8 @@
 }
 .add_comment_to_post > form > textarea{
     width: 100%;
+    background: black;
+    border: 1px solid white;
 }
 .show_comment_list{
     display: block;
