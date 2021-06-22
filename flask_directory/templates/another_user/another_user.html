@@ -101,7 +101,7 @@
                                 <div class = "shell_subscribe_to_person">
                                     <img src = "/static/user_page/line.svg">
 
-                                    <div id = "subs" class = "subscribe_to_person ">
+                                    <div id = "subs" class = "subscribe_to_person" onclick="swap_sub_unsub(this, document.getElementById('unsubs'))">
                                         <form>
                                             <button type = "submit">
                                                 <img src = "/static/user_page/New post.svg">
@@ -110,7 +110,7 @@
                                         </form>
                                     </div>
 
-                                    <div id = "unsubs" class = "subscribe_to_person hide_unsub_or_sub">
+                                    <div id = "unsubs" class = "subscribe_to_person hide_unsub_or_sub" onclick="swap_sub_unsub(this, document.getElementById('subs'))">
                                         <form>
                                             <button type = "submit">
                                                 <img src = "/static/user_page/New post.svg">
@@ -119,7 +119,14 @@
                                         </form>
                                     </div>
 
-                                    <script></script>
+                                    <script>
+                                        function swap_sub_unsub(obj, another_obj){
+                                            obj.classList.toggle("hide_unsub_or_sub");
+                                            another_obj.classList.toggle("hide_unsub_or_sub");
+                                        }
+                                    </script>
+
+
                                 </div>
                             </div>
                         </div>
