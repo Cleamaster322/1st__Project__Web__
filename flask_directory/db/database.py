@@ -192,6 +192,8 @@ class Database:
     def delete_post(self,id_post):
         with self.get_db_connection() as conn:
             cur = conn.cursor()
-            delete = (f'''DELETE FROM post WHERE id_post = {id_post}''')
-            cur.execute(delete)
+            deleteP = (f'''DELETE FROM Post WHERE id_post = {id_post}''')
+            deleteC = (f'''DELETE FROM Comment WHERE id_post = {id_post}''')
+            cur.execute(deleteP)
+            cur.execute(deleteC)
             conn.commit()
