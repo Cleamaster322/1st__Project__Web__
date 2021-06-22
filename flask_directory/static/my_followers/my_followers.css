@@ -95,6 +95,9 @@
 .followers_list_wrap::-webkit-scrollbar-thumb {
     opacity: 1;
 }
+h1{
+    color:white;
+}
 .followers_follower {
     margin: 40px 20px;
     display: flex;
