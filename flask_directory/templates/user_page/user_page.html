@@ -133,7 +133,7 @@
                             </div>
                         </div>
                     </div>
-
+                    <script src = "/static/user_page/scripts/autosize_textarea.js"></script>
                     <div class = "posts">
                         <div id = "shell_for_add_post_block" class = "shell_for_add_post_block">
                             <div class = "add_block_post">
@@ -142,7 +142,7 @@
                                     <img src = "/static/user_page/free-icon-error-148766.svg" onclick="close_add_block_post()">
                                 </div>
                                 <form action="{{url_for('add_post', id = account.id)}}" method = "post">
-                                    <textarea autofocus name = "text_post" onclick="fix_textarea(this)" ></textarea>
+                                    <textarea autofocus name = "text_post" onfocus="autosize(this)" ></textarea>
                                     <input id="new_post_button" type ="submit" value="Добавить пост"></input>
                                 </form>
                             </div>
@@ -156,7 +156,6 @@
                                 document.getElementById("shell_for_add_post_block").classList.remove("show_add_post_block");
                             }
                         </script>
-
                     {% for row in posts %}
                         <div class = "shell_post">
                             <div class = "one_post">
@@ -217,20 +216,12 @@
 
                                 <div class = "add_comment_to_post">
                                     <form action="{{url_for('add_comment', id = account.id,id_post = row[0])}}" method = "post">
-                                        <textarea name = "text_post" onfocus="increase_the_height(this)"></textarea>
+                                        <div>
+                                            <textarea name = "text_post" onfocus="autosize(this)"></textarea>
+                                        </div>
                                         <button> Добавить комментарий <img src = "/static/user_page/right arrow.svg"></button>
                                     </form>
                                 </div>
-
-                                <script>
-                                    function increase_the_height(textarea){
-                                        textarea.addEventListener('keyup',function (){
-                                            if ( this.scrollTop > 0 ){
-                                                this.style.height = this.scrollHeight + "px";
-                                            }
-                                        });
-                                    }
-                                </script>
 
                             </div>
                         </div>
