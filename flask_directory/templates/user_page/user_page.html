@@ -212,15 +212,21 @@
                                             {{ com[3] }}
                                         </div>
                                     </div>
-                                    {% endfor %}
+                                        {% endfor %}
                                 </div>
+
+                                <script>
+
+                                </script>
 
                                 <div class = "add_comment_to_post">
                                     <form action="{{url_for('add_comment', id = account.id,id_post = row[0])}}" method = "post">
                                         <textarea name = "text_post"></textarea>
-                                        <input value="добавить комментарий" type = "submit">
+                                        <button> Добавить комментарий <img src = "/static/user_page/right arrow.svg"></button>
                                     </form>
                                 </div>
+
+
                             </div>
                         </div>
                     {% endfor %}

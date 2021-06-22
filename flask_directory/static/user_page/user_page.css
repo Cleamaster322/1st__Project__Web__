@@ -526,13 +526,14 @@
   padding-right: 10px;
 }
 .list_comment {
+  background: rgba(0,0,0, 0.3);
   display: none;
   width: 100%;
   margin-top: 3px;
 }
 .comment_zone{
   overflow: auto;
-  max-height: 300px;
+  max-height: 500px;
 }
 .show_comment_list {
   display: block;
@@ -579,6 +580,9 @@
   color: white;
   padding-bottom: 5px;
 }
+.add_comment_to_post{
+  border: 1px solid white;
+}
 .add_comment_to_post > form{
   background: linear-gradient(to top left, hsla(281, 61%, 30%, 0.65), hsla(340, 65%, 30%, 0.65));
   display: flex;
@@ -589,16 +593,32 @@
   background: linear-gradient(to top left, hsla(281, 61%, 30%, 0.65), hsla(340, 65%, 30%, 0.65));
   width: calc(100% - 30px);
   padding: 15px;
-  min-height: 200px;
+  font-size: 20px;
+  min-height: 20px;
   color:white;
+  border-bottom: 1px solid white;
+}
+.add_comment_to_post > form > textarea:focus{
+  border-bottom: 1px solid white;
+  outline: none;
 }
 .add_comment_to_post > form > button{
+  cursor: pointer;
+  width: 120px;
+  border: none;
+  background: rgba(255, 255, 255, 0.3);
+  margin-left: 30px;
   color: white;
   display: flex;
   align-items: center;
+  justify-content: center;
   background: none;
 }
+.add_comment_to_post > form > button:hover{
+  background: #0d8ff8;
+}
 .add_comment_to_post > form > button > img{
+  margin-left: 10px;
   width: 30px;
 }
 #new_post_button {
