@@ -1,3 +1,8 @@
+@font-face {
+    font-family: Yanone-bold;
+    src: url(/static/fonts/Yanone/YanoneKaffeesatz-Bold.ttf);
+}
+
 .shell_redacting_profile{
     display: flex;
     align-items: center;
@@ -5,7 +10,7 @@
 }
 .redacting_profile_window_back{
     margin-top: 30px;
-    background: radial-gradient( 99.5% 397.04% at 100% 49.01%, #058fff 0%, #EB9038 70.35%, #F3C3CF 100%);
+    /* background: radial-gradient( 99.5% 397.04% at 100% 49.01%, #058fff 0%, #EB9038 70.35%, #F3C3CF 100%); */
     height: 80%;
     width: 80%;
     min-width: 850px;
@@ -20,7 +25,8 @@
     border-radius: 10px;
     width: calc(100% - 26px);
     height: calc(100% - 26px);
-    background: rgb(26, 26, 26);
+    background: linear-gradient(to top left, hsla(280, 62%, 10%, 0.65),hsla(339, 66%, 10%, 0.65) );
+  backdrop-filter: blur(5px);
 }
 .hat_redacting_profile_menu{
     display: flex;
@@ -51,11 +57,29 @@
 }
 .edit_one_userstat > form > input{
     width: 70%;
-    background:rgb(26, 26, 26) ;
+    height: 30px;
+    background: linear-gradient(
+        to top left,
+        hsla(281, 60%, 35%, 0.39),
+        hsla(340, 69%, 51%, 0.295)
+      );
+      backdrop-filter: blur(5px);
     border: none;
     color:white;
 }
 .redacting_button{
+    font-family: Yanone-bold;
+    cursor: pointer;
+    font-size: 25px;
+    color: white;
+    background: none;
+    border: white 2px solid;
     width: 100px;
-    height: 20px;
+    height: 30px;
+}
+
+.redacting_button:hover{
+    border: 2px solid #ff5b79;
+    background: #FF5B79;
+    color: #802b3b;
 }
