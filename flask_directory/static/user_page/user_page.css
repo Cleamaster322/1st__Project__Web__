@@ -606,8 +606,9 @@
   outline: none;
 }
 .add_comment_to_post > form > button {
+  font-size: 20px;
   cursor: pointer;
-  border: none;
+  border:none;
   background: rgba(255, 255, 255, 0.3);
   color: white;
   display: flex;
@@ -625,6 +626,7 @@
 }
 .add_comment_to_post > form > button:hover{
   background: #ff5b79;
+  color: #802b3b;
 }
 
 
