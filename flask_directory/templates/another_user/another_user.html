@@ -76,27 +76,6 @@
                                     <img src = "/static/user_page/image.svg">
                                     <div class = "url_to_intro_for_js">Изменить фотографию</div>
                                 </div>
-
-
-                                <form id = "get_new_profile_image_menu" class = "get_new_profile_image_menu" action = "/upload_n" method = "post" enctype="multipart/form-data">
-                                    <div onclick="document.getElementById('choose_file_profile_image').click();" class = "visible_form_file"> Выбрать фото</div>
-                                    <input id = "choose_file_profile_image" class = "url_to_intro_for_js" style="display:none;" type="file" placeholder="Выбрать" name = "img">
-                                    <div onclick="document.getElementById('download_profile_image').click()" class="visible_form_file "> Загрузить фото </div>
-                                    <input id = "download_profile_image" style="display:none;" type="submit" value="загрузить"></form>
-
-                                <script>
-                                    function for_showing_intro_form(){
-                                         document.getElementById('get_new_profile_image_menu').style.display="flex";
-                                         document.getElementById('url_to_intro_form').classList.add("hide_url_to_intro_form");
-                                    }
-                                    window.onclick = function (event){
-                                        if ( !event.target.matches('.url_to_intro_for_js') && !event.target.matches('.visible_form_file') ){
-                                            document.getElementById('get_new_profile_image_menu').style.display="none";
-                                            document.getElementById('url_to_intro_form').classList.remove("hide_url_to_intro_form");
-                                        }
-                                    }
-                                </script>
-
                                 <div> {{ account.login }} </div>
                             </div>
                         </div>
@@ -127,7 +106,7 @@
                                     <img src = "/static/user_page/line.svg">
                                     <div class = "src_for_add_post" onclick="show_add_block_post()">
                                         <img src = "/static/user_page/New post.svg">
-                                        Добавить новый пост
+                                        Подписаться
                                     </div>
                                 </div>
                             </div>
