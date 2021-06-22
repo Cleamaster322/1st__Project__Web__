@@ -96,7 +96,10 @@ def check_enter():
 def for_password():
     return render_template("forgotten_password/forgotten_password.html")
  
-
+@app.route("/like/<int:id>/<int:id_post>",methods=['post'])
+def like(id,id_post):
+    db.like_com(id_account,id_post)
+    return redirect(f"/user_page/{id}")
 
 @app.route("/send_pas",methods=['post',"get"])  # ОТПРАВКА ПИСЬМА
 def send_pas():
@@ -155,7 +158,6 @@ def post_add_fail(errors):
 
 @app.route("/user_page/<int:id>")  # СТРАНЦИЦА ЮЗЕРА
 def user_page(id):
-    print(id_account)
     if id not in range(1, accounts + 1) and id != id_account:
         return redirect("/404_erros")
     else:
