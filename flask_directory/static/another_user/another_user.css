@@ -234,32 +234,7 @@
   align-items: center;
   font-size: 30px;
 }
-.url_to_intro_form {
-  cursor: pointer;
-  display: flex;
-  font-size: 15px;
-}
-.hide_url_to_intro_form {
-  display: none;
-}
-.show_inro_form {
-  display: flex;
-}
-.url_to_intro_form > img {
-  width: 20px;
-}
-.get_new_profile_image_menu {
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 2px;
-}
-.visible_form_file {
-  margin-top: 5px;
-  color: rgb(158, 156, 155);
-  font-size: 15px;
-  cursor: pointer;
-}
+
 .shell_userpage_stats {
   border-radius: 10px;
   display: flex;
@@ -320,100 +295,39 @@
 .bottom_stats > a > img {
   width: 50px;
 }
-.add_post {
-  cursor: pointer;
+ .shell_subscribe_to_person{
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.add_post > img {
+.shell_subscribe_to_person > img {
   margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
   width: 96%;
 }
-.src_for_add_post {
+.subscribe_to_person {
   margin-top: 5px;
   display: flex;
   align-items: center;
 }
-.src_for_add_post > img {
+.subscribe_to_person > form > button{
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    color:white;
+    font-size: 20px;
+}
+.subscribe_to_person >form> button > img {
   padding-right: 5px;
   width: 30px;
 }
 .posts {
   margin-top: 10px;
 }
-.shell_for_add_post_block {
-  display: none;
-  border-radius: 5px;
-  padding: 3px;
-  margin-top: 20px;
-  flex-direction: column;
-  align-items: center;
-  height: max-content;
-  min-width: 850px;
-  /* background: radial-gradient(
-    99.5% 397.04% at 100% 49.01%,
-    #058fff 0%,
-    #eb9038 70.35%,
-    #f3c3cf 100%
-  ); */
-}
-.show_add_post_block {
-  display: flex;
-}
-.add_block_post {
-  border: solid 2px #ff5b79;
-  height: max-content;
-  border-radius: 10px;
-  width: 100%;
-  background: linear-gradient(
-    to top left,
-    hsla(280, 62%, 10%, 0.65),
-    hsla(339, 66%, 10%, 0.65)
-  );
-  backdrop-filter: blur(5px);
-}
-.hat_add_block_post {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-.hat_add_block_post > h1 {
-  margin-top: 10px;
-  margin-left: 10px;
-  color: white;
-  font-size: 20px;
-  font-family: "roboto-medium", serif;
-}
-.hat_add_block_post > img {
-  width: 20px;
-  cursor: pointer;
-}
-.add_block_post > form {
-  width: 100%;
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-.add_block_post > form > textarea {
-  resize: none;
-  font-size: 20px;
-  height: 300px;
-  display: flex;
-  justify-content: flex-start;
-  background: linear-gradient(
-    to top left,
-    hsla(281, 60%, 35%, 0.39),
-    hsla(340, 69%, 51%, 0.295)
-  );
-  backdrop-filter: blur(5px);
-  padding: 10px;
-  color: white;
-  border: none;
-}
+
+
 
 .shell_post {
   min-width: 850px;
