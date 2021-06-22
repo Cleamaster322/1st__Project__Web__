@@ -155,6 +155,7 @@ def post_add_fail(errors):
 
 @app.route("/user_page/<int:id>")  # СТРАНЦИЦА ЮЗЕРА
 def user_page(id):
+    print(db.get_all_followed(id))
     if id not in range(1, accounts + 1) and id != id_account:
         return redirect("/404_erros")
     else:
@@ -163,7 +164,7 @@ def user_page(id):
         else:
             posts = db.get_posts_on_acc(id)
             lens = len(posts)
-            return render_template('user_page/user_page.html',account = db.get_account_by_Id(id),posts = posts, lens = lens)
+            return render_template('user_page/user_page.html',account = db.get_account_by_Id(id),posts = posts, lens = lens, status = db.get_settings_user(id_account))
 
 @app.route("/add_post/<int:id>", methods=['post'])
 def add_post(id):
@@ -206,14 +207,14 @@ def for_messanges(id):
 
 
 @app.route("/followers/<int:id>")  # ПОДПИСЧИКИ
-def for_followers(id):
+def for_followed(id):
     if id not in range(1, accounts + 1):
         return redirect("/404_erros")
     else:
         if flag_enter == False or id != id_account:
             return redirect("/")
         else:
-            return render_template('my_followers/my_followers.html',account = db.get_account_by_Id(id))
+            return render_template('my_followers/my_followers.html',account = db.get_account_by_Id(id),followed = db.get_all_followed(id))
 
 
 @app.route("/me_following/<int:id>")  # ТВОИ ПОДПИСКИ
@@ -264,6 +265,20 @@ def logout():
 @app.route('/setting/<int:id>',methods = ['GET'])
 def settings(id):
     return render_template("redacting_profile/redacting_profile.html",account = db.get_account_by_Id(id))
+
+@app.route('/update_settings',methods=['post'])
+def update_settings():
+    if request.form:
+        print(1)
+        status = request.form.get('status')
+        year = request.form.get('year')
+        buf = year.split('-')
+        year_n = [buf[2], '.',buf[1],'.' ,buf[0]]
+        year_n = ''.join(year_n)
+        print(year_n)
+        country = request.form.get('country')
+        db.update_set(status,year_n,country, id_account)
+    return redirect(f"/user_page/{id_account}")
 
 
 

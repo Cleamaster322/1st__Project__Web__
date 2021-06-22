@@ -8,15 +8,16 @@
                 <input type="text" placeholder="Поиск...">
             </div>
         </div>
+        {% for follow in followed%}
         <div class="followers_list_wrap">
             <div class="followers_follower">
                 <div class="follower_container">
                     <div class="follower_image">
-                        <img src="/static/my_followers/avatar.png" alt="">
+                        <img src="{{follow[0]}}" alt="">
                     </div>
                     <div class="follower_description">
                         <div class="follower_description_nickname">
-                            <span>Nickname</span>
+                            <span>{{follow[1]}}</span>
                         </div>
                         <div class="follower_description_message">
                             <a href="!!!Ссылка на диалог с юзером!!!" target="_self" class="to_messenger">Написать сообщение</a>
@@ -27,79 +28,8 @@
                     <button class="delete_follower spec_del_blue spec_del_red" onclick="delUser(0)">Заблокировать</button>
                 </div>
             </div>
-             <div class="followers_follower">
-                <div class="follower_container">
-                    <div class="follower_image">
-                        <img src="/static/my_followers/avatar.png" alt="">
-                    </div>
-                    <div class="follower_description">
-                        <div class="follower_description_nickname">
-                            <span>Nickname</span>
-                        </div>
-                        <div class="follower_description_message">
-                            <a href="!!!Ссылка на диалог с юзером!!!" target="_self" class="to_messenger">Написать сообщение</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="follower_button">
-                    <button class="delete_follower spec_del_blue spec_del_red" onclick="delUser(1)">Заблокировать</button>
-                </div>
-            </div>
-             <div class="followers_follower">
-                <div class="follower_container">
-                    <div class="follower_image">
-                        <img src="/static/my_followers/avatar.png" alt="">
-                    </div>
-                    <div class="follower_description">
-                        <div class="follower_description_nickname">
-                            <span>Nickname</span>
-                        </div>
-                        <div class="follower_description_message">
-                            <a href="!!!Ссылка на диалог с юзером!!!" target="_self" class="to_messenger">Написать сообщение</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="follower_button">
-                    <button class="delete_follower spec_del_blue spec_del_red" onclick="delUser(2)">Заблокировать</button>
-                </div>
-            </div>
-             <div class="followers_follower">
-                <div class="follower_container">
-                    <div class="follower_image">
-                        <img src="/static/my_followers/avatar.png" alt="">
-                    </div>
-                    <div class="follower_description">
-                        <div class="follower_description_nickname">
-                            <span>Nickname</span>
-                        </div>
-                        <div class="follower_description_message">
-                            <a href="!!!Ссылка на диалог с юзером!!!" target="_self" class="to_messenger">Написать сообщение</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="follower_button">
-                    <button class="delete_follower spec_del_blue spec_del_red" onclick="delUser(3)">Заблокировать</button>
-                </div>
-            </div>
-             <div class="followers_follower">
-                <div class="follower_container">
-                    <div class="follower_image">
-                        <img src="/static/my_followers/avatar.png" alt="">
-                    </div>
-                    <div class="follower_description">
-                        <div class="follower_description_nickname">
-                            <span>Nickname</span>
-                        </div>
-                        <div class="follower_description_message">
-                            <a href="!!!Ссылка на диалог с юзером!!!" target="_self" class="to_messenger">Написать сообщение</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="follower_button">
-                    <button class="delete_follower spec_del_blue spec_del_red" onclick="delUser(4)">Заблокировать</button>
-                </div>
-            </div>
         </div>
+        {% endfor %}
     </div>
 </div>
 <script rel="script" src = "{{url_for('static', filename='my_followers/my_followers.js')}}"></script>
