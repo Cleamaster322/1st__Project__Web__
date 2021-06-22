@@ -216,12 +216,6 @@
   position: relative;
   height: 100%;
   border-radius: 10px;
-  /* background: radial-gradient(
-    99.5% 397.04% at 100% 49.01%,
-    #eb9038 0%,
-    #8dc4f3 46.35%,
-    #f3c3cf 100%
-  ); */
 }
 .intro {
   padding-left: 20px;
@@ -274,12 +268,6 @@
   height: 300px;
   width: 70%;
   min-width: 600px;
-  /* background: radial-gradient(
-    99.5% 397.04% at 100% 49.01%,
-    #058fff 0%,
-    #eb9038 70.35%,
-    #f3c3cf 100%
-  ); */
 }
 .userpage_stat {
   height: 294px;
@@ -435,12 +423,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* background: radial-gradient(
-    99.5% 397.04% at 100% 49.01%,
-    #058fff 0%,
-    #eb9038 70.35%,
-    #f3c3cf 100%
-  ); */
 }
 .one_post {
   border-radius: 5px;
@@ -548,6 +530,10 @@
   width: 100%;
   margin-top: 3px;
 }
+.comment_zone{
+  overflow: auto;
+  max-height: 300px;
+}
 .show_comment_list {
   display: block;
 }
@@ -555,7 +541,7 @@
   color: white;
 }
 .one_comment {
-  width: 50%;
+  width: 100%;
   border-radius: 10px;
   background: linear-gradient(
     to top left,
@@ -588,6 +574,7 @@
   padding-right: 10px;
 }
 .text_of_comment {
+  min-height: 100px;
   margin: 10px;
   color: white;
   padding-bottom: 5px;
