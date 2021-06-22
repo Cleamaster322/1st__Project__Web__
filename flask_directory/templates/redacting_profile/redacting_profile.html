@@ -1,36 +1,18 @@
 {% extends 'user_page/user_page.html' %}
 {% block current_page_content %}
 <link rel="stylesheet" href = "{{url_for('static', filename='redacting_profile/redacting_profile.css')}}" >
-    <div class = "shell_redacting_profile">
-        <div class = "redacting_profile_window_back">
-            <div class = "redacting_profile_window">
-                <div class = "hat_redacting_profile_menu">
-                    <img src = "/static/redacting_profile/nastroyka.svg">
-                    Редактировать страницу
-                </div>
-                <form action="/update_settings" method="post">
-                <div class = "edit_opportunity">
-                    <div class = "edit_one_userstat">
-                        
-                        <input type="text" placeholder="Текущий статус" name="status" />
-                            
-                    </div>
-                    <div class = "edit_one_userstat">
-                        
-                            <input type="date" value="" name = "year">
-                           
-                    </div>
-                    <div class = "edit_one_userstat">
-
-                        <input type="text" placeholder="Текущая страна" name="country" />
-                            
-                    </div>
-                    <input type="submit" value="Обновить" />
-                    </form>
-                </div>
-            </div>
-
+    <div class="container">
+        <div class="container_hat">
+            <img src="/static/redacting_profile/nastroyka.svg" alt="">
+            <p>Редактировать профиль</p>
+        </div>
+        <div class="container_content">
+            <form action="/update_settings" method="post" class="content_redact">
+                <input type="text" placeholder="Измените статус" class="status">
+                <input type="text" placeholder="Измените страну проживания" class="country">
+                <input type="date" value="" class="date">
+                <input type="submit" value="Обновить" class="submit">
+            </form>
         </div>
     </div>
-
 {% endblock %}
