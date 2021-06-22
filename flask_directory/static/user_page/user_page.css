@@ -589,12 +589,13 @@
   flex-direction: column;
 }
 .add_comment_to_post > form > textarea{
+  overflow: hidden;
   resize: none;
   background: linear-gradient(to top left, hsla(281, 61%, 30%, 0.65), hsla(340, 65%, 30%, 0.65));
   width: calc(100% - 30px);
   padding: 15px;
   font-size: 20px;
-  min-height: 20px;
+  height: 20px;
   color:white;
   border-bottom: 1px solid white;
 }
