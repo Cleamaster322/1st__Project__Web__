@@ -109,7 +109,7 @@
     float: left;
     width: 100px;
     border-radius: 50%;
-    border: #45A405 solid 2px;
+    border:solid 2px rgb(245, 178, 10) ;
 }
 .follower_description {
     margin: inherit;
@@ -123,6 +123,10 @@
     padding: 0 0 0 20px;
     font-size: 20px;
     color: white;
+}
+.follower_description_nickname > a {
+    text-decoration: none;
+    color:white;
 }
 .follower_description_message {
     margin: 30px 0 0 0;
