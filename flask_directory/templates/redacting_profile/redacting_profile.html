@@ -8,11 +8,11 @@
         </div>
         <div class="container_content">
             <form action="/update_settings" method="post" class="content_redact">
-                <input type="text" placeholder="Измените статус" class="status">
-                <input type="text" placeholder="Измените страну проживания" class="country">
-                <input type="date" value="" class="date">
+                <input type="text" placeholder="Измените статус" name="status">
+                <input type="text" placeholder="Измените страну проживания" name="country">
+                <input type="date" value="" name="year">
                 <input type="submit" value="Обновить" class="submit">
             </form>
         </div>
     </div>
-{% endblock %}
+{% endblock %}  
