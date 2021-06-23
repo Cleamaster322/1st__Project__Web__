@@ -96,7 +96,6 @@
     color: #2F1B2A;
 }
 .list_of_finded_people{
-  max-height: 400px;
   overflow: auto;
   margin-left: 20px;
   margin-right: 20px;
