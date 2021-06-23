@@ -17,7 +17,7 @@ ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 DATABASE = 'db/sota.db'
 
 app = Flask(__name__)
-app.secret_key = str(os.urandom(20).hex())
+app.secret_key = 'gfahasdhjfgjsaghfgasgfgahgsdfgahdgfasdgg'
 MAX_CONTENT_LENGHT = 1024 * 1024
 db = Database(DATABASE)
 db.init_db() 
