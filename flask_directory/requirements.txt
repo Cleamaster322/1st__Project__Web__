@@ -8,3 +8,7 @@ MarkupSafe==2.0.1
 Pillow==8.2.0
 Werkzeug==2.0.1
 gunicorn==20.1.0
+<<<<<<< HEAD
+=======
+python-3.9.5
+>>>>>>> parent of 27bb9a3 (Update requirements.txt)
