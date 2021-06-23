@@ -84,6 +84,11 @@
     margin: 0 auto;
     overflow-y: scroll;
 }
+
+.followers_list_wrap > h1{
+    color: white;
+}
+
 .followers_list_wrap::-webkit-scrollbar-track {
     padding: 2px 0;
     opacity: 1;
