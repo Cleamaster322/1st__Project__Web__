@@ -96,10 +96,13 @@ def check_enter():
 def for_password():
     return render_template("forgotten_password/forgotten_password.html")
  
-@app.route("/like/<int:id>/<int:id_post>",methods=['post'])
-def like(id,id_post):
+@app.route("/like/<int:id>/<int:id_post>/<int:flag>",methods=['post'])
+def like(id,id_post, flag):
     db.like_com(id_account,id_post)
-    return redirect(f"/user_page/{id}")
+    if flag == 0:
+        return redirect(f"/news/{id_account}")
+    else:
+        return redirect(f"/user_page/{id_account}")
 
 @app.route("/send_pas",methods=['post',"get"])  # ОТПРАВКА ПИСЬМА
 def send_pas():
