@@ -14,7 +14,7 @@ from email import encoders
 
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
-DATABASE = 'sota.db'
+DATABASE = 'db/sota.db'
 
 app = Flask(__name__)
 app.secret_key = 'gfahasdhjfgjsaghfgasgfgahgsdfgahdgfasdgg'
